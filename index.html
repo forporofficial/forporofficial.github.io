@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>FOR POR SUPPAKARN</title>
+  <title>A Sky Full of POR</title>
 
   <style>
     * {
@@ -16,33 +16,41 @@
     body {
       font-family: Arial, sans-serif;
       background: #eef8ff;
-      color: #183b5b;
-      min-height: 100vh;
+      color: #ffffff;
     }
 
     .hero {
       min-height: 100vh;
+      position: relative;
       display: flex;
       align-items: center;
       justify-content: center;
       text-align: center;
+
+      background-image:
+        linear-gradient(
+          rgba(8, 39, 68, 0.35),
+          rgba(8, 39, 68, 0.55)
+        ),
+        url("poster.jpg");
+
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+
       padding: 40px 20px;
-      background:
-        radial-gradient(circle at 20% 20%, rgba(255,255,255,0.9), transparent 25%),
-        radial-gradient(circle at 80% 30%, rgba(255,255,255,0.8), transparent 25%),
-        linear-gradient(180deg, #dff3ff 0%, #f8fcff 100%);
     }
 
     .content {
-      max-width: 700px;
+      max-width: 850px;
+      padding: 30px;
     }
 
     .logo {
       font-size: 18px;
-      letter-spacing: 5px;
       font-weight: bold;
+      letter-spacing: 5px;
       margin-bottom: 35px;
-      color: #3476a8;
     }
 
     .stars {
@@ -53,47 +61,38 @@
 
     h1 {
       font-size: clamp(42px, 10vw, 80px);
-      letter-spacing: 4px;
+      letter-spacing: 3px;
       line-height: 1.1;
-      color: #1d527d;
       margin-bottom: 20px;
     }
 
     .subtitle {
-      font-size: 18px;
-      letter-spacing: 2px;
-      color: #668ba7;
-      margin-bottom: 35px;
+      font-size: 17px;
+      letter-spacing: 3px;
+      margin-bottom: 30px;
     }
 
     .welcome {
       font-size: 16px;
       line-height: 1.8;
-      color: #55758c;
       margin-bottom: 35px;
     }
 
     .button {
       display: inline-block;
       padding: 14px 30px;
-      border: 1px solid #7eb4d6;
+      border: 1px solid rgba(255,255,255,0.8);
       border-radius: 30px;
-      color: #2d668e;
+      color: #ffffff;
       text-decoration: none;
-      background: rgba(255,255,255,0.7);
-      transition: 0.3s;
-    }
-
-    .button:hover {
-      background: #ffffff;
-      transform: translateY(-2px);
+      background: rgba(255,255,255,0.12);
+      backdrop-filter: blur(5px);
     }
 
     .footer {
-      margin-top: 50px;
-      font-size: 12px;
-      letter-spacing: 2px;
-      color: #8baabd;
+      margin-top: 45px;
+      font-size: 13px;
+      letter-spacing: 3px;
     }
   </style>
 </head>
@@ -121,8 +120,8 @@
       </div>
 
       <p class="welcome">
-        Welcome to the official fan project space<br>
-        dedicated to POR SUPPAKARN.
+        From one small room<br>
+        to a sky full of stars.
       </p>
 
       <a href="#" class="button">
