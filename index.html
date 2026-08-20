@@ -1,2203 +1,2030 @@
 <!DOCTYPE html>
 <html lang="th">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>FOR POR OFFICIAL</title>
-
-  <style>
-
-    /* =====================================================
-       FOR POR OFFICIAL
-       FANBASE HUB 1.0
-    ===================================================== */
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      font-family:
-        -apple-system,
-        BlinkMacSystemFont,
-        "Segoe UI",
-        Arial,
-        sans-serif;
-
-      background: #f5fbff;
-      color: #244b68;
-
-      overflow-x: hidden;
-    }
-
-    a {
-      text-decoration: none;
-      color: inherit;
-    }
-
-    button {
-      font-family: inherit;
-    }
-
-
-    /* =====================================================
-       COLORS
-    ===================================================== */
-
-    :root {
-      --ice: #edf8ff;
-      --ice-light: #f8fcff;
-      --blue: #5f91b1;
-      --blue-dark: #173d5b;
-      --blue-deep: #0b2942;
-      --text: #315771;
-      --soft: #7894a7;
-      --line: rgba(95,145,177,.18);
-      --white: #ffffff;
-    }
-
-
-    /* =====================================================
-       TOP NAVIGATION
-    ===================================================== */
-
-    .topbar {
-      position: fixed;
-
-      top: 0;
-      left: 0;
-
-      width: 100%;
-      height: 68px;
-
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-
-      padding: 0 42px;
-
-      background: rgba(11,41,66,.78);
-      backdrop-filter: blur(18px);
-
-      z-index: 9999;
-
-      border-bottom: 1px solid rgba(255,255,255,.08);
-    }
-
-    .brand {
-      color: white;
-
-      font-size: 12px;
-      font-weight: 600;
-
-      letter-spacing: 4px;
-    }
-
-    .desktop-menu {
-      display: flex;
-      align-items: center;
-
-      gap: 25px;
-    }
-
-    .desktop-menu a {
-      color: rgba(255,255,255,.82);
-
-      font-size: 9px;
-      letter-spacing: 1.8px;
-
-      transition: .25s;
-    }
-
-    .desktop-menu a:hover {
-      color: white;
-      opacity: .65;
-    }
-
-
-    /* =====================================================
-       MOBILE MENU
-    ===================================================== */
-
-    .mobile-menu-button {
-      display: none;
-
-      width: 38px;
-      height: 38px;
-
-      align-items: center;
-      justify-content: center;
-
-      border: 1px solid rgba(255,255,255,.25);
-      border-radius: 50%;
-
-      color: white;
-
-      cursor: pointer;
-    }
-
-
-    /* =====================================================
-       HERO
-    ===================================================== */
-
-    .hero {
-      min-height: 100vh;
-
-      position: relative;
-
-      display: flex;
-      align-items: center;
-      justify-content: center;
-
-      text-align: center;
-
-      padding:
-        110px
-        20px
-        100px;
-
-      background:
-        linear-gradient(
-          rgba(7,35,57,.28),
-          rgba(7,35,57,.72)
-        ),
-        url("poster.jpg");
-
-      background-size: cover;
-      background-position: center;
-
-      color: white;
-
-      overflow: hidden;
-    }
-
-
-    /* =====================================================
-       STARS
-    ===================================================== */
-
-    .stars {
-      position: absolute;
-
-      inset: 0;
-
-      pointer-events: none;
-    }
-
-    .stars span {
-      position: absolute;
-
-      color: rgba(255,255,255,.85);
-
-      animation:
-        twinkle
-        4s
-        infinite
-        ease-in-out;
-    }
-
-    .s1 {
-      top: 18%;
-      left: 10%;
-      font-size: 14px;
-    }
-
-    .s2 {
-      top: 31%;
-      right: 16%;
-      font-size: 9px;
-      animation-delay: 1s;
-    }
-
-    .s3 {
-      bottom: 25%;
-      left: 19%;
-      font-size: 10px;
-      animation-delay: 2s;
-    }
-
-    .s4 {
-      bottom: 17%;
-      right: 25%;
-      font-size: 15px;
-      animation-delay: .5s;
-    }
-
-    .s5 {
-      top: 22%;
-      right: 38%;
-      font-size: 7px;
-      animation-delay: 1.5s;
-    }
-
-    @keyframes twinkle {
-
-      0%,100% {
-        opacity: .25;
-        transform: scale(.8);
-      }
-
-      50% {
-        opacity: 1;
-        transform: scale(1.15);
-      }
-
-    }
-
-
-    .hero-content {
-      position: relative;
-      z-index: 2;
-
-      max-width: 900px;
-    }
-
-    .hero-logo img {
-      width: 45px;
-
-      margin-bottom: 28px;
-    }
-
-    .hero-small {
-      font-size: 9px;
-
-      letter-spacing: 5px;
-
-      margin-bottom: 18px;
-
-      opacity: .85;
-    }
-
-    .hero h1 {
-      font-family: Georgia, serif;
-
-      font-size:
-        clamp(
-          42px,
-          9vw,
-          82px
-        );
-
-      font-weight: 400;
-
-      line-height: 1.05;
-
-      letter-spacing: 2px;
-
-      margin-bottom: 22px;
-
-      text-shadow:
-        0 5px 30px
-        rgba(0,0,0,.28);
-    }
-
-    .hero-description {
-      font-size: 14px;
-
-      line-height: 2;
-
-      opacity: .92;
-
-      margin-bottom: 32px;
-    }
-
-    .hero-button {
-      display: inline-flex;
-
-      align-items: center;
-      gap: 10px;
-
-      padding: 13px 26px;
-
-      border:
-        1px solid
-        rgba(255,255,255,.7);
-
-      border-radius: 40px;
-
-      font-size: 9px;
-
-      letter-spacing: 2px;
-
-      background:
-        rgba(255,255,255,.08);
-
-      backdrop-filter: blur(10px);
-
-      transition: .3s;
-    }
-
-    .hero-button:hover {
-      background: rgba(255,255,255,.18);
-
-      transform:
-        translateY(-2px);
-    }
-
-
-    /* =====================================================
-       GENERAL
-    ===================================================== */
-
-    section {
-      scroll-margin-top: 70px;
-    }
-
-    .section {
-      padding:
-        110px
-        22px;
-    }
-
-    .container {
-      width: 100%;
-
-      max-width: 1150px;
-
-      margin: auto;
-    }
-
-    .section-heading {
-      margin-bottom: 45px;
-    }
-
-    .eyebrow {
-      color: var(--blue);
-
-      font-size: 9px;
-
-      letter-spacing: 4px;
-
-      margin-bottom: 14px;
-    }
-
-    .title {
-      color: var(--blue-dark);
-
-      font-family: Georgia, serif;
-
-      font-size:
-        clamp(
-          35px,
-          6vw,
-          58px
-        );
-
-      font-weight: 400;
-
-      letter-spacing: 1px;
-    }
-
-    .description {
-      max-width: 650px;
-
-      margin-top: 15px;
-
-      color: var(--soft);
-
-      font-size: 14px;
-
-      line-height: 1.9;
-    }
-
-
-    /* =====================================================
-       NEWS
-    ===================================================== */
-
-    .news-section {
-      background:
-        linear-gradient(
-          180deg,
-          #f8fcff,
-          #edf8ff
-        );
-    }
-
-    .news-grid {
-      display: grid;
-
-      grid-template-columns:
-        repeat(3,1fr);
-
-      gap: 18px;
-    }
-
-    .news-card {
-      background: white;
-
-      border:
-        1px solid
-        var(--line);
-
-      border-radius: 20px;
-
-      padding: 25px;
-
-      min-height: 190px;
-
-      box-shadow:
-        0 15px 45px
-        rgba(42,87,112,.07);
-
-      transition: .3s;
-    }
-
-    .news-card:hover {
-      transform:
-        translateY(-4px);
-
-      box-shadow:
-        0 20px 55px
-        rgba(42,87,112,.12);
-    }
-
-    .news-date {
-      color: var(--blue);
-
-      font-size: 9px;
-
-      letter-spacing: 2px;
-
-      margin-bottom: 18px;
-    }
-
-    .news-card h3 {
-      color: var(--blue-dark);
-
-      font-size: 18px;
-
-      font-weight: 500;
-
-      margin-bottom: 12px;
-    }
-
-    .news-card p {
-      color: var(--soft);
-
-      font-size: 12px;
-
-      line-height: 1.8;
-    }
-
-
-    /* =====================================================
-       PROFILE
-    ===================================================== */
-
-    .profile-section {
-      background: white;
-    }
-
-    .profile-layout {
-      display: grid;
-
-      grid-template-columns:
-        1fr 1.3fr;
-
-      gap: 55px;
-
-      align-items: center;
-    }
-
-    .profile-image {
-      min-height: 440px;
-
-      border-radius: 28px;
-
-      background:
-        linear-gradient(
-          145deg,
-          #dceff9,
-          #f9fdff
-        );
-
-      display: flex;
-
-      align-items: center;
-      justify-content: center;
-
-      color: #8aaabb;
-
-      font-size: 10px;
-
-      letter-spacing: 2px;
-
-      border:
-        1px solid
-        var(--line);
-    }
-
-    .profile-info h3 {
-      font-family: Georgia, serif;
-
-      font-size: 38px;
-
-      color: var(--blue-dark);
-
-      font-weight: 400;
-
-      margin-bottom: 10px;
-    }
-
-    .profile-name {
-      color: var(--blue);
-
-      font-size: 11px;
-
-      letter-spacing: 3px;
-
-      margin-bottom: 30px;
-    }
-
-    .profile-text {
-      color: var(--soft);
-
-      font-size: 14px;
-
-      line-height: 2;
-    }
-
-    .profile-tags {
-      display: flex;
-
-      flex-wrap: wrap;
-
-      gap: 9px;
-
-      margin-top: 25px;
-    }
-
-    .tag {
-      padding:
-        8px 13px;
-
-      border-radius: 30px;
-
-      background: var(--ice);
-
-      color: var(--blue);
-
-      font-size: 9px;
-    }
-
-
-    /* =====================================================
-       WORKS
-    ===================================================== */
-
-    .works-section {
-      background: #f7fcff;
-    }
-
-    .works-grid {
-      display: grid;
-
-      grid-template-columns:
-        repeat(4,1fr);
-
-      gap: 15px;
-    }
-
-    .work-card {
-      min-height: 190px;
-
-      padding: 22px;
-
-      background: white;
-
-      border-radius: 20px;
-
-      border:
-        1px solid
-        var(--line);
-
-      display: flex;
-
-      flex-direction: column;
-
-      justify-content: flex-end;
-
-      box-shadow:
-        0 10px 35px
-        rgba(44,89,114,.05);
-    }
-
-    .work-icon {
-      font-size: 24px;
-
-      margin-bottom: auto;
-    }
-
-    .work-card h3 {
-      color: var(--blue-dark);
-
-      font-size: 15px;
-
-      margin-bottom: 7px;
-    }
-
-    .work-card p {
-      color: var(--soft);
-
-      font-size: 10px;
-
-      line-height: 1.7;
-    }
-
-
-    /* =====================================================
-       SCHEDULE
-    ===================================================== */
-
-    .schedule-section {
-      background:
-        linear-gradient(
-          180deg,
-          #edf8ff,
-          #ffffff
-        );
-    }
-
-    .schedule-layout {
-      display: grid;
-
-      grid-template-columns:
-        1.4fr 1fr;
-
-      gap: 20px;
-    }
-
-    .calendar-box,
-    .countdown-box {
-      background: white;
-
-      border:
-        1px solid
-        var(--line);
-
-      border-radius: 24px;
-
-      padding: 30px;
-
-      box-shadow:
-        0 15px 45px
-        rgba(42,87,112,.07);
-    }
-
-    .calendar-header {
-      display: flex;
-
-      justify-content: space-between;
-
-      align-items: center;
-
-      margin-bottom: 25px;
-    }
-
-    .calendar-header h3 {
-      color: var(--blue-dark);
-
-      font-size: 18px;
-    }
-
-    .calendar-grid {
-      display: grid;
-
-      grid-template-columns:
-        repeat(7,1fr);
-
-      gap: 6px;
-    }
-
-    .calendar-grid span {
-      min-height: 38px;
-
-      display: flex;
-
-      align-items: center;
-
-      justify-content: center;
-
-      border-radius: 9px;
-
-      color: var(--soft);
-
-      font-size: 10px;
-    }
-
-    .calendar-grid .day-name {
-      color: var(--blue);
-
-      font-size: 8px;
-
-      letter-spacing: 1px;
-    }
-
-    .calendar-grid .event-day {
-      background: var(--ice);
-
-      color: var(--blue-dark);
-
-      font-weight: 600;
-    }
-
-    .countdown-box {
-      background:
-        linear-gradient(
-          145deg,
-          #123d5c,
-          #315f7c
-        );
-
-      color: white;
-    }
-
-    .countdown-box .eyebrow {
-      color: #b8e3f7;
-    }
-
-    .countdown-box h3 {
-      font-family: Georgia, serif;
-
-      font-size: 34px;
-
-      font-weight: 400;
-
-      margin-bottom: 12px;
-    }
-
-    .countdown-box p {
-      color: rgba(255,255,255,.7);
-
-      font-size: 12px;
-
-      line-height: 1.8;
-    }
-
-    .countdown-number {
-      margin-top: 30px;
-
-      font-size: 42px;
-
-      letter-spacing: 3px;
-    }
-
-
-    /* =====================================================
-       PROJECTS
-    ===================================================== */
-
-    .projects-section {
-      background: white;
-    }
-
-    .project-feature {
-      display: grid;
-
-      grid-template-columns:
-        320px 1fr;
-
-      gap: 45px;
-
-      align-items: center;
-
-      padding: 25px;
-
-      border:
-        1px solid
-        var(--line);
-
-      border-radius: 28px;
-
-      background:
-        linear-gradient(
-          145deg,
-          #ffffff,
-          #f2faff
-        );
-
-      box-shadow:
-        0 20px 60px
-        rgba(42,87,112,.08);
-    }
-
-    .project-poster {
-      width: 100%;
-
-      border-radius: 18px;
-
-      display: block;
-    }
-
-    .project-status {
-      display: inline-block;
-
-      padding:
-        7px 12px;
-
-      border-radius: 20px;
-
-      background: #e8f7ee;
-
-      color: #4f9468;
-
-      font-size: 9px;
-
-      margin-bottom: 18px;
-    }
-
-    .project-feature h3 {
-      color: var(--blue-dark);
-
-      font-family: Georgia, serif;
-
-      font-size: 35px;
-
-      font-weight: 400;
-
-      margin-bottom: 15px;
-    }
-
-    .project-feature p {
-      color: var(--soft);
-
-      font-size: 13px;
-
-      line-height: 2;
-    }
-
-
-    /* =====================================================
-       STAR MAP
-    ===================================================== */
-
-    .star-map-section {
-      position: relative;
-
-      overflow: hidden;
-
-      background:
-        radial-gradient(
-          circle at 50% 35%,
-          #285b7e,
-          #071d31 70%
-        );
-
-      color: white;
-    }
-
-    .star-map-section .title {
-      color: white;
-    }
-
-    .star-map-section .eyebrow {
-      color: #a8d9f2;
-    }
-
-    .star-map {
-      position: relative;
-
-      height: 480px;
-
-      margin-top: 45px;
-
-      border:
-        1px solid
-        rgba(255,255,255,.1);
-
-      border-radius: 30px;
-
-      overflow: hidden;
-
-      background:
-        radial-gradient(
-          circle,
-          rgba(255,255,255,.04) 1px,
-          transparent 1px
-        );
-
-      background-size: 38px 38px;
-    }
-
-    .map-title {
-      position: absolute;
-
-      top: 50%;
-      left: 50%;
-
-      transform:
-        translate(-50%,-50%);
-
-      text-align: center;
-
-      z-index: 2;
-    }
-
-    .map-title h3 {
-      font-family: Georgia, serif;
-
-      font-size: 40px;
-
-      font-weight: 400;
-
-      margin-bottom: 12px;
-    }
-
-    .map-title p {
-      font-size: 10px;
-
-      letter-spacing: 2px;
-
-      color: rgba(255,255,255,.6);
-    }
-
-    .map-star {
-      position: absolute;
-
-      color: white;
-
-      font-size: 11px;
-
-      animation:
-        mapTwinkle
-        4s
-        infinite
-        ease-in-out;
-    }
-
-    .ms1 { top: 15%; left: 13%; }
-    .ms2 { top: 25%; left: 32%; animation-delay: 1s; }
-    .ms3 { top: 17%; right: 19%; animation-delay: 2s; }
-    .ms4 { top: 45%; left: 17%; animation-delay: .5s; }
-    .ms5 { top: 65%; right: 16%; animation-delay: 1.7s; }
-    .ms6 { bottom: 18%; left: 30%; animation-delay: .8s; }
-    .ms7 { bottom: 12%; right: 35%; animation-delay: 2.2s; }
-    .ms8 { top: 36%; right: 35%; animation-delay: 1.2s; }
-
-    @keyframes mapTwinkle {
-
-      0%,100% {
-        opacity: .35;
-        transform: scale(.8);
-      }
-
-      50% {
-        opacity: 1;
-        transform: scale(1.4);
-      }
-
-    }
-
-
-    /* =====================================================
-       ARCHIVE
-    ===================================================== */
-
-    .archive-section {
-      background: #f7fcff;
-    }
-
-    .archive-grid {
-      display: grid;
-
-      grid-template-columns:
-        repeat(4,1fr);
-
-      gap: 15px;
-    }
-
-    .archive-card {
-      padding: 25px;
-
-      background: white;
-
-      border-radius: 20px;
-
-      border:
-        1px solid
-        var(--line);
-
-      min-height: 160px;
-    }
-
-    .archive-card .icon {
-      font-size: 23px;
-
-      margin-bottom: 20px;
-    }
-
-    .archive-card h3 {
-      color: var(--blue-dark);
-
-      font-size: 14px;
-
-      margin-bottom: 8px;
-    }
-
-    .archive-card p {
-      color: var(--soft);
-
-      font-size: 10px;
-
-      line-height: 1.7;
-    }
-
-
-    /* =====================================================
-       COMMUNITY
-    ===================================================== */
-
-    .community-section {
-      background: white;
-    }
-
-    .community-grid {
-      display: grid;
-
-      grid-template-columns:
-        repeat(3,1fr);
-
-      gap: 18px;
-    }
-
-    .community-card {
-      padding: 30px;
-
-      border-radius: 22px;
-
-      background:
-        linear-gradient(
-          145deg,
-          #f6fbff,
-          #ffffff
-        );
-
-      border:
-        1px solid
-        var(--line);
-
-      text-align: center;
-    }
-
-    .community-card .icon {
-      font-size: 28px;
-
-      margin-bottom: 18px;
-    }
-
-    .community-card h3 {
-      color: var(--blue-dark);
-
-      font-size: 16px;
-
-      margin-bottom: 10px;
-    }
-
-    .community-card p {
-      color: var(--soft);
-
-      font-size: 11px;
-
-      line-height: 1.8;
-    }
-
-
-    /* =====================================================
-       SOCIAL
-    ===================================================== */
-
-    .social-section {
-      background: #edf8ff;
-    }
-
-    .social-grid {
-      display: grid;
-
-      grid-template-columns:
-        repeat(5,1fr);
-
-      gap: 12px;
-    }
-
-    .social-card {
-      padding: 22px 12px;
-
-      background: white;
-
-      border:
-        1px solid
-        var(--line);
-
-      border-radius: 18px;
-
-      text-align: center;
-
-      transition: .3s;
-    }
-
-    .social-card:hover {
-      transform:
-        translateY(-3px);
-    }
-
-    .social-card strong {
-      display: block;
-
-      color: var(--blue-dark);
-
-      font-size: 12px;
-
-      margin-bottom: 6px;
-    }
-
-    .social-card span {
-      color: var(--soft);
-
-      font-size: 9px;
-    }
-
-
-    /* =====================================================
-       FOOTER
-    ===================================================== */
-
-    footer {
-      padding:
-        60px
-        22px
-        100px;
-
-      text-align: center;
-
-      background: #09263d;
-
-      color: white;
-    }
-
-    .footer-brand {
-      font-family: Georgia, serif;
-
-      font-size: 27px;
-
-      margin-bottom: 14px;
-    }
-
-    .footer-stars {
-      font-size: 15px;
-
-      letter-spacing: 7px;
-
-      margin-bottom: 18px;
-    }
-
-    .footer-text {
-      color:
-        rgba(255,255,255,.55);
-
-      font-size: 9px;
-
-      letter-spacing: 1.5px;
-    }
-
-
-    /* =====================================================
-       MOBILE BOTTOM NAV
-    ===================================================== */
-
-    .bottom-nav {
-      display: none;
-    }
-
-
-    /* =====================================================
-       MOBILE
-    ===================================================== */
-
-    @media (max-width: 800px) {
-
-      .topbar {
-        height: 60px;
-
-        padding:
-          0 18px;
-      }
-
-      .desktop-menu {
-        display: none;
-      }
-
-      .mobile-menu-button {
-        display: flex;
-      }
-
-      .hero {
-        min-height: 90vh;
-      }
-
-      .section {
-        padding:
-          80px
-          18px;
-      }
-
-      .news-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .profile-layout {
-        grid-template-columns: 1fr;
-      }
-
-      .profile-image {
-        min-height: 330px;
-      }
-
-      .works-grid {
-        grid-template-columns:
-          repeat(2,1fr);
-      }
-
-      .schedule-layout {
-        grid-template-columns: 1fr;
-      }
-
-      .project-feature {
-        grid-template-columns: 1fr;
-
-        gap: 25px;
-
-        padding: 18px;
-      }
-
-      .project-poster {
-        max-width: 360px;
-
-        margin: auto;
-      }
-
-      .archive-grid {
-        grid-template-columns:
-          repeat(2,1fr);
-      }
-
-      .community-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .social-grid {
-        grid-template-columns:
-          repeat(2,1fr);
-      }
-
-      .bottom-nav {
-        position: fixed;
-
-        display: grid;
-
-        grid-template-columns:
-          repeat(5,1fr);
-
-        bottom: 0;
-        left: 0;
-
-        width: 100%;
-
-        height: 65px;
-
-        background:
-          rgba(255,255,255,.92);
-
-        backdrop-filter:
-          blur(18px);
-
-        border-top:
-          1px solid
-          rgba(80,130,160,.15);
-
-        z-index: 9998;
-      }
-
-      .bottom-nav a {
-        display: flex;
-
-        flex-direction: column;
-
-        align-items: center;
-        justify-content: center;
-
-        gap: 5px;
-
-        color: #7291a4;
-
-        font-size: 8px;
-
-        letter-spacing: .5px;
-      }
-
-      .bottom-nav .nav-icon {
-        font-size: 17px;
-      }
-
-      footer {
-        padding-bottom: 100px;
-      }
-
-    }
-
-
-    @media (max-width: 450px) {
-
-      .hero h1 {
-        font-size: 39px;
-      }
-
-      .works-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .archive-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .social-grid {
-        grid-template-columns:
-          repeat(2,1fr);
-      }
-
-      .star-map {
-        height: 390px;
-      }
-
-      .map-title h3 {
-        font-size: 29px;
-      }
-
-    }
-
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>FOR POR Official | Fan Community</title>
+
+<meta name="description" content="FOR POR Official — บ้านแฟนคลับของ POR Suppakarn">
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap');
+
+:root{
+  --blue:#173b68;
+  --blue2:#285b91;
+  --ice:#eaf6ff;
+  --white:#ffffff;
+  --text:#18324d;
+  --muted:#70869d;
+  --gold:#d7b978;
+  --line:rgba(23,59,104,.12);
+  --shadow:0 15px 45px rgba(25,65,105,.10);
+  --radius:24px;
+}
+
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  font-family:Inter,Arial,sans-serif;
+  background:
+    radial-gradient(circle at 20% 10%,rgba(255,255,255,.95),transparent 30%),
+    linear-gradient(180deg,#f5fbff 0%,#edf7ff 45%,#ffffff 100%);
+  color:var(--text);
+  line-height:1.7;
+}
+
+button{
+  font-family:inherit;
+}
+
+a{
+  text-decoration:none;
+  color:inherit;
+}
+
+img{
+  max-width:100%;
+  display:block;
+}
+
+.container{
+  width:min(1180px,92%);
+  margin:auto;
+}
+
+/* ================= HEADER ================= */
+
+header{
+  position:fixed;
+  top:0;
+  left:0;
+  right:0;
+  z-index:1000;
+  background:rgba(255,255,255,.82);
+  backdrop-filter:blur(18px);
+  border-bottom:1px solid var(--line);
+}
+
+.nav{
+  height:76px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:25px;
+}
+
+.logo{
+  font-family:"Playfair Display",serif;
+  font-size:25px;
+  font-weight:700;
+  color:var(--blue);
+  white-space:nowrap;
+}
+
+.logo span{
+  display:block;
+  font-family:Inter,sans-serif;
+  font-size:8px;
+  letter-spacing:4px;
+  color:var(--gold);
+  text-align:center;
+  margin-top:-4px;
+}
+
+.desktop-menu{
+  display:flex;
+  gap:20px;
+  align-items:center;
+}
+
+.desktop-menu a{
+  font-size:13px;
+  color:var(--text);
+  opacity:.78;
+  transition:.25s;
+}
+
+.desktop-menu a:hover{
+  color:var(--blue2);
+  opacity:1;
+}
+
+.menu-btn{
+  display:none;
+  border:0;
+  background:transparent;
+  font-size:26px;
+  color:var(--blue);
+}
+
+/* ================= HERO ================= */
+
+.hero{
+  min-height:760px;
+  padding-top:76px;
+  display:flex;
+  align-items:center;
+  position:relative;
+  overflow:hidden;
+}
+
+.hero:before{
+  content:"";
+  position:absolute;
+  width:500px;
+  height:500px;
+  border-radius:50%;
+  background:rgba(197,229,250,.35);
+  filter:blur(5px);
+  top:-150px;
+  right:-100px;
+}
+
+.hero-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:60px;
+  align-items:center;
+}
+
+.eyebrow{
+  color:var(--gold);
+  letter-spacing:4px;
+  font-size:11px;
+  font-weight:700;
+  text-transform:uppercase;
+  margin-bottom:14px;
+}
+
+.hero h1{
+  font-family:"Playfair Display",serif;
+  font-size:clamp(48px,7vw,88px);
+  line-height:1;
+  color:var(--blue);
+  margin-bottom:20px;
+}
+
+.hero h1 span{
+  color:#729cc4;
+}
+
+.hero p{
+  max-width:530px;
+  color:var(--muted);
+  font-size:16px;
+}
+
+.hero-buttons{
+  display:flex;
+  gap:12px;
+  margin-top:30px;
+  flex-wrap:wrap;
+}
+
+.btn{
+  padding:13px 22px;
+  border-radius:50px;
+  border:1px solid var(--line);
+  cursor:pointer;
+  transition:.25s;
+  font-weight:600;
+}
+
+.btn-primary{
+  background:var(--blue);
+  color:white;
+}
+
+.btn-primary:hover{
+  transform:translateY(-2px);
+  box-shadow:var(--shadow);
+}
+
+.btn-light{
+  background:white;
+  color:var(--blue);
+}
+
+.btn-light:hover{
+  background:var(--ice);
+}
+
+.hero-card{
+  position:relative;
+  max-width:430px;
+  margin:auto;
+}
+
+.poster-frame{
+  background:white;
+  padding:10px;
+  border-radius:28px;
+  box-shadow:0 25px 70px rgba(23,59,104,.20);
+  transform:rotate(1deg);
+}
+
+.poster-frame img{
+  width:100%;
+  aspect-ratio:3/4;
+  object-fit:cover;
+  border-radius:20px;
+}
+
+/* ================= SECTIONS ================= */
+
+section{
+  padding:95px 0;
+}
+
+.section-head{
+  display:flex;
+  justify-content:space-between;
+  align-items:end;
+  margin-bottom:35px;
+  gap:20px;
+}
+
+.section-title{
+  font-family:"Playfair Display",serif;
+  font-size:42px;
+  color:var(--blue);
+}
+
+.section-sub{
+  color:var(--muted);
+  font-size:14px;
+  max-width:540px;
+}
+
+/* ================= CARDS ================= */
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:20px;
+}
+
+.card{
+  background:rgba(255,255,255,.78);
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  padding:25px;
+  box-shadow:var(--shadow);
+  transition:.25s;
+}
+
+.card:hover{
+  transform:translateY(-5px);
+}
+
+.icon{
+  width:48px;
+  height:48px;
+  display:grid;
+  place-items:center;
+  border-radius:16px;
+  background:var(--ice);
+  margin-bottom:18px;
+  font-size:22px;
+}
+
+.card h3{
+  color:var(--blue);
+  margin-bottom:6px;
+}
+
+.card p{
+  color:var(--muted);
+  font-size:13px;
+}
+
+/* ================= QUICK MENU ================= */
+
+.quick{
+  margin-top:-35px;
+  position:relative;
+  z-index:5;
+}
+
+.quick-grid{
+  display:grid;
+  grid-template-columns:repeat(5,1fr);
+  gap:12px;
+}
+
+.quick-item{
+  background:white;
+  border:1px solid var(--line);
+  border-radius:18px;
+  padding:18px 10px;
+  text-align:center;
+  box-shadow:var(--shadow);
+  font-size:12px;
+  transition:.25s;
+}
+
+.quick-item:hover{
+  transform:translateY(-4px);
+  background:var(--ice);
+}
+
+.quick-item div{
+  font-size:22px;
+  margin-bottom:4px;
+}
+
+/* ================= PROFILE ================= */
+
+.profile{
+  background:white;
+}
+
+.profile-grid{
+  display:grid;
+  grid-template-columns:350px 1fr;
+  gap:45px;
+  align-items:start;
+}
+
+.profile-photo{
+  background:linear-gradient(145deg,#dff2ff,#ffffff);
+  border-radius:30px;
+  padding:15px;
+  box-shadow:var(--shadow);
+}
+
+.profile-photo .photo-placeholder{
+  min-height:430px;
+  border-radius:22px;
+  display:grid;
+  place-items:center;
+  text-align:center;
+  background:
+    radial-gradient(circle,#d9efff,#eef8ff 55%,#ffffff);
+  color:var(--blue);
+}
+
+.profile-photo strong{
+  font-family:"Playfair Display",serif;
+  font-size:32px;
+}
+
+.info-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:14px;
+}
+
+.info{
+  padding:20px;
+  border:1px solid var(--line);
+  border-radius:18px;
+  background:#fbfdff;
+}
+
+.info small{
+  display:block;
+  color:var(--muted);
+  font-size:11px;
+  margin-bottom:3px;
+}
+
+.info strong{
+  color:var(--blue);
+}
+
+/* ================= WORKS ================= */
+
+.work-card{
+  overflow:hidden;
+  padding:0;
+}
+
+.work-image{
+  height:280px;
+  background:linear-gradient(145deg,#dcefff,#f8fcff);
+  display:grid;
+  place-items:center;
+  color:var(--blue);
+  font-family:"Playfair Display",serif;
+  font-size:27px;
+}
+
+.work-content{
+  padding:22px;
+}
+
+/* ================= SCHEDULE ================= */
+
+.schedule-box{
+  background:white;
+  border:1px solid var(--line);
+  border-radius:28px;
+  overflow:hidden;
+  box-shadow:var(--shadow);
+}
+
+.calendar-head{
+  padding:25px;
+  background:var(--blue);
+  color:white;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.calendar{
+  display:grid;
+  grid-template-columns:repeat(7,1fr);
+}
+
+.day-name,
+.day{
+  min-height:70px;
+  border-right:1px solid var(--line);
+  border-bottom:1px solid var(--line);
+  padding:10px;
+}
+
+.day-name{
+  min-height:auto;
+  background:#f5faff;
+  color:var(--blue);
+  font-size:12px;
+  font-weight:700;
+  text-align:center;
+}
+
+.day{
+  font-size:12px;
+}
+
+.event{
+  margin-top:5px;
+  background:var(--ice);
+  color:var(--blue);
+  border-radius:8px;
+  padding:3px 5px;
+  font-size:9px;
+}
+
+/* ================= COUNTDOWN ================= */
+
+.countdown{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:12px;
+  margin-top:25px;
+}
+
+.count{
+  text-align:center;
+  padding:18px;
+  background:var(--ice);
+  border-radius:18px;
+}
+
+.count strong{
+  display:block;
+  font-size:30px;
+  color:var(--blue);
+}
+
+.count span{
+  font-size:10px;
+  color:var(--muted);
+}
+
+/* ================= PROJECT ================= */
+
+.project-card{
+  position:relative;
+}
+
+.status{
+  display:inline-block;
+  padding:5px 10px;
+  border-radius:30px;
+  font-size:10px;
+  margin-bottom:12px;
+}
+
+.open{
+  background:#e6f8ec;
+  color:#248044;
+}
+
+.coming{
+  background:#fff6d9;
+  color:#a77a00;
+}
+
+.done{
+  background:#f0f0f0;
+  color:#666;
+}
+
+.progress{
+  height:7px;
+  background:#e9f2f8;
+  border-radius:20px;
+  overflow:hidden;
+  margin:18px 0 8px;
+}
+
+.progress span{
+  display:block;
+  height:100%;
+  background:linear-gradient(90deg,#8dbce2,#173b68);
+  border-radius:20px;
+}
+
+.project-meta{
+  display:flex;
+  justify-content:space-between;
+  font-size:11px;
+  color:var(--muted);
+}
+
+/* ================= STAR MAP ================= */
+
+.star-section{
+  background:
+    radial-gradient(circle at 20% 20%,rgba(255,255,255,.15),transparent 2%),
+    radial-gradient(circle at 70% 30%,rgba(255,255,255,.18),transparent 2%),
+    radial-gradient(circle at 50% 70%,rgba(255,255,255,.12),transparent 2%),
+    linear-gradient(160deg,#091b35,#173b68,#244e78);
+  color:white;
+  overflow:hidden;
+  position:relative;
+}
+
+.star-section .section-title{
+  color:white;
+}
+
+.star-section .section-sub{
+  color:#c5d7e8;
+}
+
+.star-map{
+  height:430px;
+  border-radius:30px;
+  border:1px solid rgba(255,255,255,.12);
+  background:
+    radial-gradient(circle at 15% 25%,#fff 0 1px,transparent 2px),
+    radial-gradient(circle at 80% 20%,#fff 0 1px,transparent 2px),
+    radial-gradient(circle at 60% 70%,#fff 0 1px,transparent 2px),
+    radial-gradient(circle at 35% 80%,#fff 0 1px,transparent 2px),
+    radial-gradient(circle at 90% 75%,#fff 0 1px,transparent 2px),
+    radial-gradient(circle at 45% 35%,#fff 0 1px,transparent 2px),
+    linear-gradient(180deg,#07172c,#102f54);
+  position:relative;
+  overflow:hidden;
+}
+
+.star{
+  position:absolute;
+  width:6px;
+  height:6px;
+  border-radius:50%;
+  background:#fff;
+  box-shadow:0 0 12px #fff;
+  animation:twinkle 2s infinite alternate;
+}
+
+.star:nth-child(1){left:15%;top:25%}
+.star:nth-child(2){left:32%;top:60%}
+.star:nth-child(3){left:48%;top:35%}
+.star:nth-child(4){left:67%;top:22%}
+.star:nth-child(5){left:78%;top:65%}
+.star:nth-child(6){left:88%;top:35%}
+.star:nth-child(7){left:23%;top:78%}
+.star:nth-child(8){left:57%;top:80%}
+.star:nth-child(9){left:42%;top:15%}
+.star:nth-child(10){left:72%;top:48%}
+
+@keyframes twinkle{
+  from{opacity:.35;transform:scale(.7)}
+  to{opacity:1;transform:scale(1.3)}
+}
+
+.star-center{
+  position:absolute;
+  left:50%;
+  top:50%;
+  transform:translate(-50%,-50%);
+  text-align:center;
+}
+
+.star-center .big-star{
+  font-size:55px;
+  display:block;
+  filter:drop-shadow(0 0 20px rgba(255,255,255,.7));
+}
+
+.star-center strong{
+  font-family:"Playfair Display",serif;
+  font-size:26px;
+}
+
+/* ================= GALLERY ================= */
+
+.gallery{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:14px;
+}
+
+.gallery-item{
+  aspect-ratio:1;
+  border-radius:20px;
+  background:linear-gradient(145deg,#dff2ff,#fff);
+  border:1px solid var(--line);
+  display:grid;
+  place-items:center;
+  color:var(--blue);
+  cursor:pointer;
+  transition:.25s;
+}
+
+.gallery-item:hover{
+  transform:scale(1.02);
+}
+
+/* ================= MESSAGE ================= */
+
+.message-wall{
+  background:white;
+}
+
+.message{
+  border-left:3px solid #a7c9e7;
+  padding:18px 20px;
+  background:#fbfdff;
+  border-radius:0 18px 18px 0;
+}
+
+.message + .message{
+  margin-top:12px;
+}
+
+.message strong{
+  color:var(--blue);
+}
+
+.message p{
+  font-size:13px;
+  color:var(--muted);
+}
+
+/* ================= TIMELINE ================= */
+
+.timeline{
+  position:relative;
+  max-width:850px;
+  margin:auto;
+}
+
+.timeline:before{
+  content:"";
+  position:absolute;
+  left:50%;
+  top:0;
+  bottom:0;
+  width:1px;
+  background:#bcd5e8;
+}
+
+.timeline-item{
+  width:50%;
+  padding:15px 35px;
+  position:relative;
+}
+
+.timeline-item:nth-child(odd){
+  text-align:right;
+}
+
+.timeline-item:nth-child(even){
+  margin-left:50%;
+}
+
+.timeline-dot{
+  position:absolute;
+  width:12px;
+  height:12px;
+  background:var(--blue);
+  border-radius:50%;
+  top:28px;
+}
+
+.timeline-item:nth-child(odd) .timeline-dot{
+  right:-6px;
+}
+
+.timeline-item:nth-child(even) .timeline-dot{
+  left:-6px;
+}
+
+.timeline-year{
+  font-family:"Playfair Display",serif;
+  font-size:30px;
+  color:var(--blue);
+}
+
+/* ================= FOOTER ================= */
+
+footer{
+  background:#0c2745;
+  color:white;
+  padding:55px 0 90px;
+}
+
+.footer-grid{
+  display:grid;
+  grid-template-columns:2fr 1fr 1fr;
+  gap:40px;
+}
+
+footer h3{
+  font-family:"Playfair Display",serif;
+  font-size:28px;
+  margin-bottom:12px;
+}
+
+footer p,
+footer a{
+  color:#b9ccde;
+  font-size:13px;
+}
+
+.footer-links{
+  display:flex;
+  flex-direction:column;
+  gap:7px;
+}
+
+.copyright{
+  margin-top:35px;
+  padding-top:20px;
+  border-top:1px solid rgba(255,255,255,.1);
+  color:#8199b0;
+  font-size:11px;
+}
+
+/* ================= MOBILE NAV ================= */
+
+.bottom-nav{
+  display:none;
+}
+
+/* ================= MOBILE ================= */
+
+@media(max-width:850px){
+
+  .desktop-menu{
+    display:none;
+  }
+
+  .menu-btn{
+    display:block;
+  }
+
+  .hero{
+    min-height:auto;
+    padding:130px 0 80px;
+  }
+
+  .hero-grid{
+    grid-template-columns:1fr;
+    gap:40px;
+  }
+
+  .hero h1{
+    font-size:55px;
+  }
+
+  .hero-card{
+    max-width:330px;
+  }
+
+  .quick{
+    margin-top:0;
+  }
+
+  .quick-grid{
+    grid-template-columns:repeat(5,1fr);
+    gap:6px;
+  }
+
+  .quick-item{
+    padding:11px 3px;
+    font-size:9px;
+    border-radius:13px;
+  }
+
+  .quick-item div{
+    font-size:18px;
+  }
+
+  section{
+    padding:70px 0;
+  }
+
+  .section-title{
+    font-size:34px;
+  }
+
+  .grid{
+    grid-template-columns:1fr;
+  }
+
+  .profile-grid{
+    grid-template-columns:1fr;
+  }
+
+  .profile-photo{
+    max-width:300px;
+    margin:auto;
+  }
+
+  .info-grid{
+    grid-template-columns:1fr 1fr;
+  }
+
+  .calendar{
+    min-width:650px;
+  }
+
+  .schedule-box{
+    overflow-x:auto;
+  }
+
+  .countdown{
+    grid-template-columns:repeat(4,1fr);
+  }
+
+  .count{
+    padding:12px 4px;
+  }
+
+  .count strong{
+    font-size:22px;
+  }
+
+  .gallery{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .timeline:before{
+    left:10px;
+  }
+
+  .timeline-item,
+  .timeline-item:nth-child(even){
+    width:100%;
+    margin-left:0;
+    text-align:left;
+    padding-left:35px;
+  }
+
+  .timeline-item:nth-child(odd){
+    text-align:left;
+  }
+
+  .timeline-item:nth-child(odd) .timeline-dot,
+  .timeline-item:nth-child(even) .timeline-dot{
+    left:4px;
+    right:auto;
+  }
+
+  .footer-grid{
+    grid-template-columns:1fr;
+  }
+
+  .bottom-nav{
+    display:flex;
+    position:fixed;
+    bottom:0;
+    left:0;
+    right:0;
+    height:68px;
+    background:rgba(255,255,255,.94);
+    backdrop-filter:blur(18px);
+    border-top:1px solid var(--line);
+    z-index:999;
+    justify-content:space-around;
+    padding-bottom:env(safe-area-inset-bottom);
+  }
+
+  .bottom-nav a{
+    flex:1;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    color:#70869d;
+    font-size:9px;
+  }
+
+  .bottom-nav a.active{
+    color:var(--blue);
+    font-weight:700;
+  }
+
+  .bottom-nav span{
+    font-size:20px;
+    line-height:1.2;
+  }
+}
+
+/* ================= DRAWER ================= */
+
+.drawer{
+  position:fixed;
+  top:0;
+  right:-320px;
+  width:300px;
+  height:100vh;
+  background:white;
+  z-index:2000;
+  padding:90px 25px 30px;
+  box-shadow:-20px 0 50px rgba(0,0,0,.15);
+  transition:.3s;
+  overflow:auto;
+}
+
+.drawer.open{
+  right:0;
+}
+
+.drawer-close{
+  position:absolute;
+  top:25px;
+  right:25px;
+  border:0;
+  background:none;
+  font-size:25px;
+}
+
+.drawer a{
+  display:block;
+  padding:13px 0;
+  border-bottom:1px solid var(--line);
+  color:var(--blue);
+}
+
+/* ================= MODAL ================= */
+
+.modal{
+  display:none;
+  position:fixed;
+  inset:0;
+  background:rgba(5,20,40,.75);
+  z-index:3000;
+  align-items:center;
+  justify-content:center;
+  padding:20px;
+}
+
+.modal.show{
+  display:flex;
+}
+
+.modal-box{
+  background:white;
+  border-radius:25px;
+  max-width:600px;
+  width:100%;
+  padding:30px;
+  position:relative;
+  max-height:90vh;
+  overflow:auto;
+}
+
+.modal-close{
+  position:absolute;
+  right:20px;
+  top:15px;
+  border:0;
+  background:none;
+  font-size:25px;
+  color:var(--blue);
+}
+
+</style>
 </head>
-
 
 <body>
 
+<!-- ================= HEADER ================= -->
 
-  <!-- =====================================================
-       TOP NAV
-  ===================================================== -->
+<header>
+  <div class="container nav">
 
-  <header class="topbar">
-
-    <a href="#home" class="brand">
+    <a href="#home" class="logo">
       FOR POR
+      <span>OFFICIAL</span>
     </a>
 
     <nav class="desktop-menu">
-
-      <a href="#home">HOME</a>
-      <a href="#news">NEWS</a>
-      <a href="#profile">PROFILE</a>
-      <a href="#works">WORKS</a>
-      <a href="#schedule">SCHEDULE</a>
-      <a href="#projects">PROJECTS</a>
-      <a href="#gallery">GALLERY</a>
-      <a href="#community">COMMUNITY</a>
-
+      <a href="#home">Home</a>
+      <a href="#profile">Profile</a>
+      <a href="#works">Works</a>
+      <a href="#schedule">Schedule</a>
+      <a href="#projects">Projects</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#news">News</a>
     </nav>
 
-    <div class="mobile-menu-button">
-      ☰
-    </div>
+    <button class="menu-btn" onclick="openDrawer()">☰</button>
 
-  </header>
+  </div>
+</header>
 
 
-  <!-- =====================================================
-       HOME
-  ===================================================== -->
+<!-- ================= DRAWER ================= -->
 
-  <section class="hero" id="home">
+<div class="drawer" id="drawer">
 
-    <div class="stars">
+  <button class="drawer-close" onclick="closeDrawer()">×</button>
 
-      <span class="s1">✦</span>
-      <span class="s2">✧</span>
-      <span class="s3">✦</span>
-      <span class="s4">✧</span>
-      <span class="s5">✦</span>
+  <h3 style="font-family:'Playfair Display';color:#173b68;margin-bottom:20px;">
+    FOR POR Official
+  </h3>
 
-    </div>
+  <a href="#home" onclick="closeDrawer()">🏠 Home</a>
+  <a href="#profile" onclick="closeDrawer()">👤 Profile</a>
+  <a href="#works" onclick="closeDrawer()">🎬 Works</a>
+  <a href="#schedule" onclick="closeDrawer()">📅 Schedule</a>
+  <a href="#projects" onclick="closeDrawer()">🎁 Projects</a>
+  <a href="#gallery" onclick="closeDrawer()">📸 Gallery</a>
+  <a href="#social" onclick="closeDrawer()">🩵 Social</a>
+  <a href="#openchat" onclick="closeDrawer()">💬 OpenChat</a>
+  <a href="#news" onclick="closeDrawer()">📢 News</a>
+  <a href="#support" onclick="closeDrawer()">🤍 Support</a>
+  <a href="#stars" onclick="closeDrawer()">⭐ The Star Map</a>
 
-    <div class="hero-content">
+</div>
 
-      <div class="hero-logo">
-        <img
-          src="logo-white.png"
-          alt="FOR POR"
-        >
+
+<!-- ================= HERO ================= -->
+
+<section class="hero" id="home">
+
+  <div class="container hero-grid">
+
+    <div>
+
+      <div class="eyebrow">
+        FOR POR OFFICIAL
       </div>
 
-      <p class="hero-small">
-        OFFICIAL FANBASE
-      </p>
-
       <h1>
-        A Sky Full of POR
+        A Sky Full<br>
+        <span>of POR</span>
       </h1>
 
-      <p class="hero-description">
-
-        A place where every story,<br>
-        every memory and every star<br>
-        belongs to POR.
-
+      <p>
+        Welcome to the official fan community for
+        <strong>POR SUPPAKARN</strong>.
+        A place where every memory, every project,
+        every work and every star comes together.
       </p>
 
-      <a
-        href="#news"
-        class="hero-button"
-      >
-        EXPLORE FOR POR
-        ✦
+      <div class="hero-buttons">
+        <a href="#profile" class="btn btn-primary">
+          Discover POR
+        </a>
+
+        <a href="#projects" class="btn btn-light">
+          Fan Projects
+        </a>
+      </div>
+
+    </div>
+
+
+    <div class="hero-card">
+
+      <div class="poster-frame">
+
+        <!-- ถ้าโปสเตอร์เดิมชื่อ poster.jpg ให้ใช้ได้ทันที -->
+        <img src="poster.jpg"
+             alt="FOR POR Official Poster"
+             onerror="this.style.display='none';this.parentElement.innerHTML='<div style=&quot;aspect-ratio:3/4;display:grid;place-items:center;background:linear-gradient(145deg,#dff2ff,#fff);border-radius:20px;color:#173b68;font-family:Playfair Display;font-size:32px;text-align:center;&quot;>FOR POR<br>OFFICIAL</div>'">
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ================= QUICK MENU ================= -->
+
+<div class="quick">
+  <div class="container quick-grid">
+
+    <a href="#profile" class="quick-item">
+      <div>👤</div>
+      Profile
+    </a>
+
+    <a href="#works" class="quick-item">
+      <div>🎬</div>
+      Works
+    </a>
+
+    <a href="#schedule" class="quick-item">
+      <div>📅</div>
+      Schedule
+    </a>
+
+    <a href="#projects" class="quick-item">
+      <div>🎁</div>
+      Projects
+    </a>
+
+    <a href="#gallery" class="quick-item">
+      <div>📸</div>
+      Gallery
+    </a>
+
+  </div>
+</div>
+
+
+<!-- ================= PROFILE ================= -->
+
+<section class="profile" id="profile">
+
+  <div class="container">
+
+    <div class="section-head">
+
+      <div>
+        <div class="eyebrow">MEET POR</div>
+        <h2 class="section-title">POR's Profile</h2>
+      </div>
+
+      <p class="section-sub">
+        Get to know POR through the little details
+        that make him special.
+      </p>
+
+    </div>
+
+
+    <div class="profile-grid">
+
+      <div class="profile-photo">
+
+        <div class="photo-placeholder">
+
+          <div>
+            <strong>POR</strong>
+            <br>
+            <small>SUPPAKARN</small>
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <div>
+
+        <div class="info-grid">
+
+          <div class="info">
+            <small>Name</small>
+            <strong>POR SUPPAKARN</strong>
+          </div>
+
+          <div class="info">
+            <small>Chinese Name</small>
+            <strong>鄧宇博</strong>
+          </div>
+
+          <div class="info">
+            <small>Birthday</small>
+            <strong>2002</strong>
+          </div>
+
+          <div class="info">
+            <small>Fandom</small>
+            <strong>POR FANS</strong>
+          </div>
+
+          <div class="info">
+            <small>Hashtag</small>
+            <strong>#PorSuppakarn</strong>
+          </div>
+
+          <div class="info">
+            <small>Fanbase</small>
+            <strong>FOR POR Official</strong>
+          </div>
+
+          <div class="info">
+            <small>Favorite Color</small>
+            <strong>Blue / Ice Blue</strong>
+          </div>
+
+          <div class="info">
+            <small>Flower</small>
+            <strong>Blue Rose</strong>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ================= WORKS ================= -->
+
+<section id="works">
+
+  <div class="container">
+
+    <div class="section-head">
+
+      <div>
+        <div class="eyebrow">POR ARCHIVE</div>
+        <h2 class="section-title">Works</h2>
+      </div>
+
+      <p class="section-sub">
+        รวมผลงานของ POR ทั้ง Series, Movie,
+        Music Video, Magazine และ Events
+      </p>
+
+    </div>
+
+
+    <div class="grid">
+
+      <div class="card work-card">
+        <div class="work-image">SERIES</div>
+        <div class="work-content">
+          <h3>Series</h3>
+          <p>รวมซีรีส์และผลงานการแสดงของ POR</p>
+        </div>
+      </div>
+
+      <div class="card work-card">
+        <div class="work-image">MOVIE</div>
+        <div class="work-content">
+          <h3>Movie</h3>
+          <p>ภาพยนตร์และผลงานบนจอภาพยนตร์</p>
+        </div>
+      </div>
+
+      <div class="card work-card">
+        <div class="work-image">MUSIC</div>
+        <div class="work-content">
+          <h3>Music Video</h3>
+          <p>รวม Music Video และผลงานพิเศษ</p>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ================= SCHEDULE ================= -->
+
+<section id="schedule" style="background:#f7fbff;">
+
+  <div class="container">
+
+    <div class="section-head">
+
+      <div>
+        <div class="eyebrow">UPCOMING</div>
+        <h2 class="section-title">Schedule</h2>
+      </div>
+
+      <p class="section-sub">
+        ตารางงานและ Event Calendar ของ POR
+      </p>
+
+    </div>
+
+
+    <div class="schedule-box">
+
+      <div class="calendar-head">
+
+        <strong>August 2026</strong>
+
+        <span>EVENT CALENDAR</span>
+
+      </div>
+
+      <div class="calendar">
+
+        <div class="day-name">SUN</div>
+        <div class="day-name">MON</div>
+        <div class="day-name">TUE</div>
+        <div class="day-name">WED</div>
+        <div class="day-name">THU</div>
+        <div class="day-name">FRI</div>
+        <div class="day-name">SAT</div>
+
+        <div class="day"></div>
+        <div class="day"></div>
+        <div class="day"></div>
+        <div class="day"></div>
+        <div class="day"></div>
+        <div class="day">1</div>
+        <div class="day">2</div>
+
+        <div class="day">3</div>
+        <div class="day">4</div>
+        <div class="day">5</div>
+        <div class="day">6</div>
+        <div class="day">7</div>
+        <div class="day">8</div>
+        <div class="day">9</div>
+
+        <div class="day">10</div>
+        <div class="day">11</div>
+        <div class="day">12</div>
+        <div class="day">13</div>
+        <div class="day">14</div>
+        <div class="day">15</div>
+        <div class="day">16</div>
+
+        <div class="day">17</div>
+        <div class="day">18</div>
+        <div class="day">19</div>
+        <div class="day">
+          20
+          <div class="event">Today</div>
+        </div>
+        <div class="day">21</div>
+        <div class="day">22</div>
+        <div class="day">23</div>
+
+        <div class="day">24</div>
+        <div class="day">25</div>
+        <div class="day">26</div>
+        <div class="day">27</div>
+        <div class="day">28</div>
+        <div class="day">29</div>
+        <div class="day">30</div>
+
+        <div class="day">31</div>
+
+      </div>
+
+    </div>
+
+
+    <div class="countdown">
+
+      <div class="count">
+        <strong id="days">--</strong>
+        <span>DAYS</span>
+      </div>
+
+      <div class="count">
+        <strong id="hours">--</strong>
+        <span>HOURS</span>
+      </div>
+
+      <div class="count">
+        <strong id="minutes">--</strong>
+        <span>MINUTES</span>
+      </div>
+
+      <div class="count">
+        <strong id="seconds">--</strong>
+        <span>SECONDS</span>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ================= PROJECTS ================= -->
+
+<section id="projects">
+
+  <div class="container">
+
+    <div class="section-head">
+
+      <div>
+        <div class="eyebrow">FOR POR PROJECTS</div>
+        <h2 class="section-title">Projects</h2>
+      </div>
+
+      <p class="section-sub">
+        ศูนย์รวมโปรเจกต์ทั้งหมดของ FOR POR Official
+      </p>
+
+    </div>
+
+
+    <div class="grid">
+
+      <div class="card project-card">
+
+        <span class="status open">● OPEN</span>
+
+        <h3>A Sky Full of POR 24th</h3>
+
+        <p>
+          POR BIRTHDAY PROJECT 2026
+        </p>
+
+        <div class="progress">
+          <span style="width:68%"></span>
+        </div>
+
+        <div class="project-meta">
+          <span>68% Progress</span>
+          <span>2026</span>
+        </div>
+
+      </div>
+
+
+      <div class="card project-card">
+
+        <span class="status coming">● COMING SOON</span>
+
+        <h3>2nd Anniversary Project</h3>
+
+        <p>
+          Another chapter of our journey.
+        </p>
+
+        <div class="progress">
+          <span style="width:15%"></span>
+        </div>
+
+        <div class="project-meta">
+          <span>Coming Soon</span>
+          <span>2026</span>
+        </div>
+
+      </div>
+
+
+      <div class="card project-card">
+
+        <span class="status done">● COMPLETED</span>
+
+        <h3>Food Support</h3>
+
+        <p>
+          Support project for POR's activities.
+        </p>
+
+        <div class="progress">
+          <span style="width:100%"></span>
+        </div>
+
+        <div class="project-meta">
+          <span>Completed</span>
+          <span>FOR POR</span>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ================= STAR MAP ================= -->
+
+<section class="star-section" id="stars">
+
+  <div class="container">
+
+    <div class="section-head">
+
+      <div>
+        <div class="eyebrow">EXCLUSIVE FOR POR</div>
+        <h2 class="section-title">The Star Map</h2>
+      </div>
+
+      <p class="section-sub">
+        Every fan is a star.
+        Every message becomes a light in the sky.
+      </p>
+
+    </div>
+
+
+    <div class="star-map">
+
+      <div class="star"></div>
+      <div class="star"></div>
+      <div class="star"></div>
+      <div class="star"></div>
+      <div class="star"></div>
+      <div class="star"></div>
+      <div class="star"></div>
+      <div class="star"></div>
+      <div class="star"></div>
+      <div class="star"></div>
+
+      <div class="star-center">
+
+        <span class="big-star">✦</span>
+
+        <strong>
+          A Sky Full of POR
+        </strong>
+
+        <p style="color:#b9d1e7;font-size:12px;margin-top:5px;">
+          Every Star Holds Our Love
+        </p>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ================= GALLERY ================= -->
+
+<section id="gallery">
+
+  <div class="container">
+
+    <div class="section-head">
+
+      <div>
+        <div class="eyebrow">MEMORIES</div>
+        <h2 class="section-title">Gallery</h2>
+      </div>
+
+      <p class="section-sub">
+        Official Photos • Events • Projects • Fan Photos
+      </p>
+
+    </div>
+
+
+    <div class="gallery">
+
+      <div class="gallery-item" onclick="showModal('Official Photos')">
+        📷<br>Official
+      </div>
+
+      <div class="gallery-item" onclick="showModal('Events')">
+        ✨<br>Events
+      </div>
+
+      <div class="gallery-item" onclick="showModal('Projects')">
+        🎁<br>Projects
+      </div>
+
+      <div class="gallery-item" onclick="showModal('Fan Photos')">
+        🤍<br>Fan Photos
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ================= MESSAGE WALL ================= -->
+
+<section class="message-wall">
+
+  <div class="container">
+
+    <div class="section-head">
+
+      <div>
+        <div class="eyebrow">FROM FANS</div>
+        <h2 class="section-title">Fan Message Wall</h2>
+      </div>
+
+      <p class="section-sub">
+        ข้อความเล็ก ๆ จากแฟน ๆ ทั่วโลก
+      </p>
+
+    </div>
+
+
+    <div class="message">
+
+      <strong>🇹🇭 Thai Fans</strong>
+
+      <p>
+        ขอให้ POR มีความสุขในทุก ๆ วัน
+        และมีคนคอยสนับสนุนอยู่ข้าง ๆ เสมอ 🤍
+      </p>
+
+    </div>
+
+
+    <div class="message">
+
+      <strong>🇨🇳 Chinese Fans</strong>
+
+      <p>
+        愿你一直闪闪发光，
+        我们会一直支持你。
+      </p>
+
+    </div>
+
+
+    <div class="message">
+
+      <strong>🌎 International Fans</strong>
+
+      <p>
+        Keep shining, POR.
+        We will always be here for you.
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ================= FAN GUIDE ================= -->
+
+<section id="news">
+
+  <div class="container">
+
+    <div class="section-head">
+
+      <div>
+        <div class="eyebrow">NEWS & GUIDE</div>
+        <h2 class="section-title">Fan Guide</h2>
+      </div>
+
+      <p class="section-sub">
+        คู่มือสำหรับแฟนใหม่และข่าวสารจาก FOR POR
+      </p>
+
+    </div>
+
+
+    <div class="grid">
+
+      <div class="card">
+        <div class="icon">📢</div>
+        <h3>News</h3>
+        <p>
+          ข่าว ประกาศ และอัปเดตจากบ้านแฟนคลับ
+        </p>
+      </div>
+
+      <div class="card">
+        <div class="icon">#️⃣</div>
+        <h3>Hashtag Guide</h3>
+        <p>
+          วิธีใช้ Hashtag ของ POR และกิจกรรมต่าง ๆ
+        </p>
+      </div>
+
+      <div class="card">
+        <div class="icon">🤍</div>
+        <h3>Fan Rules</h3>
+        <p>
+          กฎและแนวทางการอยู่ร่วมกันของแฟนคลับ
+        </p>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ================= SOCIAL ================= -->
+
+<section id="social" style="background:#f7fbff;">
+
+  <div class="container">
+
+    <div class="section-head">
+
+      <div>
+        <div class="eyebrow">CONNECT</div>
+        <h2 class="section-title">Social</h2>
+      </div>
+
+      <p class="section-sub">
+        รวมช่องทางติดตาม POR และ FOR POR Official
+      </p>
+
+    </div>
+
+
+    <div class="grid">
+
+      <a class="card" href="#" onclick="return false;">
+        <div class="icon">𝕏</div>
+        <h3>X / Twitter</h3>
+        <p>FOR POR Official</p>
+      </a>
+
+      <a class="card" href="#" onclick="return false;">
+        <div class="icon">◎</div>
+        <h3>Instagram</h3>
+        <p>Follow our updates</p>
+      </a>
+
+      <a class="card" href="#" onclick="return false;">
+        <div class="icon">♪</div>
+        <h3>TikTok</h3>
+        <p>Short videos & moments</p>
       </a>
 
     </div>
 
-  </section>
+  </div>
+
+</section>
 
 
-  <!-- =====================================================
-       NEWS
-  ===================================================== -->
+<!-- ================= OPENCHAT ================= -->
 
-  <section
-    class="section news-section"
-    id="news"
-  >
+<section id="openchat">
 
-    <div class="container">
+  <div class="container">
 
-      <div class="section-heading">
+    <div class="section-head">
 
-        <p class="eyebrow">
-          LATEST
-        </p>
+      <div>
+        <div class="eyebrow">COMMUNITY</div>
+        <h2 class="section-title">OpenChat</h2>
+      </div>
 
-        <h2 class="title">
-          News & Updates
-        </h2>
+      <p class="section-sub">
+        พื้นที่สำหรับแฟน ๆ FOR POR
+      </p>
 
-        <p class="description">
-          ข่าวสาร ประกาศ และอัปเดตล่าสุดจาก
-          FOR POR Official
+    </div>
+
+
+    <div class="card" style="text-align:center;padding:45px;">
+
+      <div class="icon" style="margin:auto auto 18px;">
+        💬
+      </div>
+
+      <h3>
+        FOR POR Official OpenChat
+      </h3>
+
+      <p style="margin:8px auto 20px;max-width:500px;">
+        พูดคุย แชร์ข่าวสาร และร่วมกิจกรรม
+        ไปด้วยกัน
+      </p>
+
+      <button class="btn btn-primary"
+              onclick="showModal('OpenChat')">
+        JOIN OPENCHAT
+      </button>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ================= TIMELINE ================= -->
+
+<section style="background:#f7fbff;">
+
+  <div class="container">
+
+    <div class="section-head">
+
+      <div>
+        <div class="eyebrow">OUR STORY</div>
+        <h2 class="section-title">Fanbase Timeline</h2>
+      </div>
+
+      <p class="section-sub">
+        เรื่องราวของ FOR POR Official
+      </p>
+
+    </div>
+
+
+    <div class="timeline">
+
+      <div class="timeline-item">
+
+        <span class="timeline-dot"></span>
+
+        <div class="timeline-year">2024</div>
+
+        <p>
+          ก่อตั้ง FOR POR Official
         </p>
 
       </div>
 
 
-      <div class="news-grid">
+      <div class="timeline-item">
 
-        <article class="news-card">
+        <span class="timeline-dot"></span>
 
-          <p class="news-date">
-            20 AUG 2026
-          </p>
+        <div class="timeline-year">2025</div>
 
-          <h3>
-            FOR POR Official
-          </h3>
+        <p>
+          Birthday Project ครั้งแรก
+        </p>
 
-          <p>
-            Welcome to our new fanbase website.
-          </p>
-
-        </article>
+      </div>
 
 
-        <article class="news-card">
+      <div class="timeline-item">
 
-          <p class="news-date">
-            PROJECT
-          </p>
+        <span class="timeline-dot"></span>
 
-          <h3>
-            A Sky Full of POR
-          </h3>
+        <div class="timeline-year">2026</div>
 
-          <p>
-            POR Birthday Project 2026
-            is now part of our archive.
-          </p>
+        <p>
+          A Sky Full of POR
+          24th Birthday Project
+        </p>
 
-        </article>
+      </div>
 
 
-        <article class="news-card">
+      <div class="timeline-item">
 
-          <p class="news-date">
-            UPDATE
-          </p>
+        <span class="timeline-dot"></span>
 
-          <h3>
-            Coming Soon
-          </h3>
+        <div class="timeline-year">FUTURE</div>
 
-          <p>
-            More news, schedules and
-            projects will be added here.
-          </p>
-
-        </article>
+        <p>
+          Anniversary • Charity •
+          More memories together
+        </p>
 
       </div>
 
     </div>
 
-  </section>
+  </div>
+
+</section>
 
 
-  <!-- =====================================================
-       PROFILE
-  ===================================================== -->
+<!-- ================= SUPPORT ================= -->
 
-  <section
-    class="section profile-section"
-    id="profile"
-  >
+<section id="support">
 
-    <div class="container">
+  <div class="container">
 
-      <div class="profile-layout">
+    <div class="section-head">
 
-        <div class="profile-image">
+      <div>
+        <div class="eyebrow">BE WITH POR</div>
+        <h2 class="section-title">Support</h2>
+      </div>
 
-          POR PROFILE PHOTO
+      <p class="section-sub">
+        ทุกการสนับสนุนเล็ก ๆ
+        มีความหมายกับเราเสมอ
+      </p>
 
-        </div>
-
-
-        <div class="profile-info">
-
-          <p class="eyebrow">
-            ABOUT POR
-          </p>
-
-          <h3>
-            POR SUPPAKARN
-          </h3>
-
-          <p class="profile-name">
-            ศุภการ · SUPPAKARN
-          </p>
-
-          <p class="profile-text">
-
-            พื้นที่สำหรับรวบรวมข้อมูล
-            ประวัติ ผลงาน และเรื่องราว
-            ของ POR SUPPAKARN
-
-            <br><br>
-
-            รายละเอียดต่าง ๆ จะถูกเพิ่มเติม
-            และตรวจสอบก่อนเผยแพร่
-            เพื่อให้ข้อมูลในเว็บไซต์
-            ถูกต้องที่สุด
-
-          </p>
+    </div>
 
 
-          <div class="profile-tags">
+    <div class="grid">
 
-            <span class="tag">
-              PROFILE
-            </span>
+      <div class="card">
+        <div class="icon">🎁</div>
+        <h3>Join Projects</h3>
+        <p>
+          ร่วมโปรเจกต์ต่าง ๆ ของ FOR POR
+        </p>
+      </div>
 
-            <span class="tag">
-              POR ARCHIVE
-            </span>
+      <div class="card">
+        <div class="icon">💙</div>
+        <h3>Share & Support</h3>
+        <p>
+          ช่วยแชร์ข่าวสารและผลงานของ POR
+        </p>
+      </div>
 
-            <span class="tag">
-              FANBASE
-            </span>
-
-          </div>
-
-        </div>
-
+      <div class="card">
+        <div class="icon">✉️</div>
+        <h3>Contact</h3>
+        <p>
+          ติดต่อ FOR POR Official
+        </p>
       </div>
 
     </div>
 
-  </section>
+  </div>
+
+</section>
 
 
-  <!-- =====================================================
-       WORKS
-  ===================================================== -->
+<!-- ================= FOOTER ================= -->
 
-  <section
-    class="section works-section"
-    id="works"
-  >
+<footer>
 
-    <div class="container">
+  <div class="container">
 
-      <div class="section-heading">
+    <div class="footer-grid">
 
-        <p class="eyebrow">
-          POR ARCHIVE
+      <div>
+
+        <h3>FOR POR Official</h3>
+
+        <p>
+          A fan community dedicated to
+          POR SUPPAKARN.
         </p>
 
-        <h2 class="title">
-          Works
-        </h2>
-
-        <p class="description">
-          คลังผลงานของ POR ตั้งแต่ซีรีส์
-          ภาพยนตร์ MV รายการ
-          ไปจนถึงงานแฟชั่นและอีเวนต์
+        <p style="margin-top:10px;">
+          Every star holds our love. ✦
         </p>
 
       </div>
 
 
-      <div class="works-grid">
+      <div>
 
-        <div class="work-card">
+        <h3 style="font-size:20px;">
+          Explore
+        </h3>
 
-          <div class="work-icon">
-            🎬
-          </div>
+        <div class="footer-links">
 
-          <h3>
-            Series
-          </h3>
-
-          <p>
-            Series & Drama
-          </p>
-
-        </div>
-
-
-        <div class="work-card">
-
-          <div class="work-icon">
-            🎞️
-          </div>
-
-          <h3>
-            Movies
-          </h3>
-
-          <p>
-            Film & Cinema
-          </p>
-
-        </div>
-
-
-        <div class="work-card">
-
-          <div class="work-icon">
-            🎵
-          </div>
-
-          <h3>
-            Music
-          </h3>
-
-          <p>
-            MV & Music Projects
-          </p>
-
-        </div>
-
-
-        <div class="work-card">
-
-          <div class="work-icon">
-            📺
-          </div>
-
-          <h3>
-            Variety
-          </h3>
-
-          <p>
-            Shows & Programs
-          </p>
+          <a href="#profile">Profile</a>
+          <a href="#works">Works</a>
+          <a href="#schedule">Schedule</a>
+          <a href="#projects">Projects</a>
 
         </div>
 
       </div>
 
-    </div>
 
-  </section>
+      <div>
 
-
-  <!-- =====================================================
-       SCHEDULE
-  ===================================================== -->
-
-  <section
-    class="section schedule-section"
-    id="schedule"
-  >
-
-    <div class="container">
-
-      <div class="section-heading">
-
-        <p class="eyebrow">
-          UPCOMING
-        </p>
-
-        <h2 class="title">
-          Schedule
-        </h2>
-
-        <p class="description">
-          ตารางงานและกิจกรรมของ POR
-        </p>
-
-      </div>
-
-
-      <div class="schedule-layout">
-
-
-        <div class="calendar-box">
-
-          <div class="calendar-header">
-
-            <h3>
-              August 2026
-            </h3>
-
-            <span>
-              📅
-            </span>
-
-          </div>
-
-
-          <div class="calendar-grid">
-
-            <span class="day-name">SUN</span>
-            <span class="day-name">MON</span>
-            <span class="day-name">TUE</span>
-            <span class="day-name">WED</span>
-            <span class="day-name">THU</span>
-            <span class="day-name">FRI</span>
-            <span class="day-name">SAT</span>
-
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span>1</span>
-
-            <span>2</span>
-            <span>3</span>
-            <span>4</span>
-            <span>5</span>
-            <span>6</span>
-            <span>7</span>
-            <span>8</span>
-
-            <span>9</span>
-            <span>10</span>
-            <span>11</span>
-            <span>12</span>
-            <span>13</span>
-            <span>14</span>
-            <span>15</span>
-
-            <span>16</span>
-            <span>17</span>
-            <span>18</span>
-            <span>19</span>
-            <span class="event-day">20</span>
-            <span>21</span>
-            <span>22</span>
-
-            <span>23</span>
-            <span>24</span>
-            <span>25</span>
-            <span>26</span>
-            <span>27</span>
-            <span>28</span>
-            <span>29</span>
-
-            <span>30</span>
-            <span>31</span>
-
-          </div>
-
-        </div>
-
-
-        <div class="countdown-box">
-
-          <p class="eyebrow">
-            NEXT EVENT
-          </p>
-
-          <h3>
-            Coming Soon
-          </h3>
-
-          <p>
-            ตารางงานถัดไปของ POR
-            จะถูกเพิ่มเมื่อมีข้อมูลยืนยัน
-          </p>
-
-          <div class="countdown-number">
-            — — —
-          </div>
-
-        </div>
-
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <!-- =====================================================
-       PROJECTS
-  ===================================================== -->
-
-  <section
-    class="section projects-section"
-    id="projects"
-  >
-
-    <div class="container">
-
-      <div class="section-heading">
-
-        <p class="eyebrow">
-          FOR POR PROJECTS
-        </p>
-
-        <h2 class="title">
-          Projects
-        </h2>
-
-      </div>
-
-
-      <div class="project-feature">
-
-        <img
-          src="birthday-project.jpg"
-          alt="A Sky Full of POR"
-          class="project-poster"
-        >
-
-
-        <div>
-
-          <span class="project-status">
-            2026 PROJECT
-          </span>
-
-          <h3>
-            A Sky Full of POR
-          </h3>
-
-          <p>
-
-            POR BIRTHDAY PROJECT 2026
-
-            <br><br>
-
-            From one small room
-            to a sky full of stars.
-
-            <br><br>
-
-            โปรเจกต์วันเกิดที่รวบรวม
-            ความรัก ความทรงจำ
-            และคำอวยพรจากแฟน ๆ
-            ให้กลายเป็นอีกหนึ่งท้องฟ้า
-            สำหรับ POR
-
-          </p>
-
-        </div>
-
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <!-- =====================================================
-       STAR MAP
-  ===================================================== -->
-
-  <section
-    class="section star-map-section"
-    id="star-map"
-  >
-
-    <div class="container">
-
-      <div class="section-heading">
-
-        <p class="eyebrow">
-          FOR POR EXCLUSIVE
-        </p>
-
-        <h2 class="title">
-          The Star Map
-        </h2>
-
-        <p class="description"
-           style="color:rgba(255,255,255,.65);">
-
-          Every fan is a star.
-          Every star holds a story.
-
-        </p>
-
-      </div>
-
-
-      <div class="star-map">
-
-        <span class="map-star ms1">✦</span>
-        <span class="map-star ms2">✧</span>
-        <span class="map-star ms3">✦</span>
-        <span class="map-star ms4">✧</span>
-        <span class="map-star ms5">✦</span>
-        <span class="map-star ms6">✧</span>
-        <span class="map-star ms7">✦</span>
-        <span class="map-star ms8">✧</span>
-
-
-        <div class="map-title">
-
-          <h3>
-            A Sky Full of POR
-          </h3>
-
-          <p>
-            THE STARS ARE WAITING
-          </p>
-
-        </div>
-
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <!-- =====================================================
-       ARCHIVE
-  ===================================================== -->
-
-  <section
-    class="section archive-section"
-    id="gallery"
-  >
-
-    <div class="container">
-
-      <div class="section-heading">
-
-        <p class="eyebrow">
-          FANBASE ARCHIVE
-        </p>
-
-        <h2 class="title">
-          Archive
-        </h2>
-
-        <p class="description">
-          ศูนย์รวมความทรงจำและข้อมูล
-          ของ FOR POR Official
-        </p>
-
-      </div>
-
-
-      <div class="archive-grid">
-
-        <div class="archive-card">
-
-          <div class="icon">
-            📸
-          </div>
-
-          <h3>
-            Gallery
-          </h3>
-
-          <p>
-            Official Photos · Events · Projects
-          </p>
-
-        </div>
-
-
-        <div class="archive-card">
-
-          <div class="icon">
-            🎞️
-          </div>
-
-          <h3>
-            Media Library
-          </h3>
-
-          <p>
-            Interviews · Videos · TV · Online Media
-          </p>
-
-        </div>
-
-
-        <div class="archive-card">
-
-          <div class="icon">
-            🎁
-          </div>
-
-          <h3>
-            Fan Goods
-          </h3>
-
-          <p>
-            Banner · Photocard · Acrylic · Goods
-          </p>
-
-        </div>
-
-
-        <div class="archive-card">
-
-          <div class="icon">
-            ✦
-          </div>
-
-          <h3>
-            Timeline
-          </h3>
-
-          <p>
-            เรื่องราวของ FOR POR Official
-          </p>
-
-        </div>
-
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <!-- =====================================================
-       COMMUNITY
-  ===================================================== -->
-
-  <section
-    class="section community-section"
-    id="community"
-  >
-
-    <div class="container">
-
-      <div class="section-heading">
-
-        <p class="eyebrow">
-          OUR COMMUNITY
-        </p>
-
-        <h2 class="title">
+        <h3 style="font-size:20px;">
           Community
-        </h2>
+        </h3>
 
-        <p class="description">
-          พื้นที่สำหรับแฟน ๆ ที่อยากเดินทาง
-          ไปพร้อมกับ POR
-        </p>
+        <div class="footer-links">
 
-      </div>
-
-
-      <div class="community-grid">
-
-
-        <div class="community-card">
-
-          <div class="icon">
-            💬
-          </div>
-
-          <h3>
-            OpenChat
-          </h3>
-
-          <p>
-            รวมช่องทาง OpenChat
-            และข้อมูลสำหรับแฟน ๆ
-          </p>
-
-        </div>
-
-
-        <div class="community-card">
-
-          <div class="icon">
-            💌
-          </div>
-
-          <h3>
-            Fan Message Wall
-          </h3>
-
-          <p>
-            ฝากข้อความถึง POR
-            จากแฟน ๆ ทั่วโลก
-          </p>
-
-        </div>
-
-
-        <div class="community-card">
-
-          <div class="icon">
-            📖
-          </div>
-
-          <h3>
-            Fan Guide
-          </h3>
-
-          <p>
-            คู่มือสำหรับแฟนใหม่
-            กฎบ้าน และ FAQ
-          </p>
+          <a href="#gallery">Gallery</a>
+          <a href="#social">Social</a>
+          <a href="#openchat">OpenChat</a>
+          <a href="#support">Support</a>
 
         </div>
 
@@ -2205,189 +2032,228 @@
 
     </div>
 
-  </section>
 
+    <div class="copyright">
 
-  <!-- =====================================================
-       SOCIAL
-  ===================================================== -->
-
-  <section
-    class="section social-section"
-    id="social"
-  >
-
-    <div class="container">
-
-      <div class="section-heading">
-
-        <p class="eyebrow">
-          CONNECT
-        </p>
-
-        <h2 class="title">
-          Social
-        </h2>
-
-      </div>
-
-
-      <div class="social-grid">
-
-        <a class="social-card" href="#">
-
-          <strong>
-            X
-          </strong>
-
-          <span>
-            POR
-          </span>
-
-        </a>
-
-
-        <a class="social-card" href="#">
-
-          <strong>
-            Instagram
-          </strong>
-
-          <span>
-            POR
-          </span>
-
-        </a>
-
-
-        <a class="social-card" href="#">
-
-          <strong>
-            TikTok
-          </strong>
-
-          <span>
-            POR
-          </span>
-
-        </a>
-
-
-        <a class="social-card" href="#">
-
-          <strong>
-            Weibo
-          </strong>
-
-          <span>
-            POR
-          </span>
-
-        </a>
-
-
-        <a class="social-card" href="#">
-
-          <strong>
-            FOR POR
-          </strong>
-
-          <span>
-            Official Fanbase
-          </span>
-
-        </a>
-
-      </div>
+      © 2026 FOR POR Official.
+      Fan-made community site.
 
     </div>
 
-  </section>
+  </div>
+
+</footer>
 
 
-  <!-- =====================================================
-       FOOTER
-  ===================================================== -->
+<!-- ================= MOBILE BOTTOM NAV ================= -->
 
-  <footer>
+<nav class="bottom-nav">
 
-    <div class="footer-brand">
-      FOR POR
+  <a href="#home" class="active">
+    <span>⌂</span>
+    Home
+  </a>
+
+  <a href="#news">
+    <span>◈</span>
+    News
+  </a>
+
+  <a href="#projects">
+    <span>✦</span>
+    Projects
+  </a>
+
+  <a href="#gallery">
+    <span>▧</span>
+    Gallery
+  </a>
+
+  <a href="#profile">
+    <span>♡</span>
+    Profile
+  </a>
+
+</nav>
+
+
+<!-- ================= MODAL ================= -->
+
+<div class="modal" id="modal">
+
+  <div class="modal-box">
+
+    <button class="modal-close"
+            onclick="closeModal()">
+      ×
+    </button>
+
+    <div id="modalContent">
+
+      <h2 style="font-family:'Playfair Display';color:#173b68;">
+        FOR POR Official
+      </h2>
+
     </div>
 
-    <div class="footer-stars">
-      ✦ ✧ ⭐ ✧ ✦
-    </div>
+  </div>
 
-    <p class="footer-text">
-      OFFICIAL FANBASE · FOR POR SUPPAKARN
+</div>
+
+
+<script>
+
+/* ================= DRAWER ================= */
+
+function openDrawer(){
+  document.getElementById("drawer")
+    .classList.add("open");
+}
+
+function closeDrawer(){
+  document.getElementById("drawer")
+    .classList.remove("open");
+}
+
+
+/* ================= MODAL ================= */
+
+function showModal(title){
+
+  document.getElementById("modalContent").innerHTML = `
+    <div style="font-size:35px;margin-bottom:10px;">✦</div>
+
+    <h2 style="font-family:'Playfair Display';color:#173b68;">
+      ${title}
+    </h2>
+
+    <p style="color:#70869d;margin-top:10px;">
+      Section นี้พร้อมสำหรับเพิ่มข้อมูลจริง
+      ของ FOR POR Official
     </p>
+  `;
 
-  </footer>
+  document.getElementById("modal")
+    .classList.add("show");
+}
 
+function closeModal(){
+  document.getElementById("modal")
+    .classList.remove("show");
+}
 
-  <!-- =====================================================
-       MOBILE BOTTOM NAV
-  ===================================================== -->
+document.getElementById("modal")
+.addEventListener("click",function(e){
 
-  <nav class="bottom-nav">
+  if(e.target === this){
+    closeModal();
+  }
 
-    <a href="#home">
-
-      <span class="nav-icon">
-        ⌂
-      </span>
-
-      HOME
-
-    </a>
-
-
-    <a href="#news">
-
-      <span class="nav-icon">
-        📢
-      </span>
-
-      NEWS
-
-    </a>
+});
 
 
-    <a href="#projects">
+/* ================= COUNTDOWN ================= */
 
-      <span class="nav-icon">
-        🎁
-      </span>
+/*
+  เปลี่ยนวันที่ตรงนี้ภายหลังได้
+  รูปแบบ:
+  YYYY-MM-DDTHH:MM:SS
+*/
 
-      PROJECTS
+const targetDate =
+  new Date("2026-09-01T00:00:00+07:00").getTime();
 
-    </a>
+function updateCountdown(){
+
+  const now = new Date().getTime();
+
+  const distance = targetDate - now;
+
+  if(distance <= 0){
+
+    document.getElementById("days").innerText="00";
+    document.getElementById("hours").innerText="00";
+    document.getElementById("minutes").innerText="00";
+    document.getElementById("seconds").innerText="00";
+
+    return;
+  }
+
+  const days =
+    Math.floor(distance/(1000*60*60*24));
+
+  const hours =
+    Math.floor(
+      (distance%(1000*60*60*24))
+      /(1000*60*60)
+    );
+
+  const minutes =
+    Math.floor(
+      (distance%(1000*60*60))
+      /(1000*60)
+    );
+
+  const seconds =
+    Math.floor(
+      (distance%(1000*60))
+      /1000
+    );
+
+  document.getElementById("days").innerText =
+    String(days).padStart(2,"0");
+
+  document.getElementById("hours").innerText =
+    String(hours).padStart(2,"0");
+
+  document.getElementById("minutes").innerText =
+    String(minutes).padStart(2,"0");
+
+  document.getElementById("seconds").innerText =
+    String(seconds).padStart(2,"0");
+}
+
+updateCountdown();
+
+setInterval(updateCountdown,1000);
 
 
-    <a href="#gallery">
+/* ================= ACTIVE MOBILE NAV ================= */
 
-      <span class="nav-icon">
-        📸
-      </span>
+const sections =
+  document.querySelectorAll("section[id]");
 
-      GALLERY
+const navLinks =
+  document.querySelectorAll(".bottom-nav a");
 
-    </a>
+window.addEventListener("scroll",()=>{
 
+  let current="home";
 
-    <a href="#profile">
+  sections.forEach(section=>{
 
-      <span class="nav-icon">
-        👤
-      </span>
+    const top =
+      section.offsetTop - 150;
 
-      PROFILE
+    if(window.scrollY >= top){
+      current=section.getAttribute("id");
+    }
 
-    </a>
+  });
 
-  </nav>
+  navLinks.forEach(link=>{
 
+    link.classList.remove("active");
+
+    if(link.getAttribute("href") === "#"+current){
+      link.classList.add("active");
+    }
+
+  });
+
+});
+
+</script>
 
 </body>
 </html>
