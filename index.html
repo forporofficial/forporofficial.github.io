@@ -18,7 +18,39 @@
       background: #eef8ff;
       color: #ffffff;
     }
+.navbar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 22px 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 10;
+}
 
+.nav-logo {
+  font-size: 13px;
+  letter-spacing: 3px;
+  font-weight: bold;
+}
+
+.nav-menu {
+  display: flex;
+  gap: 25px;
+}
+
+.nav-menu a {
+  color: white;
+  text-decoration: none;
+  font-size: 11px;
+  letter-spacing: 2px;
+}
+
+.nav-menu a:hover {
+  opacity: 0.7;
+}
     .hero {
       min-height: 100vh;
       position: relative;
@@ -102,7 +134,18 @@
 </head>
 
 <body>
+<nav class="navbar">
+  <div class="nav-logo">
+    FOR POR
+  </div>
 
+  <div class="nav-menu">
+    <a href="#">HOME</a>
+    <a href="#">PROJECT</a>
+    <a href="#">ABOUT</a>
+    <a href="#">GALLERY</a>
+  </div>
+</nav>
   <section class="hero">
 
     <div class="content">
