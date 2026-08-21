@@ -11,6 +11,11 @@
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=Prompt:wght@300;400;500;600&display=swap" rel="stylesheet">
 
 <style>
+
+/* =====================================================
+   RESET
+===================================================== */
+
 *{
   box-sizing:border-box;
   margin:0;
@@ -33,9 +38,14 @@ a{
   color:inherit;
 }
 
-/* =========================
-   NAVBAR
-========================= */
+button{
+  font-family:inherit;
+}
+
+
+/* =====================================================
+   NAVIGATION
+===================================================== */
 
 .navbar{
   position:fixed;
@@ -51,7 +61,7 @@ a{
 
   padding:0 6%;
 
-  background:rgba(255,255,255,.84);
+  background:rgba(255,255,255,.86);
   backdrop-filter:blur(18px);
 
   border-bottom:1px solid rgba(31,75,103,.08);
@@ -71,12 +81,12 @@ a{
 .nav-links{
   display:flex;
   align-items:center;
-  gap:22px;
+  gap:20px;
   list-style:none;
 }
 
 .nav-links a{
-  font-size:10px;
+  font-size:9px;
   letter-spacing:1px;
   color:#45677d;
   transition:.3s;
@@ -92,11 +102,13 @@ a{
   background:none;
   font-size:27px;
   color:#173b5b;
+  cursor:pointer;
 }
 
-/* =========================
-   HERO
-========================= */
+
+/* =====================================================
+   HOME / HERO
+===================================================== */
 
 .hero{
   min-height:100vh;
@@ -118,11 +130,15 @@ a{
 
 .hero:before{
   content:"";
+
   position:absolute;
+
   width:900px;
   height:500px;
+
   left:50%;
   top:0;
+
   transform:translateX(-50%);
 
   background:
@@ -155,9 +171,8 @@ a{
   padding-top:30px;
 }
 
-/* =========================
-   POR IMAGE — TOP
-========================= */
+
+/* HERO PHOTO */
 
 .hero-photo{
   position:relative;
@@ -267,9 +282,8 @@ a{
   transform:translateY(-7px);
 }
 
-/* =========================
-   STARS
-========================= */
+
+/* HERO STARS */
 
 .star{
   position:absolute;
@@ -309,9 +323,8 @@ a{
   }
 }
 
-/* =========================
-   HERO TEXT
-========================= */
+
+/* HERO TEXT */
 
 .hero-copy{
   position:relative;
@@ -411,9 +424,10 @@ a{
   box-shadow:0 10px 22px rgba(35,76,101,.12);
 }
 
-/* =========================
-   SECTIONS
-========================= */
+
+/* =====================================================
+   GENERAL SECTIONS
+===================================================== */
 
 section:not(.hero){
   padding:95px 7%;
@@ -451,110 +465,561 @@ section:not(.hero){
   color:#7890a1;
 }
 
-/* =========================
-   PROFILE
-========================= */
 
-.profile{
-  background:white;
-}
+/* =====================================================
+   STEP 2 — POR PROFILE
+===================================================== */
 
-.profile-grid{
-  max-width:1080px;
-  margin:auto;
+.por-profile{
+  position:relative;
+  overflow:hidden;
 
-  display:grid;
-  grid-template-columns:.85fr 1.15fr;
-
-  gap:60px;
-
-  align-items:center;
-}
-
-.profile-photo{
-  height:460px;
-
-  display:flex;
-  align-items:center;
-  justify-content:center;
-
-  border-radius:28px;
+  padding:110px 7% !important;
 
   background:
     radial-gradient(
-      circle,
-      white 0%,
-      #e7f5fc 58%,
-      #d2ebf7 100%
+      circle at 15% 20%,
+      rgba(210,238,250,.65),
+      transparent 30%
+    ),
+    radial-gradient(
+      circle at 85% 80%,
+      rgba(227,241,249,.9),
+      transparent 32%
+    ),
+    linear-gradient(
+      135deg,
+      #f9fdff,
+      #eef8fd,
+      #ffffff
     );
-
-  overflow:hidden;
 }
 
-.profile-placeholder{
+.profile-orbit{
+  position:absolute;
+
+  border:1px solid rgba(118,171,202,.15);
+
+  border-radius:50%;
+
+  pointer-events:none;
+}
+
+.orbit-1{
+  width:620px;
+  height:620px;
+
+  left:-350px;
+  top:80px;
+}
+
+.orbit-2{
+  width:520px;
+  height:520px;
+
+  right:-280px;
+  bottom:-220px;
+}
+
+.profile-container{
+  position:relative;
+
+  max-width:1150px;
+
+  margin:auto;
+
+  z-index:2;
+}
+
+
+/* PROFILE HEADING */
+
+.profile-heading{
   text-align:center;
 
-  color:#88a6b9;
+  margin-bottom:60px;
 }
 
-.profile-placeholder strong{
+.profile-heading span{
   display:block;
 
-  font-family:'DM Serif Display',serif;
+  font-size:9px;
 
-  font-size:80px;
+  letter-spacing:4px;
 
-  color:rgba(23,59,91,.15);
+  color:#b18b4b;
+
+  margin-bottom:10px;
 }
 
-.profile-info h3{
+.profile-heading h2{
   font-family:'DM Serif Display',serif;
 
-  font-size:42px;
+  font-size:52px;
 
   font-weight:400;
 
   color:#173b5b;
 }
 
-.gold-line{
-  width:55px;
-  height:2px;
+.profile-heading p{
+  margin-top:8px;
 
-  background:#c3a166;
+  font-family:'Playfair Display',serif;
 
-  margin:17px 0 20px;
+  font-size:17px;
+
+  font-style:italic;
+
+  color:#7793a5;
 }
 
-.profile-info p{
-  font-size:13px;
-  line-height:2;
-  color:#6e8798;
+
+/* PROFILE MAIN */
+
+.profile-main{
+  display:grid;
+
+  grid-template-columns:
+    minmax(300px,.9fr)
+    minmax(400px,1.1fr);
+
+  gap:75px;
+
+  align-items:center;
 }
 
-.profile-list{
-  margin-top:23px;
-  list-style:none;
-}
 
-.profile-list li{
+/* PROFILE IMAGE */
+
+.profile-image-wrap{
+  position:relative;
+
+  min-height:590px;
+
   display:flex;
 
-  padding:10px 0;
+  align-items:center;
 
-  border-bottom:1px solid #edf3f7;
-
-  font-size:11px;
+  justify-content:center;
 }
 
-.profile-list strong{
-  width:125px;
+.profile-image-glow{
+  position:absolute;
+
+  width:470px;
+  height:470px;
+
+  border-radius:50%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(255,255,255,1),
+      rgba(220,241,250,.85) 45%,
+      rgba(180,218,237,.35) 65%,
+      transparent 75%
+    );
+
+  filter:blur(10px);
+}
+
+.profile-image-card{
+  position:relative;
+
+  width:100%;
+
+  height:570px;
+
+  display:flex;
+
+  align-items:flex-end;
+
+  justify-content:center;
+
+  overflow:hidden;
+
+  border-radius:35px;
+
+  background:
+    linear-gradient(
+      160deg,
+      #eaf7fc,
+      #ffffff 52%,
+      #dceff8
+    );
+
+  border:1px solid rgba(129,178,205,.22);
+
+  box-shadow:
+    0 25px 55px rgba(42,86,111,.12);
+}
+
+.profile-image-card:after{
+  content:"";
+
+  position:absolute;
+
+  left:0;
+  right:0;
+  bottom:0;
+
+  height:35%;
+
+  background:
+    linear-gradient(
+      to top,
+      rgba(218,239,248,.7),
+      transparent
+    );
+
+  z-index:2;
+}
+
+.profile-image-card img{
+  position:relative;
+
+  z-index:1;
+
+  width:auto;
+
+  height:100%;
+
+  max-width:100%;
+
+  object-fit:contain;
+
+  filter:
+    drop-shadow(
+      0 18px 30px
+      rgba(30,68,91,.14)
+    );
+
+  -webkit-mask-image:
+    linear-gradient(
+      to bottom,
+      transparent 0%,
+      #000 4%,
+      #000 88%,
+      transparent 100%
+    );
+
+  mask-image:
+    linear-gradient(
+      to bottom,
+      transparent 0%,
+      #000 4%,
+      #000 88%,
+      transparent 100%
+    );
+}
+
+
+/* PROFILE STARS */
+
+.profile-star{
+  position:absolute;
+
+  z-index:5;
+
+  color:#bfa05f;
+
+  font-size:22px;
+
+  text-shadow:
+    0 0 15px
+    rgba(255,255,255,.9);
+}
+
+.star-a{
+  top:15%;
+  right:4%;
+}
+
+.star-b{
+  top:42%;
+  left:2%;
+}
+
+.star-c{
+  bottom:15%;
+  right:8%;
+}
+
+
+/* PROFILE CONTENT */
+
+.profile-content{
+  padding:15px 0;
+}
+
+.profile-label{
+  font-size:9px;
+
+  letter-spacing:4px;
+
+  color:#b18b4b;
+}
+
+.profile-content h3{
+  margin-top:8px;
+
+  font-family:'DM Serif Display',serif;
+
+  font-size:52px;
+
+  line-height:1;
+
+  font-weight:400;
+
   color:#173b5b;
 }
 
-/* =========================
+.profile-content h3 span{
+  color:#b18b4b;
+}
+
+.profile-line{
+  width:65px;
+
+  height:2px;
+
+  margin:22px 0;
+
+  background:#c3a166;
+}
+
+.profile-intro{
+  font-size:13px;
+
+  line-height:2.05;
+
+  color:#6f8899;
+
+  max-width:620px;
+}
+
+
+/* PROFILE INFO */
+
+.profile-info-grid{
+  display:grid;
+
+  grid-template-columns:1fr 1fr;
+
+  gap:13px;
+
+  margin-top:30px;
+}
+
+.profile-info-item{
+  padding:17px 18px;
+
+  border-radius:15px;
+
+  background:
+    rgba(255,255,255,.72);
+
+  border:1px solid
+    rgba(135,179,201,.2);
+}
+
+.profile-info-item span{
+  display:block;
+
+  font-size:8px;
+
+  letter-spacing:2px;
+
+  color:#a0804c;
+
+  margin-bottom:5px;
+}
+
+.profile-info-item strong{
+  display:block;
+
+  font-size:11px;
+
+  font-weight:500;
+
+  color:#31566d;
+}
+
+
+/* PROFILE QUOTE */
+
+.profile-quote{
+  margin-top:27px;
+
+  padding:18px 20px;
+
+  border-left:2px solid #c3a166;
+
+  background:
+    rgba(255,255,255,.45);
+
+  font-family:'Playfair Display',serif;
+
+  font-size:15px;
+
+  font-style:italic;
+
+  line-height:1.7;
+
+  color:#658194;
+}
+
+.profile-quote span{
+  color:#b18b4b;
+
+  font-size:25px;
+}
+
+
+/* PROFILE BUTTONS */
+
+.profile-buttons{
+  display:flex;
+
+  flex-wrap:wrap;
+
+  gap:10px;
+
+  margin-top:27px;
+}
+
+.profile-btn{
+  padding:12px 21px;
+
+  border-radius:25px;
+
+  font-size:9px;
+
+  letter-spacing:1px;
+
+  transition:.3s;
+}
+
+.profile-btn-primary{
+  background:#173b5b;
+
+  color:white;
+}
+
+.profile-btn-secondary{
+  background:white;
+
+  color:#173b5b;
+
+  border:1px solid #d5e5ee;
+}
+
+.profile-btn:hover{
+  transform:translateY(-3px);
+
+  box-shadow:
+    0 10px 20px
+    rgba(35,76,101,.12);
+}
+
+
+/* PROFILE STORY */
+
+.profile-story{
+  display:grid;
+
+  grid-template-columns:1fr 1fr;
+
+  gap:18px;
+
+  margin-top:70px;
+}
+
+.story-card{
+  display:flex;
+
+  gap:20px;
+
+  padding:28px;
+
+  border-radius:23px;
+
+  background:
+    rgba(255,255,255,.72);
+
+  border:1px solid
+    rgba(131,178,202,.2);
+
+  transition:.3s;
+}
+
+.story-card:hover{
+  transform:translateY(-5px);
+
+  box-shadow:
+    0 18px 35px
+    rgba(40,83,108,.08);
+}
+
+.story-icon{
+  min-width:45px;
+
+  height:45px;
+
+  display:flex;
+
+  align-items:center;
+
+  justify-content:center;
+
+  border-radius:50%;
+
+  background:#edf8fd;
+
+  color:#b18b4b;
+
+  font-size:20px;
+}
+
+.story-card span{
+  font-size:8px;
+
+  letter-spacing:3px;
+
+  color:#b18b4b;
+}
+
+.story-card h4{
+  margin-top:5px;
+
+  font-family:'DM Serif Display',serif;
+
+  font-size:25px;
+
+  font-weight:400;
+
+  color:#173b5b;
+}
+
+.story-card p{
+  margin-top:8px;
+
+  font-size:11px;
+
+  line-height:1.9;
+
+  color:#7890a1;
+}
+
+
+/* =====================================================
    CARDS
-========================= */
+===================================================== */
+
+.works{
+  background:#f3faff;
+}
 
 .cards{
   max-width:1100px;
@@ -611,17 +1076,10 @@ section:not(.hero){
   color:#7890a1;
 }
 
-/* =========================
-   WORKS
-========================= */
 
-.works{
-  background:#f3faff;
-}
-
-/* =========================
+/* =====================================================
    SCHEDULE
-========================= */
+===================================================== */
 
 .schedule{
   background:white;
@@ -671,9 +1129,10 @@ section:not(.hero){
   color:#7890a1;
 }
 
-/* =========================
+
+/* =====================================================
    STAR MAP
-========================= */
+===================================================== */
 
 .star-map{
   background:
@@ -733,9 +1192,19 @@ section:not(.hero){
   color:#6f889a;
 }
 
-/* =========================
+
+/* =====================================================
+   FAN GUIDE
+===================================================== */
+
+#guide{
+  background:white;
+}
+
+
+/* =====================================================
    GALLERY
-========================= */
+===================================================== */
 
 .gallery{
   background:#f3faff;
@@ -756,6 +1225,7 @@ section:not(.hero){
   height:255px;
 
   display:flex;
+
   align-items:center;
   justify-content:center;
 
@@ -779,9 +1249,10 @@ section:not(.hero){
   color:rgba(23,59,91,.22);
 }
 
-/* =========================
+
+/* =====================================================
    PROJECTS
-========================= */
+===================================================== */
 
 .projects{
   background:white;
@@ -838,6 +1309,7 @@ section:not(.hero){
 
 .tags{
   display:flex;
+
   flex-wrap:wrap;
 
   gap:9px;
@@ -859,17 +1331,19 @@ section:not(.hero){
   color:#57758b;
 }
 
-/* =========================
+
+/* =====================================================
    DONATION
-========================= */
+===================================================== */
 
 .donation{
   background:#f3faff;
 }
 
-/* =========================
+
+/* =====================================================
    SOCIAL
-========================= */
+===================================================== */
 
 .social{
   background:white;
@@ -919,9 +1393,10 @@ section:not(.hero){
   color:#31536b;
 }
 
-/* =========================
+
+/* =====================================================
    FOOTER
-========================= */
+===================================================== */
 
 footer{
   padding:52px 20px;
@@ -957,9 +1432,10 @@ footer{
   color:#c3a166;
 }
 
-/* =========================
+
+/* =====================================================
    MOBILE
-========================= */
+===================================================== */
 
 @media(max-width:900px){
 
@@ -983,7 +1459,8 @@ footer{
 
     background:white;
 
-    box-shadow:0 12px 25px rgba(0,0,0,.08);
+    box-shadow:
+      0 12px 25px rgba(0,0,0,.08);
   }
 
   .nav-links.active{
@@ -993,6 +1470,9 @@ footer{
   .menu{
     display:block;
   }
+
+
+  /* HOME */
 
   .hero-inner{
     padding-top:18px;
@@ -1015,9 +1495,29 @@ footer{
     font-size:58px;
   }
 
-  .profile-grid{
+
+  /* PROFILE */
+
+  .profile-main{
+    grid-template-columns:1fr;
+
+    gap:45px;
+  }
+
+  .profile-image-wrap{
+    min-height:500px;
+  }
+
+  .profile-image-card{
+    height:500px;
+  }
+
+  .profile-story{
     grid-template-columns:1fr;
   }
+
+
+  /* OTHER */
 
   .cards{
     grid-template-columns:1fr;
@@ -1032,15 +1532,19 @@ footer{
   }
 }
 
-/* =========================
+
+/* =====================================================
    SMALL MOBILE
-========================= */
+===================================================== */
 
 @media(max-width:550px){
 
   section:not(.hero){
     padding:75px 6%;
   }
+
+
+  /* HOME */
 
   .hero-inner{
     padding-top:10px;
@@ -1075,6 +1579,46 @@ footer{
     padding:0 8px;
   }
 
+
+  /* PROFILE */
+
+  .por-profile{
+    padding:85px 6% !important;
+  }
+
+  .profile-heading{
+    margin-bottom:38px;
+  }
+
+  .profile-heading h2{
+    font-size:40px;
+  }
+
+  .profile-image-wrap{
+    min-height:430px;
+  }
+
+  .profile-image-card{
+    height:430px;
+
+    border-radius:28px;
+  }
+
+  .profile-content h3{
+    font-size:42px;
+  }
+
+  .profile-info-grid{
+    grid-template-columns:1fr;
+  }
+
+  .profile-quote{
+    font-size:13px;
+  }
+
+
+  /* OTHER */
+
   .section-title{
     font-size:36px;
   }
@@ -1098,15 +1642,19 @@ footer{
   .social-grid{
     grid-template-columns:1fr 1fr;
   }
+
 }
+
 </style>
 </head>
 
+
 <body>
 
-<!-- =========================
+
+<!-- =====================================================
      NAVIGATION
-========================= -->
+===================================================== -->
 
 <nav class="navbar">
 
@@ -1114,31 +1662,64 @@ footer{
     FOR <span>POR</span>
   </a>
 
-  <button class="menu" onclick="toggleMenu()">
+  <button
+    class="menu"
+    onclick="toggleMenu()"
+    aria-label="Open menu"
+  >
     ☰
   </button>
 
   <ul class="nav-links" id="navLinks">
 
-    <li><a href="#home">HOME</a></li>
-    <li><a href="#profile">PROFILE</a></li>
-    <li><a href="#works">WORKS</a></li>
-    <li><a href="#schedule">SCHEDULE</a></li>
-    <li><a href="#starmap">STAR MAP</a></li>
-    <li><a href="#guide">FAN GUIDE</a></li>
-    <li><a href="#gallery">GALLERY</a></li>
-    <li><a href="#projects">PROJECTS</a></li>
-    <li><a href="#donation">DONATION</a></li>
-    <li><a href="#social">SOCIAL</a></li>
+    <li>
+      <a href="#home">HOME</a>
+    </li>
+
+    <li>
+      <a href="#profile">PROFILE</a>
+    </li>
+
+    <li>
+      <a href="#works">WORKS</a>
+    </li>
+
+    <li>
+      <a href="#schedule">SCHEDULE</a>
+    </li>
+
+    <li>
+      <a href="#starmap">STAR MAP</a>
+    </li>
+
+    <li>
+      <a href="#guide">FAN GUIDE</a>
+    </li>
+
+    <li>
+      <a href="#gallery">GALLERY</a>
+    </li>
+
+    <li>
+      <a href="#projects">PROJECTS</a>
+    </li>
+
+    <li>
+      <a href="#donation">DONATION</a>
+    </li>
+
+    <li>
+      <a href="#social">SOCIAL</a>
+    </li>
 
   </ul>
 
 </nav>
 
 
-<!-- =========================
+<!-- =====================================================
      HOME
-========================= -->
+===================================================== -->
 
 <section class="hero" id="home">
 
@@ -1154,7 +1735,6 @@ footer{
 
   <div class="hero-inner">
 
-    <!-- POR IMAGE ON TOP -->
 
     <div class="hero-photo">
 
@@ -1169,8 +1749,6 @@ footer{
 
     </div>
 
-
-    <!-- TEXT BELOW PHOTO -->
 
     <div class="hero-copy">
 
@@ -1194,11 +1772,17 @@ footer{
 
       <div class="hero-buttons">
 
-        <a href="#profile" class="btn btn-primary">
+        <a
+          href="#profile"
+          class="btn btn-primary"
+        >
           DISCOVER POR
         </a>
 
-        <a href="#projects" class="btn btn-secondary">
+        <a
+          href="#projects"
+          class="btn btn-secondary"
+        >
           OUR PROJECTS
         </a>
 
@@ -1211,83 +1795,257 @@ footer{
 </section>
 
 
-<!-- =========================
-     PROFILE
-========================= -->
+<!-- =====================================================
+     POR PROFILE
+===================================================== -->
 
-<section class="profile" id="profile">
+<section
+  class="por-profile"
+  id="profile"
+>
 
-  <div class="section-head">
+  <div class="profile-orbit orbit-1"></div>
 
-    <div class="section-small">
-      GET TO KNOW HIM
+  <div class="profile-orbit orbit-2"></div>
+
+
+  <div class="profile-container">
+
+
+    <!-- HEADING -->
+
+    <div class="profile-heading">
+
+      <span>
+        GET TO KNOW POR
+      </span>
+
+      <h2>
+        POR PROFILE
+      </h2>
+
+      <p>
+        Every story begins with a star.
+      </p>
+
     </div>
 
-    <h2 class="section-title">
-      POR PROFILE
-    </h2>
 
-    <p class="section-desc">
-      เรื่องราวของ POR Suppakarn
-    </p>
+    <!-- MAIN PROFILE -->
 
-  </div>
+    <div class="profile-main">
 
 
-  <div class="profile-grid">
+      <!-- IMAGE -->
 
-    <div class="profile-photo">
+      <div class="profile-image-wrap">
 
-      <div class="profile-placeholder">
+        <div class="profile-image-glow"></div>
 
-        <strong>POR</strong>
+        <div class="profile-image-card">
 
-        PROFILE
+          <img
+            src="por-hero.png"
+            alt="POR Suppakarn"
+          >
+
+        </div>
+
+        <div class="profile-star star-a">
+          ✦
+        </div>
+
+        <div class="profile-star star-b">
+          ✧
+        </div>
+
+        <div class="profile-star star-c">
+          ✦
+        </div>
+
+      </div>
+
+
+      <!-- INFORMATION -->
+
+      <div class="profile-content">
+
+        <div class="profile-label">
+          POR SUPPAKARN
+        </div>
+
+        <h3>
+          POR
+          <span>SUPPAKARN</span>
+        </h3>
+
+        <div class="profile-line"></div>
+
+        <p class="profile-intro">
+
+          ยินดีต้อนรับเข้าสู่พื้นที่ที่รวบรวม
+          เรื่องราวและเส้นทางของ POR Suppakarn
+          ตั้งแต่ผลงาน ช่วงเวลาสำคัญ
+          ไปจนถึงเรื่องราวที่แฟนคลับอยากเก็บไว้
+          เป็นความทรงจำร่วมกัน
+
+        </p>
+
+
+        <div class="profile-info-grid">
+
+
+          <div class="profile-info-item">
+
+            <span>
+              NAME
+            </span>
+
+            <strong>
+              POR SUPPAKARN
+            </strong>
+
+          </div>
+
+
+          <div class="profile-info-item">
+
+            <span>
+              CHINESE NAME
+            </span>
+
+            <strong>
+              鄧宇博
+            </strong>
+
+          </div>
+
+
+          <div class="profile-info-item">
+
+            <span>
+              FAN COMMUNITY
+            </span>
+
+            <strong>
+              FOR POR SUPPAKARN
+            </strong>
+
+          </div>
+
+
+          <div class="profile-info-item">
+
+            <span>
+              BIRTHDAY PROJECT
+            </span>
+
+            <strong>
+              POR 24TH
+            </strong>
+
+          </div>
+
+
+        </div>
+
+
+        <div class="profile-quote">
+
+          <span>“</span>
+
+          Every star has a story,
+          and every story brings us closer.
+
+          <span>”</span>
+
+        </div>
+
+
+        <div class="profile-buttons">
+
+          <a
+            href="#works"
+            class="profile-btn profile-btn-primary"
+          >
+            EXPLORE WORKS
+          </a>
+
+          <a
+            href="#home"
+            class="profile-btn profile-btn-secondary"
+          >
+            BACK TO HOME
+          </a>
+
+        </div>
 
       </div>
 
     </div>
 
 
-    <div class="profile-info">
+    <!-- STORY -->
 
-      <h3>
-        POR Suppakarn
-      </h3>
-
-      <div class="gold-line"></div>
-
-      <p>
-        พื้นที่สำหรับรวบรวมประวัติ เรื่องราว
-        และข้อมูลสำคัญของ POR
-        เพื่อให้แฟนคลับสามารถทำความรู้จัก
-        และติดตามเส้นทางของเขาได้ง่ายขึ้น
-      </p>
+    <div class="profile-story">
 
 
-      <ul class="profile-list">
+      <div class="story-card">
 
-        <li>
-          <strong>Name</strong>
-          POR Suppakarn
-        </li>
+        <div class="story-icon">
+          ✦
+        </div>
 
-        <li>
-          <strong>Chinese Name</strong>
-          鄧宇博
-        </li>
+        <div>
 
-        <li>
-          <strong>Fan Community</strong>
-          FOR POR SUPPAKARN
-        </li>
+          <span>
+            OUR STORY
+          </span>
 
-        <li>
-          <strong>Birthday</strong>
-          24th Birthday · 2026
-        </li>
+          <h4>
+            A Journey Under The Same Sky
+          </h4>
 
-      </ul>
+          <p>
+            จากก้าวแรกจนถึงวันนี้
+            ทุกช่วงเวลาของ POR
+            ล้วนเป็นอีกหนึ่งดาว
+            ที่เราอยากเก็บไว้บนท้องฟ้า
+            แห่งความทรงจำ
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <div class="story-card">
+
+        <div class="story-icon">
+          ♡
+        </div>
+
+        <div>
+
+          <span>
+            FOR POR
+          </span>
+
+          <h4>
+            Always Here For You
+          </h4>
+
+          <p>
+            พื้นที่เล็ก ๆ ที่สร้างขึ้น
+            เพื่อส่งต่อความรัก
+            กำลังใจ และการสนับสนุน
+            ให้ POR ในทุกเส้นทาง
+          </p>
+
+        </div>
+
+      </div>
+
 
     </div>
 
@@ -1296,11 +2054,14 @@ footer{
 </section>
 
 
-<!-- =========================
+<!-- =====================================================
      WORKS
-========================= -->
+===================================================== -->
 
-<section class="works" id="works">
+<section
+  class="works"
+  id="works"
+>
 
   <div class="section-head">
 
@@ -1321,11 +2082,16 @@ footer{
 
   <div class="cards">
 
+
     <div class="card">
 
-      <div class="card-icon">🎬</div>
+      <div class="card-icon">
+        🎬
+      </div>
 
-      <h3>Series</h3>
+      <h3>
+        Series
+      </h3>
 
       <p>
         รวมผลงานซีรีส์
@@ -1337,9 +2103,13 @@ footer{
 
     <div class="card">
 
-      <div class="card-icon">🎤</div>
+      <div class="card-icon">
+        🎤
+      </div>
 
-      <h3>Events</h3>
+      <h3>
+        Events
+      </h3>
 
       <p>
         งานอีเวนต์ แฟนมีตติ้ง
@@ -1351,9 +2121,13 @@ footer{
 
     <div class="card">
 
-      <div class="card-icon">✦</div>
+      <div class="card-icon">
+        ✦
+      </div>
 
-      <h3>Archive</h3>
+      <h3>
+        Archive
+      </h3>
 
       <p>
         บันทึกช่วงเวลาสำคัญ
@@ -1362,16 +2136,20 @@ footer{
 
     </div>
 
+
   </div>
 
 </section>
 
 
-<!-- =========================
+<!-- =====================================================
      SCHEDULE
-========================= -->
+===================================================== -->
 
-<section class="schedule" id="schedule">
+<section
+  class="schedule"
+  id="schedule"
+>
 
   <div class="section-head">
 
@@ -1392,7 +2170,9 @@ footer{
 
   <div class="info-box">
 
-    <div class="info-icon">📅</div>
+    <div class="info-icon">
+      📅
+    </div>
 
     <h3>
       POR Schedule
@@ -1410,11 +2190,14 @@ footer{
 </section>
 
 
-<!-- =========================
+<!-- =====================================================
      STAR MAP
-========================= -->
+===================================================== -->
 
-<section class="star-map" id="starmap">
+<section
+  class="star-map"
+  id="starmap"
+>
 
   <div class="section-head">
 
@@ -1454,9 +2237,9 @@ footer{
 </section>
 
 
-<!-- =========================
+<!-- =====================================================
      FAN GUIDE
-========================= -->
+===================================================== -->
 
 <section id="guide">
 
@@ -1479,9 +2262,12 @@ footer{
 
   <div class="cards">
 
+
     <div class="card">
 
-      <div class="card-icon">🤍</div>
+      <div class="card-icon">
+        🤍
+      </div>
 
       <h3>
         About POR
@@ -1497,7 +2283,9 @@ footer{
 
     <div class="card">
 
-      <div class="card-icon">📣</div>
+      <div class="card-icon">
+        📣
+      </div>
 
       <h3>
         Support Guide
@@ -1513,7 +2301,9 @@ footer{
 
     <div class="card">
 
-      <div class="card-icon">💬</div>
+      <div class="card-icon">
+        💬
+      </div>
 
       <h3>
         Fan Community
@@ -1526,16 +2316,20 @@ footer{
 
     </div>
 
+
   </div>
 
 </section>
 
 
-<!-- =========================
+<!-- =====================================================
      GALLERY
-========================= -->
+===================================================== -->
 
-<section class="gallery" id="gallery">
+<section
+  class="gallery"
+  id="gallery"
+>
 
   <div class="section-head">
 
@@ -1585,11 +2379,14 @@ footer{
 </section>
 
 
-<!-- =========================
+<!-- =====================================================
      PROJECTS
-========================= -->
+===================================================== -->
 
-<section class="projects" id="projects">
+<section
+  class="projects"
+  id="projects"
+>
 
   <div class="section-head">
 
@@ -1647,11 +2444,14 @@ footer{
 </section>
 
 
-<!-- =========================
+<!-- =====================================================
      DONATION
-========================= -->
+===================================================== -->
 
-<section class="donation" id="donation">
+<section
+  class="donation"
+  id="donation"
+>
 
   <div class="section-head">
 
@@ -1691,11 +2491,14 @@ footer{
 </section>
 
 
-<!-- =========================
+<!-- =====================================================
      SOCIAL
-========================= -->
+===================================================== -->
 
-<section class="social" id="social">
+<section
+  class="social"
+  id="social"
+>
 
   <div class="section-head">
 
@@ -1716,7 +2519,11 @@ footer{
 
   <div class="social-grid">
 
-    <a href="#" class="social-card">
+
+    <a
+      href="#"
+      class="social-card"
+    >
 
       <div class="social-icon">
         𝕏
@@ -1729,7 +2536,10 @@ footer{
     </a>
 
 
-    <a href="#" class="social-card">
+    <a
+      href="#"
+      class="social-card"
+    >
 
       <div class="social-icon">
         ◎
@@ -1742,7 +2552,10 @@ footer{
     </a>
 
 
-    <a href="#" class="social-card">
+    <a
+      href="#"
+      class="social-card"
+    >
 
       <div class="social-icon">
         ▶
@@ -1755,7 +2568,10 @@ footer{
     </a>
 
 
-    <a href="#" class="social-card">
+    <a
+      href="#"
+      class="social-card"
+    >
 
       <div class="social-icon">
         💬
@@ -1767,14 +2583,15 @@ footer{
 
     </a>
 
+
   </div>
 
 </section>
 
 
-<!-- =========================
+<!-- =====================================================
      FOOTER
-========================= -->
+===================================================== -->
 
 <footer>
 
@@ -1793,6 +2610,10 @@ footer{
 </footer>
 
 
+<!-- =====================================================
+     JAVASCRIPT
+===================================================== -->
+
 <script>
 
 function toggleMenu(){
@@ -1804,22 +2625,27 @@ function toggleMenu(){
 
 }
 
+
 document
   .querySelectorAll('.nav-links a')
   .forEach(function(link){
 
-    link.addEventListener('click',function(){
+    link.addEventListener(
+      'click',
+      function(){
 
-      document
-        .getElementById('navLinks')
-        .classList
-        .remove('active');
+        document
+          .getElementById('navLinks')
+          .classList
+          .remove('active');
 
-    });
+      }
+    );
 
   });
 
 </script>
+
 
 </body>
 </html>
