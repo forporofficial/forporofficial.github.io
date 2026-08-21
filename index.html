@@ -1,260 +1,199 @@
 <!DOCTYPE html>
-<html lang="th">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>FOR POR Official Fanclub</title>
-  <style>
-    *{margin:0;padding:0;box-sizing:border-box;scroll-behavior:smooth}
-    body{
-      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
-      background:linear-gradient(180deg,#03152d,#0d2f66,#d8ecff);
-      color:white;
-    }
+  <title>ForPor Official</title>
 
-    header{
-      position:fixed;
-      width:100%;
-      top:0;
-      left:0;
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      padding:18px 30px;
-      backdrop-filter:blur(12px);
-      background:rgba(0,20,60,.45);
-      z-index:1000;
-    }
-
-    .logo{
-      font-size:26px;
-      font-weight:700;
-      letter-spacing:2px;
-    }
-
-    nav a{
-      color:white;
-      text-decoration:none;
-      margin-left:20px;
-      font-size:14px;
-    }
-
-    .hero{
-      height:100vh;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      text-align:center;
-      padding:20px;
-      background:radial-gradient(circle at top,#4fa8ff55,transparent 60%);
-    }
-
-    .hero h1{
-      font-size:70px;
-      line-height:1;
-    }
-
-    .hero p{
-      margin-top:20px;
-      color:#dceeff;
-      font-size:18px;
-    }
-
-    .btn{
-      display:inline-block;
-      margin-top:30px;
-      padding:14px 28px;
-      border-radius:999px;
-      background:#84d7ff;
-      color:#002c57;
-      text-decoration:none;
-      font-weight:bold;
-    }
-
-    section{
-      max-width:1100px;
-      margin:auto;
-      padding:80px 20px;
-    }
-
-    h2{
-      font-size:34px;
-      margin-bottom:25px;
-    }
-
-    .glass{
-      background:rgba(255,255,255,.08);
-      border:1px solid rgba(255,255,255,.15);
-      backdrop-filter:blur(14px);
-      border-radius:24px;
-      padding:25px;
-    }
-
-    .grid{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
-      gap:20px;
-    }
-
-    .card{
-      background:rgba(255,255,255,.08);
-      border-radius:20px;
-      padding:20px;
-      backdrop-filter:blur(10px);
-    }
-
-    .progress{
-      width:100%;
-      height:10px;
-      border-radius:20px;
-      background:#ffffff30;
-      overflow:hidden;
-      margin:12px 0;
-    }
-
-    .progress span{
-      display:block;
-      height:100%;
-      width:60%;
-      background:linear-gradient(90deg,#7ed9ff,#3ea7ff);
-    }
-
-    .gallery{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
-      gap:12px;
-    }
-
-    .photo{
-      aspect-ratio:1;
-      border-radius:18px;
-      background:rgba(255,255,255,.15);
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      color:#bcdfff;
-    }
-
-    footer{
-      text-align:center;
-      padding:50px 20px;
-      color:#c8e6ff;
-      border-top:1px solid rgba(255,255,255,.1);
-    }
-
-    @media(max-width:768px){
-      header{padding:15px;flex-direction:column;gap:10px}
-      nav{display:flex;flex-wrap:wrap;justify-content:center}
-      nav a{margin:6px}
-      .hero h1{font-size:46px}
-    }
-  </style>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 </head>
 <body>
 
-<header>
-  <div class="logo">FOR POR</div>
-  <nav>
-    <a href="#profile">Profile</a>
-    <a href="#works">Works</a>
-    <a href="#schedule">Schedule</a>
-    <a href="#projects">Projects</a>
-    <a href="#gallery">Gallery</a>
-    <a href="#social">Social</a>
-  </nav>
+<div id="stars"></div>
+
+<header class="navbar">
+    <div class="logo">FORPOR OFFICIAL</div>
+
+    <nav>
+      <a href="#home">HOME</a>
+      <a href="#about">ABOUT POR</a>
+      <a href="#works">WORKS</a>
+      <a href="#schedule">SCHEDULE</a>
+      <a href="#projects">PROJECTS</a>
+      <a href="#gallery">GALLERY</a>
+      <a href="#social">SOCIAL</a>
+    </nav>
 </header>
 
-<section class="hero">
-  <div>
-    <h1>FOR POR</h1>
-    <h3>Official Fanclub</h3>
-    <p>Always beside you, in every step of your shining path.</p>
-    <a class="btn" href="#projects">Join Fan Project</a>
-  </div>
+<section class="hero" id="home">
+
+<div class="hero-text">
+
+<p class="small">FORPOR OFFICIAL FANCLUB</p>
+
+<h1>
+A SKY <span>full of</span><br> POR
+</h1>
+
+<p class="sub">Every Star Holds Our Story.</p>
+
+<a href="#about" class="button">ENTER WEBSITE ✦</a>
+
+</div>
+
+<img src="assets/hero.png" class="hero-image">
+
 </section>
 
-<section id="profile">
-  <h2>Profile & History</h2>
-  <div class="glass">
-    <h3>POR Suppakarn Jirachotikul</h3>
-    <p><strong>Birthday:</strong> 17 October 2002</p>
-    <p><strong>Fandom:</strong> #องครักษ์แห่งดินแดนน้ำแข็ง #vava</p>
-    <p><strong>Education:</strong> Dusit Thani College</p>
-    <p>หน้านี้จะใส่ประวัติเต็ม, สิ่งที่ชอบ, งานอดิเรก และข้อมูลทั้งหมดของ POR</p>
-  </div>
+<section class="countdown">
+<h2>Countdown to POR Birthday</h2>
+<div id="day">000</div>
+<p>20 September 2026</p>
 </section>
 
-<section id="works">
-  <h2>Works</h2>
-  <div class="grid">
-    <div class="card">🎬 Series</div>
-    <div class="card">🎥 Movie</div>
-    <div class="card">🎵 Music Video</div>
-    <div class="card">📖 Magazine / Photoshoot</div>
-  </div>
+<section class="about" id="about">
+
+<div class="about-photo">
+<img src="assets/profile.png">
+</div>
+
+<div class="about-info">
+
+<h2>POR SUPPAKARN</h2>
+
+<p>
+Actor • Singer • Performer
+</p>
+
+<p>
+Welcome to the official archive created by FORPOR.
+A place where every project, every event and every memory becomes another star in the sky.
+</p>
+
+<div class="profile-grid">
+<div><span>Birthday</span><strong>20 September</strong></div>
+<div><span>Height</span><strong>183 cm</strong></div>
+<div><span>Nationality</span><strong>Thailand</strong></div>
+<div><span>Fandom</span><strong>FORPOR</strong></div>
+</div>
+
+</div>
 </section>
 
-<section id="schedule">
-  <h2>Upcoming Schedule</h2>
-  <div class="glass">
-    <p>📅 15 Sep — Fansign Bangkok</p>
-    <p>📅 17 Oct — Birthday Event</p>
-    <p>📅 25 Oct — Concert</p>
-  </div>
+<section class="works" id="works">
+
+<h2>Works Archive</h2>
+
+<div class="cards">
+
+<div class="card">
+<img src="assets/stage.png">
+<h3>Series</h3>
+<p>Drama • BL Series • TV Shows</p>
+</div>
+
+<div class="card">
+<img src="assets/profile.png">
+<h3>Music Video</h3>
+<p>MV Collection</p>
+</div>
+
+<div class="card">
+<img src="assets/hero.png">
+<h3>Photoshoot</h3>
+<p>Magazine • Campaign • Editorial</p>
+</div>
+
+</div>
+
 </section>
 
-<section id="projects">
-  <h2>Projects</h2>
-  <div class="grid">
+<section class="schedule" id="schedule">
 
-    <div class="card">
-      <h3>🎂 Birthday Project 2026</h3>
-      <div class="progress"><span></span></div>
-      <p>48,520 / 80,000 THB</p>
-    </div>
+<h2>Upcoming Schedule</h2>
 
-    <div class="card">
-      <h3>🤍 2nd Anniversary Project</h3>
-      <p>Coming Soon</p>
-    </div>
+<div class="schedule-box">
 
-    <div class="card">
-      <h3>🎁 Food Support Project</h3>
-      <p>In Progress</p>
-    </div>
+<div class="item">
+<span>20 SEP 2026</span>
+<p>POR Birthday Project 2026</p>
+</div>
 
-  </div>
+<div class="item">
+<span>Coming Soon</span>
+<p>Fan Meeting</p>
+</div>
+
+<div class="item">
+<span>Coming Soon</span>
+<p>Official Event</p>
+</div>
+
+</div>
+
 </section>
 
-<section id="gallery">
-  <h2>Photo Gallery</h2>
-  <div class="gallery">
-    <div class="photo">PHOTO 1</div>
-    <div class="photo">PHOTO 2</div>
-    <div class="photo">PHOTO 3</div>
-    <div class="photo">PHOTO 4</div>
-    <div class="photo">PHOTO 5</div>
-    <div class="photo">PHOTO 6</div>
-  </div>
+<section class="projects" id="projects">
+
+<h2>Fan Projects</h2>
+
+<div class="cards">
+<div class="project-card">
+<h3>#ASkyFullOfPor24th</h3>
+<p>Birthday Project 2026</p>
+</div>
+
+<div class="project-card">
+<h3>POR WRAP UP</h3>
+<p>Trend Support Project</p>
+</div>
+
+<div class="project-card">
+<h3>Donation</h3>
+<p>Progress 72%</p>
+<div class="progress"><div class="bar"></div></div>
+</div>
+</div>
 </section>
 
-<section id="social">
-  <h2>Social Media</h2>
-  <div class="grid">
-    <div class="card">𝕏 @porsuppakarn</div>
-    <div class="card">Instagram</div>
-    <div class="card">TikTok</div>
-    <div class="card">Weibo</div>
-    <div class="card">OpenChat</div>
-    <div class="card">FOR POR Official</div>
-  </div>
+<section class="gallery" id="gallery">
+
+<h2>Gallery</h2>
+
+<div class="gallery-grid">
+<img src="assets/hero.png">
+<img src="assets/profile.png">
+<img src="assets/stage.png">
+<img src="assets/hero.png">
+<img src="assets/profile.png">
+<img src="assets/stage.png">
+</div>
+
+</section>
+
+<section class="social" id="social">
+
+<h2>Follow FORPOR</h2>
+
+<div class="social-links">
+<a href="#">X / Twitter</a>
+<a href="#">Instagram</a>
+<a href="#">TikTok</a>
+<a href="#">Weibo</a>
+<a href="#">LINE OpenChat</a>
+</div>
+
 </section>
 
 <footer>
-  <h2>FOR POR Official Fanclub</h2>
-  <p>All for POR. Always for POR.</p>
-  <p>© 2026 FOR POR Official Fanclub</p>
+<p>FORPOR OFFICIAL</p>
+<span>A Sky Full of POR ✦ Every Star Holds Our Story.</span>
 </footer>
+
+<script src="script.js"></script>
 
 </body>
 </html>
