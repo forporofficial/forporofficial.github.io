@@ -4,13 +4,30 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>FOR POR SUPPAKARN</title>
+<title>FOR POR Official</title>
+
+<meta name="description"
+content="FOR POR Official — Fanclub archive, schedule, projects, gallery and support for POR SUPPAKARN.">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=Prompt:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+Thai:wght@400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
+
+:root{
+  --blue:#8ec5e8;
+  --deep:#183b5b;
+  --navy:#102b45;
+  --white:#ffffff;
+  --gold:#d8b86a;
+  --soft:#eef8ff;
+  --text:#24425b;
+  --muted:#71879a;
+  --glass:rgba(255,255,255,.72);
+  --shadow:0 18px 50px rgba(38,87,120,.12);
+  --radius:28px;
+}
 
 *{
   box-sizing:border-box;
@@ -23,1663 +40,947 @@ html{
 }
 
 body{
-  font-family:'Prompt',sans-serif;
-  color:#29485f;
-  background:#f8fcff;
+  font-family:"Noto Sans Thai","Inter",sans-serif;
+  color:var(--text);
+  background:
+    radial-gradient(circle at 10% 10%,rgba(255,255,255,.95),transparent 28%),
+    radial-gradient(circle at 90% 20%,rgba(174,220,247,.45),transparent 30%),
+    linear-gradient(180deg,#eaf7ff 0%,#f8fcff 45%,#eef8ff 100%);
   overflow-x:hidden;
 }
 
-a{
-  text-decoration:none;
-  color:inherit;
+/* =========================
+   BACKGROUND
+========================= */
+
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  background-image:
+    radial-gradient(circle,rgba(255,255,255,.8) 1px,transparent 1px);
+  background-size:45px 45px;
+  opacity:.35;
+  z-index:-1;
 }
 
+a{
+  color:inherit;
+  text-decoration:none;
+}
 
-/* =====================================================
-   NAV
-===================================================== */
+button{
+  font-family:inherit;
+}
+
+/* =========================
+   NAVIGATION
+========================= */
 
 .navbar{
   position:fixed;
-  top:0;
-  left:0;
-  width:100%;
-  height:68px;
+  top:18px;
+  left:50%;
+  transform:translateX(-50%);
+  width:min(1180px,calc(100% - 28px));
   z-index:1000;
 
   display:flex;
   align-items:center;
   justify-content:space-between;
 
-  padding:0 6%;
+  padding:12px 18px;
 
-  background:rgba(255,255,255,.88);
+  background:rgba(255,255,255,.78);
   backdrop-filter:blur(18px);
+  -webkit-backdrop-filter:blur(18px);
 
-  border-bottom:1px solid rgba(31,75,103,.08);
+  border:1px solid rgba(255,255,255,.85);
+  box-shadow:0 12px 40px rgba(37,89,123,.12);
+  border-radius:999px;
 }
 
 .logo{
-  font-family:'Playfair Display',serif;
-  font-size:23px;
-  letter-spacing:3px;
-  color:#173b5b;
+  display:flex;
+  align-items:center;
+  gap:10px;
+  font-weight:800;
+  letter-spacing:1px;
+  color:var(--deep);
+  white-space:nowrap;
 }
 
-.logo span{
-  color:#c3a166;
+.logo-mark{
+  width:38px;
+  height:38px;
+  border-radius:50%;
+  display:grid;
+  place-items:center;
+  color:white;
+  background:linear-gradient(135deg,var(--deep),var(--blue));
+  box-shadow:0 8px 20px rgba(24,59,91,.2);
 }
 
 .nav-links{
   display:flex;
   align-items:center;
-  gap:19px;
-  list-style:none;
+  gap:5px;
 }
 
 .nav-links a{
-  font-size:9px;
-  letter-spacing:1px;
-  color:#45677d;
-  transition:.3s;
+  padding:9px 11px;
+  border-radius:999px;
+  font-size:12px;
+  font-weight:600;
+  color:#47677e;
+  transition:.25s;
 }
 
 .nav-links a:hover{
-  color:#b28c4c;
+  background:#e8f6ff;
+  color:var(--deep);
 }
 
-.menu{
+.menu-btn{
   display:none;
   border:0;
   background:none;
-  font-size:27px;
-  color:#173b5b;
+  font-size:25px;
+  color:var(--deep);
+  cursor:pointer;
 }
 
-
-/* =====================================================
+/* =========================
    HERO
-===================================================== */
+========================= */
 
 .hero{
   min-height:100vh;
-  padding-top:68px;
+  padding:130px 6% 70px;
+
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  align-items:center;
+  gap:50px;
 
   position:relative;
-  overflow:hidden;
-
-  background:
-    radial-gradient(
-      circle at 50% 25%,
-      #ffffff 0%,
-      #eef9ff 32%,
-      #dceff9 57%,
-      #f8fcff 83%,
-      #ffffff 100%
-    );
 }
 
-.hero-inner{
-  position:relative;
-  z-index:5;
+.hero-content{
+  max-width:600px;
+}
 
-  width:92%;
-  max-width:1100px;
-
-  min-height:calc(100vh - 68px);
-
-  margin:auto;
-
-  display:flex;
-  flex-direction:column;
+.eyebrow{
+  display:inline-flex;
   align-items:center;
+  gap:8px;
+  padding:8px 14px;
+  margin-bottom:22px;
 
-  text-align:center;
+  background:rgba(255,255,255,.7);
+  border:1px solid rgba(255,255,255,.9);
+  border-radius:999px;
 
-  padding-top:30px;
+  color:#55738a;
+  font-size:12px;
+  font-weight:700;
+  letter-spacing:1.5px;
+}
+
+.hero h1{
+  font-size:clamp(48px,7vw,92px);
+  line-height:.95;
+  letter-spacing:-4px;
+  color:var(--deep);
+  margin-bottom:18px;
+}
+
+.hero h1 span{
+  color:var(--blue);
+}
+
+.hero-subtitle{
+  font-size:clamp(18px,2vw,25px);
+  color:#547086;
+  font-weight:500;
+  margin-bottom:12px;
+}
+
+.hero-description{
+  max-width:520px;
+  color:var(--muted);
+  line-height:1.9;
+  margin-bottom:30px;
+}
+
+.hero-actions{
+  display:flex;
+  flex-wrap:wrap;
+  gap:12px;
+}
+
+.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+
+  padding:13px 20px;
+  border-radius:999px;
+
+  font-size:13px;
+  font-weight:700;
+
+  border:1px solid transparent;
+  cursor:pointer;
+  transition:.25s;
+}
+
+.btn-primary{
+  background:var(--deep);
+  color:white;
+  box-shadow:0 12px 25px rgba(24,59,91,.2);
+}
+
+.btn-primary:hover{
+  transform:translateY(-2px);
+}
+
+.btn-light{
+  background:rgba(255,255,255,.72);
+  border-color:rgba(255,255,255,.9);
+  color:var(--deep);
 }
 
 .hero-photo{
   position:relative;
-
-  width:100%;
-  height:54vh;
-  min-height:390px;
-  max-height:650px;
-
   display:flex;
-  align-items:flex-end;
   justify-content:center;
+  align-items:center;
 }
 
-.hero-glow{
+.photo-glow{
   position:absolute;
-
-  width:min(680px,90vw);
-  height:min(680px,90vw);
-
-  left:50%;
-  bottom:-160px;
-
-  transform:translateX(-50%);
-
+  width:450px;
+  height:450px;
   border-radius:50%;
-
-  background:
-    radial-gradient(
-      circle,
-      rgba(255,255,255,1),
-      rgba(240,250,255,.9) 40%,
-      rgba(180,218,237,.35) 68%,
-      transparent 78%
-    );
-
-  filter:blur(8px);
+  background:radial-gradient(circle,rgba(142,197,232,.5),transparent 68%);
+  filter:blur(5px);
 }
 
 .hero-photo img{
   position:relative;
-  z-index:4;
-
-  max-width:92%;
-  max-height:100%;
-
-  width:auto;
-  height:auto;
-
+  width:min(480px,90%);
+  max-height:680px;
   object-fit:contain;
+  object-position:center bottom;
 
   filter:
-    drop-shadow(0 20px 30px rgba(28,67,91,.14))
-    drop-shadow(0 0 30px rgba(255,255,255,.85));
-
-  -webkit-mask-image:
-    linear-gradient(
-      to bottom,
-      transparent 0%,
-      #000 5%,
-      #000 88%,
-      transparent 100%
-    );
-
-  mask-image:
-    linear-gradient(
-      to bottom,
-      transparent 0%,
-      #000 5%,
-      #000 88%,
-      transparent 100%
-    );
-
-  transition:.5s;
-}
-
-.hero-photo img:hover{
-  transform:translateY(-7px);
-}
-
-.hero-light{
-  position:absolute;
-
-  width:500px;
-  height:180px;
-
-  bottom:0;
-  left:50%;
-
-  transform:translateX(-50%);
-
-  background:
-    radial-gradient(
-      ellipse,
-      rgba(255,255,255,1),
-      transparent 70%
-    );
-
-  filter:blur(18px);
-}
-
-.star{
-  position:absolute;
-
-  width:4px;
-  height:4px;
-
-  border-radius:50%;
-
-  background:white;
-
-  box-shadow:0 0 13px white;
-
-  animation:twinkle 3s infinite alternate;
-}
-
-.s1{top:13%;left:8%}
-.s2{top:20%;left:25%}
-.s3{top:11%;right:18%}
-.s4{top:29%;right:7%}
-.s5{top:45%;left:6%}
-.s6{top:48%;right:9%}
-.s7{top:35%;left:43%}
-.s8{top:55%;right:23%}
-
-@keyframes twinkle{
-  from{
-    opacity:.25;
-    transform:scale(.7);
-  }
-
-  to{
-    opacity:1;
-    transform:scale(1.4);
-  }
-}
-
-.hero-copy{
-  position:relative;
-  z-index:10;
-}
-
-.eyebrow{
-  font-size:9px;
-  letter-spacing:5px;
-  color:#b18b4b;
-  margin-bottom:10px;
-}
-
-.hero-title{
-  font-family:'DM Serif Display',serif;
-
-  font-size:clamp(48px,7vw,82px);
-
-  line-height:.95;
-
-  font-weight:400;
-
-  color:#173b5b;
-}
-
-.hero-title span{
-  color:#c3a166;
-}
-
-.hero-subtitle{
-  margin-top:13px;
-
-  font-family:'Playfair Display',serif;
-
-  font-size:clamp(17px,2.5vw,25px);
-
-  font-style:italic;
-
-  color:#638298;
-}
-
-.hero-description{
-  max-width:650px;
-
-  margin:12px auto 0;
-
-  font-size:12px;
-
-  line-height:1.9;
-
-  color:#6d8799;
-}
-
-.hero-buttons{
-  display:flex;
-  justify-content:center;
-  flex-wrap:wrap;
-
-  gap:10px;
-
-  margin-top:19px;
-}
-
-.btn{
-  min-width:140px;
-
-  padding:11px 22px;
+    drop-shadow(0 25px 35px rgba(39,83,111,.18));
 
   border-radius:30px;
-
-  font-size:9px;
-
-  letter-spacing:1px;
-
-  transition:.3s;
 }
 
-.btn-primary{
-  background:#173b5b;
-  color:white;
+/* =========================
+   SECTION
+========================= */
+
+section{
+  padding:90px 6%;
+  scroll-margin-top:100px;
 }
 
-.btn-secondary{
-  background:rgba(255,255,255,.6);
-
-  border:1px solid rgba(23,59,91,.3);
-
-  color:#173b5b;
-}
-
-.btn:hover{
-  transform:translateY(-3px);
-  box-shadow:0 10px 22px rgba(35,76,101,.12);
-}
-
-
-/* =====================================================
-   PROFILE
-===================================================== */
-
-.por-profile{
-  position:relative;
-  overflow:hidden;
-
-  padding:110px 7%;
-
-  background:
-    radial-gradient(
-      circle at 15% 20%,
-      rgba(210,238,250,.65),
-      transparent 30%
-    ),
-    radial-gradient(
-      circle at 85% 80%,
-      rgba(227,241,249,.9),
-      transparent 32%
-    ),
-    linear-gradient(
-      135deg,
-      #f9fdff,
-      #eef8fd,
-      #ffffff
-    );
-}
-
-.profile-container{
-  max-width:1150px;
+.section-inner{
+  max-width:1180px;
   margin:auto;
 }
 
-.profile-heading{
-  text-align:center;
-  margin-bottom:60px;
+.section-heading{
+  margin-bottom:35px;
 }
 
-.profile-heading span{
-  display:block;
-  font-size:9px;
-  letter-spacing:4px;
-  color:#b18b4b;
-  margin-bottom:10px;
-}
-
-.profile-heading h2{
-  font-family:'DM Serif Display',serif;
-  font-size:52px;
-  font-weight:400;
-  color:#173b5b;
-}
-
-.profile-heading p{
-  margin-top:8px;
-  font-family:'Playfair Display',serif;
-  font-size:17px;
-  font-style:italic;
-  color:#7793a5;
-}
-
-.profile-main{
-  display:grid;
-
-  grid-template-columns:
-    minmax(300px,.9fr)
-    minmax(400px,1.1fr);
-
-  gap:75px;
-
-  align-items:center;
-}
-
-.profile-image-wrap{
-  position:relative;
-
-  min-height:570px;
-
-  display:flex;
-
-  align-items:center;
-  justify-content:center;
-}
-
-.profile-image-glow{
-  position:absolute;
-
-  width:470px;
-  height:470px;
-
-  border-radius:50%;
-
-  background:
-    radial-gradient(
-      circle,
-      white,
-      rgba(220,241,250,.85) 45%,
-      rgba(180,218,237,.35) 65%,
-      transparent 75%
-    );
-
-  filter:blur(10px);
-}
-
-.profile-image-card{
-  position:relative;
-
-  width:100%;
-  height:570px;
-
-  display:flex;
-  align-items:flex-end;
-  justify-content:center;
-
-  overflow:hidden;
-
-  border-radius:35px;
-
-  background:
-    linear-gradient(
-      160deg,
-      #eaf7fc,
-      #ffffff 52%,
-      #dceff8
-    );
-
-  border:1px solid rgba(129,178,205,.22);
-
-  box-shadow:
-    0 25px 55px rgba(42,86,111,.12);
-}
-
-.profile-image-card img{
-  position:relative;
-  z-index:1;
-
-  width:auto;
-  height:100%;
-
-  max-width:100%;
-
-  object-fit:contain;
-
-  filter:
-    drop-shadow(
-      0 18px 30px
-      rgba(30,68,91,.14)
-    );
-}
-
-.profile-star{
-  position:absolute;
-  z-index:5;
-
-  color:#bfa05f;
-
-  font-size:22px;
-
-  text-shadow:0 0 15px white;
-}
-
-.star-a{
-  top:15%;
-  right:4%;
-}
-
-.star-b{
-  top:42%;
-  left:2%;
-}
-
-.star-c{
-  bottom:15%;
-  right:8%;
-}
-
-.profile-label{
-  font-size:9px;
-  letter-spacing:4px;
-  color:#b18b4b;
-}
-
-.profile-content h3{
-  margin-top:8px;
-
-  font-family:'DM Serif Display',serif;
-
-  font-size:52px;
-
-  line-height:1;
-
-  font-weight:400;
-
-  color:#173b5b;
-}
-
-.profile-content h3 span{
-  color:#b18b4b;
-}
-
-.profile-line{
-  width:65px;
-  height:2px;
-
-  margin:22px 0;
-
-  background:#c3a166;
-}
-
-.profile-intro{
-  font-size:13px;
-
-  line-height:2.05;
-
-  color:#6f8899;
-
-  max-width:620px;
-}
-
-.profile-info-grid{
-  display:grid;
-
-  grid-template-columns:1fr 1fr;
-
-  gap:13px;
-
-  margin-top:30px;
-}
-
-.profile-info-item{
-  padding:17px 18px;
-
-  border-radius:15px;
-
-  background:rgba(255,255,255,.72);
-
-  border:1px solid rgba(135,179,201,.2);
-}
-
-.profile-info-item span{
-  display:block;
-
-  font-size:8px;
-
+.section-kicker{
+  color:var(--gold);
+  font-size:12px;
+  font-weight:800;
   letter-spacing:2px;
-
-  color:#a0804c;
-
-  margin-bottom:5px;
-}
-
-.profile-info-item strong{
-  display:block;
-
-  font-size:11px;
-
-  font-weight:500;
-
-  color:#31566d;
-}
-
-.profile-quote{
-  margin-top:27px;
-
-  padding:18px 20px;
-
-  border-left:2px solid #c3a166;
-
-  background:rgba(255,255,255,.45);
-
-  font-family:'Playfair Display',serif;
-
-  font-size:15px;
-
-  font-style:italic;
-
-  line-height:1.7;
-
-  color:#658194;
-}
-
-.profile-quote span{
-  color:#b18b4b;
-  font-size:25px;
-}
-
-.profile-buttons{
-  display:flex;
-
-  flex-wrap:wrap;
-
-  gap:10px;
-
-  margin-top:27px;
-}
-
-.profile-btn{
-  padding:12px 21px;
-
-  border-radius:25px;
-
-  font-size:9px;
-
-  letter-spacing:1px;
-
-  transition:.3s;
-}
-
-.profile-btn-primary{
-  background:#173b5b;
-  color:white;
-}
-
-.profile-btn-secondary{
-  background:white;
-
-  color:#173b5b;
-
-  border:1px solid #d5e5ee;
-}
-
-.profile-btn:hover{
-  transform:translateY(-3px);
-}
-
-.profile-story{
-  display:grid;
-
-  grid-template-columns:1fr 1fr;
-
-  gap:18px;
-
-  margin-top:70px;
-}
-
-.story-card{
-  display:flex;
-
-  gap:20px;
-
-  padding:28px;
-
-  border-radius:23px;
-
-  background:rgba(255,255,255,.72);
-
-  border:1px solid rgba(131,178,202,.2);
-}
-
-.story-icon{
-  min-width:45px;
-  height:45px;
-
-  display:flex;
-  align-items:center;
-  justify-content:center;
-
-  border-radius:50%;
-
-  background:#edf8fd;
-
-  color:#b18b4b;
-
-  font-size:20px;
-}
-
-.story-card span{
-  font-size:8px;
-
-  letter-spacing:3px;
-
-  color:#b18b4b;
-}
-
-.story-card h4{
-  margin-top:5px;
-
-  font-family:'DM Serif Display',serif;
-
-  font-size:25px;
-
-  font-weight:400;
-
-  color:#173b5b;
-}
-
-.story-card p{
-  margin-top:8px;
-
-  font-size:11px;
-
-  line-height:1.9;
-
-  color:#7890a1;
-}
-
-
-/* =====================================================
-   STEP 3 — WORKS / ARCHIVE
-===================================================== */
-
-.works{
-  position:relative;
-
-  overflow:hidden;
-
-  background:
-    radial-gradient(
-      circle at 10% 20%,
-      rgba(210,238,250,.75),
-      transparent 28%
-    ),
-    radial-gradient(
-      circle at 90% 80%,
-      rgba(225,241,249,.8),
-      transparent 30%
-    ),
-    #f8fcff;
-}
-
-.works:before{
-  content:"✦";
-
-  position:absolute;
-
-  top:90px;
-  left:6%;
-
-  font-size:20px;
-
-  color:#c3a166;
-
-  opacity:.55;
-}
-
-.works:after{
-  content:"✧";
-
-  position:absolute;
-
-  right:7%;
-  bottom:100px;
-
-  font-size:28px;
-
-  color:#b18b4b;
-
-  opacity:.35;
-}
-
-.section-head{
-  max-width:800px;
-
-  margin:0 auto 50px;
-
-  text-align:center;
-
-  position:relative;
-
-  z-index:2;
-}
-
-.section-small{
-  font-size:9px;
-
-  letter-spacing:4px;
-
-  color:#b18b4b;
+  text-transform:uppercase;
+  margin-bottom:7px;
 }
 
 .section-title{
-  margin-top:8px;
-
-  font-family:'DM Serif Display',serif;
-
-  font-size:48px;
-
-  font-weight:400;
-
-  color:#173b5b;
+  color:var(--deep);
+  font-size:clamp(30px,4vw,48px);
+  line-height:1.1;
+  margin-bottom:8px;
 }
 
-.section-desc{
-  margin-top:10px;
-
-  font-size:12px;
-
-  color:#7890a1;
+.section-description{
+  color:var(--muted);
+  max-width:650px;
+  line-height:1.8;
 }
 
+/* =========================
+   GLASS CARD
+========================= */
 
-/* WORK CATEGORY */
+.card{
+  background:var(--glass);
+  backdrop-filter:blur(18px);
+  -webkit-backdrop-filter:blur(18px);
 
-.work-tabs{
-  max-width:1050px;
-
-  margin:0 auto 38px;
-
-  display:flex;
-
-  justify-content:center;
-
-  flex-wrap:wrap;
-
-  gap:10px;
-
-  position:relative;
-
-  z-index:3;
+  border:1px solid rgba(255,255,255,.85);
+  border-radius:var(--radius);
+  box-shadow:var(--shadow);
 }
 
-.work-tab{
-  border:1px solid #d8e8f0;
+/* =========================
+   PROFILE
+========================= */
 
-  background:rgba(255,255,255,.75);
-
-  color:#57758b;
-
-  padding:10px 20px;
-
-  border-radius:30px;
-
-  font-size:9px;
-
-  letter-spacing:1px;
-
-  cursor:pointer;
-
-  transition:.3s;
-}
-
-.work-tab:hover,
-.work-tab.active{
-  background:#173b5b;
-
-  color:white;
-
-  border-color:#173b5b;
-
-  transform:translateY(-2px);
-}
-
-
-/* WORK GRID */
-
-.work-grid{
-  max-width:1100px;
-
-  margin:auto;
-
+.profile-grid{
   display:grid;
-
-  grid-template-columns:
-    repeat(3,1fr);
-
-  gap:20px;
-
-  position:relative;
-
-  z-index:2;
+  grid-template-columns:1fr 1.4fr;
+  gap:24px;
 }
 
+.profile-intro{
+  padding:35px;
+  text-align:center;
+}
 
-/* WORK CARD */
+.profile-avatar{
+  width:180px;
+  height:180px;
+  margin:0 auto 22px;
+
+  border-radius:50%;
+  object-fit:cover;
+
+  border:8px solid rgba(255,255,255,.8);
+  box-shadow:0 15px 35px rgba(35,82,110,.15);
+}
+
+.profile-intro h3{
+  color:var(--deep);
+  font-size:25px;
+  margin-bottom:4px;
+}
+
+.profile-intro p{
+  color:var(--muted);
+  font-size:13px;
+}
+
+.profile-info{
+  padding:35px;
+}
+
+.info-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:13px;
+}
+
+.info-item{
+  padding:17px;
+  border-radius:18px;
+  background:rgba(238,248,255,.8);
+}
+
+.info-label{
+  display:block;
+  color:var(--gold);
+  font-size:11px;
+  font-weight:800;
+  letter-spacing:.8px;
+  margin-bottom:4px;
+}
+
+.info-value{
+  color:var(--deep);
+  font-size:14px;
+  font-weight:600;
+}
+
+/* =========================
+   WORKS
+========================= */
+
+.cards-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:20px;
+}
 
 .work-card{
-  position:relative;
-
-  min-height:360px;
-
   overflow:hidden;
-
-  border-radius:25px;
-
-  background:
-    linear-gradient(
-      145deg,
-      #e7f5fc,
-      #ffffff
-    );
-
-  border:1px solid #dcecf4;
-
-  box-shadow:
-    0 12px 30px rgba(39,82,107,.06);
-
-  transition:.4s;
-}
-
-.work-card:hover{
-  transform:translateY(-8px);
-
-  box-shadow:
-    0 25px 45px rgba(39,82,107,.12);
 }
 
 .work-image{
-  height:220px;
-
-  display:flex;
-
-  align-items:center;
-
-  justify-content:center;
-
-  overflow:hidden;
-
-  position:relative;
-
-  background:
-    radial-gradient(
-      circle at center,
-      #ffffff,
-      #dceff8
-    );
+  width:100%;
+  height:250px;
+  object-fit:cover;
+  background:#dcecf6;
 }
 
-.work-image:after{
-  content:"";
-
-  position:absolute;
-
-  inset:0;
-
-  background:
-    linear-gradient(
-      to top,
-      rgba(23,59,91,.08),
-      transparent 55%
-    );
-}
-
-.work-image span{
-  font-family:'Playfair Display',serif;
-
-  font-size:34px;
-
-  color:rgba(23,59,91,.18);
-
-  letter-spacing:4px;
-}
-
-.work-content{
-  padding:22px 23px 24px;
-}
-
-.work-type{
-  font-size:8px;
-
-  letter-spacing:3px;
-
-  color:#b18b4b;
-}
-
-.work-title{
-  margin-top:7px;
-
-  font-family:'DM Serif Display',serif;
-
-  font-size:27px;
-
-  font-weight:400;
-
-  color:#173b5b;
+.work-body{
+  padding:22px;
 }
 
 .work-year{
-  margin-top:5px;
-
-  font-size:10px;
-
-  color:#9aaeba;
-}
-
-.work-description{
-  margin-top:10px;
-
+  color:var(--gold);
   font-size:11px;
-
-  line-height:1.8;
-
-  color:#718b9c;
+  font-weight:800;
+  letter-spacing:1px;
 }
 
-
-/* FEATURE WORK */
-
-.work-feature{
-  grid-column:span 2;
-
-  min-height:400px;
-
-  display:grid;
-
-  grid-template-columns:1fr 1fr;
+.work-title{
+  color:var(--deep);
+  font-size:19px;
+  font-weight:800;
+  margin:5px 0;
 }
 
-.work-feature .work-image{
-  height:100%;
-
-  min-height:400px;
+.work-meta{
+  color:var(--muted);
+  font-size:12px;
 }
 
-.work-feature .work-title{
-  font-size:34px;
-}
+/* =========================
+   SCHEDULE
+========================= */
 
-.work-feature .work-content{
+.schedule-list{
   display:flex;
-
   flex-direction:column;
-
-  justify-content:center;
-
-  padding:45px;
+  gap:16px;
 }
 
-
-/* ARCHIVE NOTE */
-
-.archive-note{
-  max-width:900px;
-
-  margin:48px auto 0;
-
-  padding:25px 28px;
-
-  display:flex;
-
-  align-items:center;
-
-  gap:18px;
-
-  border-radius:20px;
-
-  background:rgba(255,255,255,.75);
-
-  border:1px solid #deedf4;
-
-  position:relative;
-
-  z-index:2;
-}
-
-.archive-note-icon{
-  min-width:48px;
-
-  height:48px;
-
-  display:flex;
-
-  align-items:center;
-
-  justify-content:center;
-
-  border-radius:50%;
-
-  background:#edf8fd;
-
-  color:#b18b4b;
-
-  font-size:21px;
-}
-
-.archive-note strong{
-  display:block;
-
-  font-family:'DM Serif Display',serif;
-
-  font-size:22px;
-
-  font-weight:400;
-
-  color:#173b5b;
-}
-
-.archive-note p{
-  margin-top:4px;
-
-  font-size:10px;
-
-  line-height:1.8;
-
-  color:#7890a1;
-}
-
-
-/* =====================================================
-   OTHER SECTIONS
-===================================================== */
-
-.schedule,
-.gallery,
-.donation{
-  padding:95px 7%;
-}
-
-.schedule{
-  background:white;
-}
-
-.info-box{
-  max-width:1000px;
-
-  margin:auto;
-
-  padding:50px 30px;
-
-  text-align:center;
-
-  border-radius:28px;
-
-  background:
-    linear-gradient(
-      135deg,
-      #edf8ff,
-      #fff
-    );
-
-  border:1px solid #dfedf5;
-}
-
-.info-icon{
-  font-size:45px;
-}
-
-.info-box h3{
-  margin-top:12px;
-
-  font-family:'DM Serif Display',serif;
-
-  font-size:36px;
-
-  font-weight:400;
-
-  color:#173b5b;
-}
-
-.info-box p{
-  max-width:650px;
-
-  margin:12px auto 0;
-
-  font-size:12px;
-
-  line-height:2;
-
-  color:#7890a1;
-}
-
-
-/* STAR MAP */
-
-.star-map{
-  padding:95px 7%;
-
-  background:
-    radial-gradient(
-      circle at 20% 30%,
-      rgba(140,197,226,.3),
-      transparent 30%
-    ),
-    linear-gradient(
-      135deg,
-      #edf8ff,
-      #fff
-    );
-}
-
-.star-map-box{
-  max-width:1050px;
-
-  margin:auto;
-
-  padding:60px 30px;
-
-  text-align:center;
-
-  border-radius:30px;
-
-  background:rgba(255,255,255,.7);
-
-  border:1px solid rgba(125,174,204,.25);
-}
-
-.big-star{
-  font-size:52px;
-}
-
-.star-map-box h3{
-  margin-top:10px;
-
-  font-family:'DM Serif Display',serif;
-
-  font-size:38px;
-
-  font-weight:400;
-
-  color:#173b5b;
-}
-
-.star-map-box p{
-  max-width:680px;
-
-  margin:16px auto 0;
-
-  font-size:12px;
-
-  line-height:2;
-
-  color:#6f889a;
-}
-
-
-/* FAN GUIDE */
-
-#guide{
-  padding:95px 7%;
-
-  background:white;
-}
-
-
-/* GALLERY */
-
-.gallery{
-  background:#f3faff;
-}
-
-.gallery-grid{
-  max-width:1100px;
-
-  margin:auto;
-
+.schedule-card{
   display:grid;
-
-  grid-template-columns:
-    repeat(3,1fr);
-
-  gap:17px;
-}
-
-.gallery-item{
-  height:255px;
-
-  display:flex;
-
+  grid-template-columns:150px 1fr auto;
+  gap:20px;
   align-items:center;
-
-  justify-content:center;
-
-  border-radius:22px;
-
-  background:
-    linear-gradient(
-      145deg,
-      #dceef9,
-      #f9fcff
-    );
-
-  border:1px solid #e2edf4;
+  padding:23px;
 }
 
-.gallery-item span{
-  font-family:'Playfair Display',serif;
-
-  font-size:28px;
-
-  color:rgba(23,59,91,.22);
+.schedule-date{
+  text-align:center;
+  padding:15px;
+  background:#e8f6ff;
+  border-radius:20px;
 }
 
-
-/* PROJECTS */
-
-.projects{
-  padding:95px 7%;
-
-  background:white;
+.schedule-date strong{
+  display:block;
+  color:var(--deep);
+  font-size:18px;
 }
 
-.project-main{
-  max-width:1100px;
-
-  margin:auto;
-
-  padding:48px;
-
-  border-radius:30px;
-
-  background:
-    linear-gradient(
-      135deg,
-      #edf8ff,
-      #fff
-    );
-
-  border:1px solid #dfedf5;
+.schedule-date span{
+  color:var(--gold);
+  font-size:11px;
+  font-weight:800;
 }
 
-.project-main h3{
-  font-family:'DM Serif Display',serif;
-
-  font-size:40px;
-
-  font-weight:400;
-
-  color:#173b5b;
+.schedule-title{
+  color:var(--deep);
+  font-size:18px;
+  font-weight:800;
 }
 
-.project-tagline{
-  margin-top:8px;
-
-  font-family:'Playfair Display',serif;
-
-  font-size:20px;
-
-  font-style:italic;
-
-  color:#b18b4b;
-}
-
-.project-main p{
-  max-width:850px;
-
-  margin-top:18px;
-
-  font-size:12px;
-
-  line-height:2;
-
-  color:#6d8799;
-}
-
-.tags{
+.schedule-meta{
   display:flex;
-
   flex-wrap:wrap;
-
-  gap:9px;
-
-  margin-top:22px;
+  gap:10px;
+  margin-top:6px;
+  color:var(--muted);
+  font-size:12px;
 }
 
 .tag{
-  padding:7px 14px;
+  display:inline-flex;
+  padding:6px 10px;
+  border-radius:999px;
+  background:#edf8ff;
+  color:#52738a;
+  font-size:11px;
+  font-weight:700;
+}
 
+/* =========================
+   STAR MAP
+========================= */
+
+.star-map{
+  position:relative;
+  padding:45px 20px;
+  overflow:hidden;
+}
+
+.stars{
+  position:absolute;
+  inset:0;
+  background-image:
+    radial-gradient(circle,rgba(255,255,255,.9) 1px,transparent 1px);
+  background-size:40px 40px;
+  opacity:.45;
+}
+
+.timeline{
+  position:relative;
+  max-width:850px;
+  margin:auto;
+}
+
+.timeline::before{
+  content:"";
+  position:absolute;
+  left:50%;
+  top:0;
+  bottom:0;
+  width:2px;
+  background:linear-gradient(var(--blue),var(--gold));
+  transform:translateX(-50%);
+}
+
+.timeline-item{
+  position:relative;
+  width:50%;
+  padding:20px 40px;
+}
+
+.timeline-item:nth-child(odd){
+  left:0;
+  text-align:right;
+}
+
+.timeline-item:nth-child(even){
+  left:50%;
+}
+
+.timeline-dot{
+  position:absolute;
+  top:28px;
+  width:13px;
+  height:13px;
+  border-radius:50%;
+  background:white;
+  border:3px solid var(--gold);
+  box-shadow:0 0 0 5px rgba(216,184,106,.12);
+}
+
+.timeline-item:nth-child(odd) .timeline-dot{
+  right:-7px;
+}
+
+.timeline-item:nth-child(even) .timeline-dot{
+  left:-7px;
+}
+
+.timeline-year{
+  color:var(--gold);
+  font-size:12px;
+  font-weight:800;
+}
+
+.timeline-title{
+  color:var(--deep);
+  font-weight:800;
+  margin:3px 0;
+}
+
+.timeline-text{
+  color:var(--muted);
+  font-size:12px;
+  line-height:1.7;
+}
+
+/* =========================
+   FAN GUIDE
+========================= */
+
+.guide-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:18px;
+}
+
+.guide-card{
+  padding:28px;
+}
+
+.guide-icon{
+  font-size:28px;
+  margin-bottom:13px;
+}
+
+.guide-card h3{
+  color:var(--deep);
+  margin-bottom:8px;
+}
+
+.guide-card p{
+  color:var(--muted);
+  font-size:13px;
+  line-height:1.8;
+}
+
+/* =========================
+   GALLERY
+========================= */
+
+.gallery-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:12px;
+}
+
+.gallery-item{
+  height:230px;
+  overflow:hidden;
   border-radius:20px;
-
-  background:white;
-
-  border:1px solid #dfebf2;
-
-  font-size:9px;
-
-  color:#57758b;
+  cursor:pointer;
+  background:#dcecf6;
 }
 
-
-/* DONATION */
-
-.donation{
-  background:#f3faff;
+.gallery-item img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  transition:.4s;
 }
 
-
-/* SOCIAL */
-
-.social{
-  padding:95px 7%;
-
-  background:white;
+.gallery-item:hover img{
+  transform:scale(1.06);
 }
+
+/* =========================
+   PROJECT
+========================= */
+
+.project-card{
+  padding:28px;
+}
+
+.project-card h3{
+  color:var(--deep);
+  font-size:21px;
+  margin-bottom:8px;
+}
+
+.project-card p{
+  color:var(--muted);
+  font-size:13px;
+  line-height:1.8;
+}
+
+.status{
+  display:inline-flex;
+  margin-top:15px;
+  padding:7px 12px;
+  border-radius:999px;
+  background:#e9f7ff;
+  color:#52738a;
+  font-size:11px;
+  font-weight:800;
+}
+
+/* =========================
+   DONATION
+========================= */
+
+.donation-grid{
+  display:grid;
+  grid-template-columns:1.2fr .8fr;
+  gap:20px;
+}
+
+.donation-card{
+  padding:32px;
+}
+
+.amount{
+  color:var(--deep);
+  font-size:40px;
+  font-weight:800;
+}
+
+.target{
+  color:var(--muted);
+  font-size:13px;
+}
+
+.progress{
+  height:13px;
+  margin:20px 0 10px;
+  border-radius:999px;
+  background:#dcecf6;
+  overflow:hidden;
+}
+
+.progress-bar{
+  height:100%;
+  width:0;
+  background:linear-gradient(90deg,var(--blue),var(--gold));
+  border-radius:inherit;
+  transition:1s;
+}
+
+.progress-text{
+  color:var(--muted);
+  font-size:12px;
+}
+
+/* =========================
+   SOCIAL
+========================= */
 
 .social-grid{
-  max-width:900px;
-
-  margin:auto;
-
   display:grid;
-
-  grid-template-columns:
-    repeat(4,1fr);
-
-  gap:14px;
+  grid-template-columns:repeat(3,1fr);
+  gap:16px;
 }
 
 .social-card{
-  padding:27px 12px;
-
-  text-align:center;
-
-  border-radius:20px;
-
-  background:#f6fbfe;
-
-  border:1px solid #e1edf4;
-
-  transition:.3s;
+  padding:22px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
 }
 
-.social-card:hover{
-  transform:translateY(-5px);
-}
-
-.social-icon{
-  font-size:25px;
+.social-card strong{
+  color:var(--deep);
 }
 
 .social-card span{
-  display:block;
-
-  margin-top:9px;
-
-  font-size:10px;
-
-  color:#31536b;
+  color:var(--muted);
+  font-size:12px;
 }
 
+/* =========================
+   LOADING
+========================= */
 
-/* FOOTER */
+.loading{
+  padding:35px;
+  text-align:center;
+  color:var(--muted);
+}
+
+.empty{
+  padding:35px;
+  text-align:center;
+  border-radius:22px;
+  background:rgba(255,255,255,.55);
+  color:var(--muted);
+}
+
+/* =========================
+   FOOTER
+========================= */
 
 footer{
-  padding:52px 20px;
-
+  padding:55px 6%;
   text-align:center;
-
-  background:#173b5b;
-
-  color:white;
+  color:#71879a;
+  font-size:12px;
 }
 
 .footer-logo{
-  font-family:'DM Serif Display',serif;
-
-  font-size:31px;
-
-  letter-spacing:4px;
+  color:var(--deep);
+  font-weight:800;
+  font-size:20px;
+  margin-bottom:8px;
 }
 
-.footer-text{
-  margin-top:8px;
+/* =========================
+   MODAL
+========================= */
 
-  font-size:9px;
+.modal{
+  position:fixed;
+  inset:0;
+  z-index:2000;
 
-  color:#bed4e2;
+  display:none;
+  align-items:center;
+  justify-content:center;
+
+  padding:25px;
+
+  background:rgba(10,31,48,.72);
+  backdrop-filter:blur(8px);
 }
 
-.footer-star{
-  margin-top:18px;
-
-  font-size:10px;
-
-  color:#c3a166;
+.modal.active{
+  display:flex;
 }
 
+.modal img{
+  max-width:min(1000px,95vw);
+  max-height:90vh;
+  object-fit:contain;
+  border-radius:20px;
+}
 
-/* =====================================================
+.modal-close{
+  position:absolute;
+  top:25px;
+  right:30px;
+  color:white;
+  background:none;
+  border:0;
+  font-size:35px;
+  cursor:pointer;
+}
+
+/* =========================
    MOBILE
-===================================================== */
+========================= */
 
 @media(max-width:900px){
 
   .nav-links{
     display:none;
-
     position:absolute;
-
-    top:68px;
+    top:65px;
     left:0;
+    right:0;
 
-    width:100%;
-
-    padding:25px;
+    padding:12px;
 
     flex-direction:column;
+    align-items:stretch;
 
-    align-items:flex-start;
-
-    gap:17px;
-
-    background:white;
-
-    box-shadow:
-      0 12px 25px rgba(0,0,0,.08);
+    background:rgba(255,255,255,.96);
+    border-radius:25px;
+    box-shadow:var(--shadow);
   }
 
   .nav-links.active{
     display:flex;
   }
 
-  .menu{
+  .nav-links a{
+    padding:13px;
+  }
+
+  .menu-btn{
     display:block;
   }
 
-  .profile-main{
+  .hero{
     grid-template-columns:1fr;
-
-    gap:45px;
+    text-align:center;
+    padding-top:125px;
   }
 
-  .profile-image-wrap{
-    min-height:500px;
+  .hero-content{
+    margin:auto;
   }
 
-  .profile-image-card{
-    height:500px;
+  .hero-description{
+    margin-left:auto;
+    margin-right:auto;
   }
 
-  .profile-story{
+  .hero-actions{
+    justify-content:center;
+  }
+
+  .profile-grid,
+  .donation-grid{
     grid-template-columns:1fr;
   }
 
-  .work-grid{
-    grid-template-columns:1fr 1fr;
-  }
-
-  .work-feature{
-    grid-column:span 2;
+  .cards-grid{
+    grid-template-columns:repeat(2,1fr);
   }
 
   .gallery-grid{
-    grid-template-columns:1fr 1fr;
+    grid-template-columns:repeat(3,1fr);
   }
 
+  .guide-grid,
   .social-grid{
-    grid-template-columns:1fr 1fr;
+    grid-template-columns:repeat(2,1fr);
   }
-}
 
+}
 
 @media(max-width:600px){
 
-  .hero-photo{
-    height:48vh;
-    min-height:330px;
+  section{
+    padding:70px 5%;
   }
 
-  .hero-title{
-    font-size:48px;
+  .hero{
+    padding-left:5%;
+    padding-right:5%;
   }
 
-  .por-profile{
-    padding:85px 6%;
+  .hero h1{
+    letter-spacing:-2px;
   }
 
-  .profile-heading h2{
-    font-size:40px;
+  .hero-photo img{
+    width:95%;
   }
 
-  .profile-image-wrap{
-    min-height:430px;
+  .profile-info,
+  .profile-intro,
+  .donation-card{
+    padding:24px;
   }
 
-  .profile-image-card{
-    height:430px;
-
-    border-radius:28px;
-  }
-
-  .profile-content h3{
-    font-size:42px;
-  }
-
-  .profile-info-grid{
+  .info-grid{
     grid-template-columns:1fr;
   }
 
-  .section-title{
-    font-size:38px;
-  }
-
-  .work-grid{
+  .cards-grid,
+  .guide-grid,
+  .social-grid{
     grid-template-columns:1fr;
-  }
-
-  .work-feature{
-    grid-column:auto;
-
-    display:block;
-  }
-
-  .work-feature .work-image{
-    min-height:240px;
-
-    height:240px;
-  }
-
-  .work-feature .work-content{
-    padding:25px;
-  }
-
-  .work-feature .work-title{
-    font-size:29px;
-  }
-
-  .archive-note{
-    align-items:flex-start;
   }
 
   .gallery-grid{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .gallery-item{
+    height:180px;
+  }
+
+  .schedule-card{
     grid-template-columns:1fr;
+    text-align:center;
   }
 
-  .project-main{
-    padding:30px 22px;
+  .schedule-meta{
+    justify-content:center;
   }
 
-  .social-grid{
-    grid-template-columns:1fr 1fr;
+  .timeline::before{
+    left:10px;
+  }
+
+  .timeline-item,
+  .timeline-item:nth-child(even){
+    width:100%;
+    left:0;
+    padding-left:40px;
+    padding-right:10px;
+    text-align:left;
+  }
+
+  .timeline-item:nth-child(odd) .timeline-dot,
+  .timeline-item:nth-child(even) .timeline-dot{
+    left:3px;
+    right:auto;
   }
 
 }
@@ -1687,873 +988,432 @@ footer{
 </style>
 </head>
 
-
 <body>
 
-
-<!-- =====================================================
+<!-- =========================
      NAVIGATION
-===================================================== -->
+========================= -->
 
 <nav class="navbar">
 
   <a href="#home" class="logo">
-    FOR <span>POR</span>
+    <span class="logo-mark">P</span>
+    <span>FOR POR</span>
   </a>
 
-  <button
-    class="menu"
-    onclick="toggleMenu()"
-    aria-label="Open menu"
-  >
-    ☰
-  </button>
+  <div class="nav-links" id="navLinks">
 
-  <ul class="nav-links" id="navLinks">
+    <a href="#home">HOME</a>
+    <a href="#profile">PROFILE</a>
+    <a href="#works">WORKS</a>
+    <a href="#schedule">SCHEDULE</a>
+    <a href="#star-map">STAR MAP</a>
+    <a href="#fan-guide">FAN GUIDE</a>
+    <a href="#gallery">GALLERY</a>
+    <a href="#projects">PROJECTS</a>
+    <a href="#donation">DONATION</a>
+    <a href="#social">SOCIAL</a>
 
-    <li><a href="#home">HOME</a></li>
-    <li><a href="#profile">PROFILE</a></li>
-    <li><a href="#works">WORKS</a></li>
-    <li><a href="#schedule">SCHEDULE</a></li>
-    <li><a href="#starmap">STAR MAP</a></li>
-    <li><a href="#guide">FAN GUIDE</a></li>
-    <li><a href="#gallery">GALLERY</a></li>
-    <li><a href="#projects">PROJECTS</a></li>
-    <li><a href="#donation">DONATION</a></li>
-    <li><a href="#social">SOCIAL</a></li>
+  </div>
 
-  </ul>
+  <button class="menu-btn" id="menuBtn">☰</button>
 
 </nav>
 
 
-<!-- =====================================================
+<!-- =========================
      HOME
-===================================================== -->
+========================= -->
 
 <section class="hero" id="home">
 
-  <span class="star s1"></span>
-  <span class="star s2"></span>
-  <span class="star s3"></span>
-  <span class="star s4"></span>
-  <span class="star s5"></span>
-  <span class="star s6"></span>
-  <span class="star s7"></span>
-  <span class="star s8"></span>
+  <div class="hero-content">
 
+    <div class="eyebrow">
+      ✦ OFFICIAL FANCLUB
+    </div>
 
-  <div class="hero-inner">
+    <h1>
+      FOR <span>POR</span>
+    </h1>
 
-    <div class="hero-photo">
+    <div class="hero-subtitle">
+      SUPPAKARN OFFICIAL FANCLUB
+    </div>
 
-      <div class="hero-glow"></div>
+    <p class="hero-description">
+      A little place made by fans, for POR.
+      Collecting his journey, works, schedules,
+      projects and every beautiful memory along the way.
+    </p>
 
-      <div class="hero-light"></div>
+    <div class="hero-actions">
 
-      <img
-        src="por-hero.png"
-        alt="POR Suppakarn"
-      >
+      <a href="#profile" class="btn btn-primary">
+        Discover POR
+      </a>
+
+      <a href="#schedule" class="btn btn-light">
+        Upcoming Schedule
+      </a>
 
     </div>
 
+  </div>
 
-    <div class="hero-copy">
 
-      <div class="eyebrow">
-        FOR POR SUPPAKARN
-      </div>
+  <div class="hero-photo">
 
-      <h1 class="hero-title">
-        A SKY FULL OF <span>POR</span>
-      </h1>
+    <div class="photo-glow"></div>
 
-      <div class="hero-subtitle">
-        Every Star Holds Our Story
-      </div>
-
-      <p class="hero-description">
-        บ้านแฟนคลับที่รวบรวมเรื่องราว ผลงาน
-        ตารางงาน โปรเจกต์ และทุกช่วงเวลาสำคัญ
-        ของ POR Suppakarn ไว้ในที่เดียว
-      </p>
-
-      <div class="hero-buttons">
-
-        <a
-          href="#profile"
-          class="btn btn-primary"
-        >
-          DISCOVER POR
-        </a>
-
-        <a
-          href="#projects"
-          class="btn btn-secondary"
-        >
-          OUR PROJECTS
-        </a>
-
-      </div>
-
-    </div>
+    <img
+      src="por-hero.png"
+      alt="POR Suppakarn"
+      onerror="this.style.opacity='.25'"
+    >
 
   </div>
 
 </section>
 
 
-<!-- =====================================================
+<!-- =========================
      PROFILE
-===================================================== -->
+========================= -->
 
-<section
-  class="por-profile"
-  id="profile"
->
+<section id="profile">
 
-  <div class="profile-container">
+  <div class="section-inner">
 
-    <div class="profile-heading">
+    <div class="section-heading">
 
-      <span>
-        GET TO KNOW POR
-      </span>
+      <div class="section-kicker">ABOUT POR</div>
 
-      <h2>
+      <h2 class="section-title">
         POR PROFILE
       </h2>
 
-      <p>
-        Every story begins with a star.
+      <p class="section-description">
+        A small profile of POR SUPPAKARN,
+        collected with love by FOR POR Official.
       </p>
 
     </div>
 
 
-    <div class="profile-main">
+    <div class="profile-grid">
 
+      <div class="card profile-intro">
 
-      <div class="profile-image-wrap">
-
-        <div class="profile-image-glow"></div>
-
-        <div class="profile-image-card">
-
-          <img
-            src="por-hero.png"
-            alt="POR Suppakarn"
-          >
-
-        </div>
-
-        <div class="profile-star star-a">
-          ✦
-        </div>
-
-        <div class="profile-star star-b">
-          ✧
-        </div>
-
-        <div class="profile-star star-c">
-          ✦
-        </div>
-
-      </div>
-
-
-      <div class="profile-content">
-
-        <div class="profile-label">
-          POR SUPPAKARN
-        </div>
-
-        <h3>
-          POR
-          <span>SUPPAKARN</span>
-        </h3>
-
-        <div class="profile-line"></div>
-
-        <p class="profile-intro">
-          ยินดีต้อนรับเข้าสู่พื้นที่ที่รวบรวม
-          เรื่องราวและเส้นทางของ POR Suppakarn
-          ตั้งแต่ผลงาน ช่วงเวลาสำคัญ
-          ไปจนถึงเรื่องราวที่แฟนคลับอยากเก็บไว้
-          เป็นความทรงจำร่วมกัน
-        </p>
-
-
-        <div class="profile-info-grid">
-
-          <div class="profile-info-item">
-            <span>NAME</span>
-            <strong>POR SUPPAKARN</strong>
-          </div>
-
-          <div class="profile-info-item">
-            <span>CHINESE NAME</span>
-            <strong>鄧宇博</strong>
-          </div>
-
-          <div class="profile-info-item">
-            <span>FAN COMMUNITY</span>
-            <strong>FOR POR SUPPAKARN</strong>
-          </div>
-
-          <div class="profile-info-item">
-            <span>BIRTHDAY PROJECT</span>
-            <strong>POR 24TH</strong>
-          </div>
-
-        </div>
-
-
-        <div class="profile-quote">
-
-          <span>“</span>
-
-          Every star has a story,
-          and every story brings us closer.
-
-          <span>”</span>
-
-        </div>
-
-
-        <div class="profile-buttons">
-
-          <a
-            href="#works"
-            class="profile-btn profile-btn-primary"
-          >
-            EXPLORE WORKS
-          </a>
-
-          <a
-            href="#home"
-            class="profile-btn profile-btn-secondary"
-          >
-            BACK TO HOME
-          </a>
-
-        </div>
-
-      </div>
-
-    </div>
-
-
-    <div class="profile-story">
-
-      <div class="story-card">
-
-        <div class="story-icon">
-          ✦
-        </div>
-
-        <div>
-
-          <span>
-            OUR STORY
-          </span>
-
-          <h4>
-            A Journey Under The Same Sky
-          </h4>
-
-          <p>
-            จากก้าวแรกจนถึงวันนี้
-            ทุกช่วงเวลาของ POR
-            ล้วนเป็นอีกหนึ่งดาว
-            ที่เราอยากเก็บไว้บนท้องฟ้า
-            แห่งความทรงจำ
-          </p>
-
-        </div>
-
-      </div>
-
-
-      <div class="story-card">
-
-        <div class="story-icon">
-          ♡
-        </div>
-
-        <div>
-
-          <span>
-            FOR POR
-          </span>
-
-          <h4>
-            Always Here For You
-          </h4>
-
-          <p>
-            พื้นที่เล็ก ๆ ที่สร้างขึ้น
-            เพื่อส่งต่อความรัก
-            กำลังใจ และการสนับสนุน
-            ให้ POR ในทุกเส้นทาง
-          </p>
-
-        </div>
-
-      </div>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- =====================================================
-     WORKS / ARCHIVE
-===================================================== -->
-
-<section
-  class="works"
-  id="works"
->
-
-
-  <div class="section-head">
-
-    <div class="section-small">
-      POR SUPPAKARN
-    </div>
-
-    <h2 class="section-title">
-      WORKS / ARCHIVE
-    </h2>
-
-    <p class="section-desc">
-      A collection of POR's journey,
-      works and memorable moments.
-    </p>
-
-  </div>
-
-
-  <!-- CATEGORY -->
-
-  <div class="work-tabs">
-
-    <button
-      class="work-tab active"
-      onclick="filterWorks('all',this)"
-    >
-      ALL
-    </button>
-
-    <button
-      class="work-tab"
-      onclick="filterWorks('series',this)"
-    >
-      SERIES / DRAMA
-    </button>
-
-    <button
-      class="work-tab"
-      onclick="filterWorks('events',this)"
-    >
-      EVENTS
-    </button>
-
-    <button
-      class="work-tab"
-      onclick="filterWorks('content',this)"
-    >
-      CONTENT
-    </button>
-
-    <button
-      class="work-tab"
-      onclick="filterWorks('photoshoot',this)"
-    >
-      PHOTOSHOOT
-    </button>
-
-    <button
-      class="work-tab"
-      onclick="filterWorks('archive',this)"
-    >
-      ARCHIVE
-    </button>
-
-  </div>
-
-
-  <!-- WORK GRID -->
-
-  <div class="work-grid">
-
-
-    <!-- FEATURE -->
-
-    <article
-      class="work-card work-feature"
-      data-category="series"
-    >
-
-      <div class="work-image">
-
-        <span>
-          POR
-        </span>
-
-      </div>
-
-
-      <div class="work-content">
-
-        <div class="work-type">
-          SERIES / DRAMA
-        </div>
-
-        <h3 class="work-title">
-          POR'S SERIES ARCHIVE
-        </h3>
-
-        <div class="work-year">
-          WORK COLLECTION
-        </div>
-
-        <p class="work-description">
-          รวมผลงานการแสดงของ POR
-          พร้อมข้อมูลตัวละคร
-          ปีที่ออกอากาศ และรายละเอียด
-          ของแต่ละผลงาน
-        </p>
-
-        <a
-          href="#"
-          class="profile-btn profile-btn-primary"
-          style="margin-top:20px;width:max-content;"
+        <img
+          src="por-hero.png"
+          class="profile-avatar"
+          alt="POR"
         >
-          VIEW ARCHIVE
-        </a>
+
+        <h3>POR SUPPAKARN</h3>
+
+        <p>ป๋อ ศุภการ</p>
 
       </div>
 
-    </article>
 
+      <div class="card profile-info">
 
-    <!-- SERIES -->
+        <div class="info-grid">
 
-    <article
-      class="work-card"
-      data-category="series"
-    >
+          <div class="info-item">
+            <span class="info-label">NAME</span>
+            <span class="info-value">POR SUPPAKARN</span>
+          </div>
 
-      <div class="work-image">
-        <span>01</span>
-      </div>
+          <div class="info-item">
+            <span class="info-label">CHINESE NAME</span>
+            <span class="info-value">鄧宇博</span>
+          </div>
 
-      <div class="work-content">
+          <div class="info-item">
+            <span class="info-label">NICKNAME</span>
+            <span class="info-value">POR / ป๋อ</span>
+          </div>
 
-        <div class="work-type">
-          SERIES
+          <div class="info-item">
+            <span class="info-label">BIRTHDAY</span>
+            <span class="info-value">TBA</span>
+          </div>
+
+          <div class="info-item">
+            <span class="info-label">FANDOM</span>
+            <span class="info-value">FOR POR</span>
+          </div>
+
+          <div class="info-item">
+            <span class="info-label">NATIONALITY</span>
+            <span class="info-value">Thai</span>
+          </div>
+
+          <div class="info-item">
+            <span class="info-label">HEIGHT</span>
+            <span class="info-value">TBA</span>
+          </div>
+
+          <div class="info-item">
+            <span class="info-label">ABOUT</span>
+            <span class="info-value">Actor / Artist</span>
+          </div>
+
         </div>
 
-        <h3 class="work-title">
-          Series Archive
-        </h3>
-
-        <div class="work-year">
-          YEAR / TBA
-        </div>
-
-        <p class="work-description">
-          รายละเอียดผลงาน
-          และบทบาทของ POR
-        </p>
-
       </div>
-
-    </article>
-
-
-    <!-- EVENTS -->
-
-    <article
-      class="work-card"
-      data-category="events"
-    >
-
-      <div class="work-image">
-        <span>02</span>
-      </div>
-
-      <div class="work-content">
-
-        <div class="work-type">
-          EVENTS
-        </div>
-
-        <h3 class="work-title">
-          Event Archive
-        </h3>
-
-        <div class="work-year">
-          YEAR / TBA
-        </div>
-
-        <p class="work-description">
-          รวมงานอีเวนต์
-          แฟนมีตติ้ง และกิจกรรม
-        </p>
-
-      </div>
-
-    </article>
-
-
-    <!-- CONTENT -->
-
-    <article
-      class="work-card"
-      data-category="content"
-    >
-
-      <div class="work-image">
-        <span>03</span>
-      </div>
-
-      <div class="work-content">
-
-        <div class="work-type">
-          CONTENT
-        </div>
-
-        <h3 class="work-title">
-          Content Archive
-        </h3>
-
-        <div class="work-year">
-          YEAR / TBA
-        </div>
-
-        <p class="work-description">
-          รายการ คลิป และคอนเทนต์
-          ที่เกี่ยวข้องกับ POR
-        </p>
-
-      </div>
-
-    </article>
-
-
-    <!-- PHOTOSHOOT -->
-
-    <article
-      class="work-card"
-      data-category="photoshoot"
-    >
-
-      <div class="work-image">
-        <span>04</span>
-      </div>
-
-      <div class="work-content">
-
-        <div class="work-type">
-          PHOTOSHOOT
-        </div>
-
-        <h3 class="work-title">
-          Photoshoot Archive
-        </h3>
-
-        <div class="work-year">
-          YEAR / TBA
-        </div>
-
-        <p class="work-description">
-          รวมแฟชั่นเซ็ต
-          ภาพถ่าย และงานถ่ายแบบ
-        </p>
-
-      </div>
-
-    </article>
-
-
-    <!-- ARCHIVE -->
-
-    <article
-      class="work-card"
-      data-category="archive"
-    >
-
-      <div class="work-image">
-        <span>05</span>
-      </div>
-
-      <div class="work-content">
-
-        <div class="work-type">
-          ARCHIVE
-        </div>
-
-        <h3 class="work-title">
-          Special Moments
-        </h3>
-
-        <div class="work-year">
-          MEMORIES
-        </div>
-
-        <p class="work-description">
-          ช่วงเวลาพิเศษ
-          ข่าว และความทรงจำสำคัญ
-        </p>
-
-      </div>
-
-    </article>
-
-
-    <!-- ARCHIVE -->
-
-    <article
-      class="work-card"
-      data-category="archive"
-    >
-
-      <div class="work-image">
-        <span>06</span>
-      </div>
-
-      <div class="work-content">
-
-        <div class="work-type">
-          ARCHIVE
-        </div>
-
-        <h3 class="work-title">
-          Timeline
-        </h3>
-
-        <div class="work-year">
-          POR JOURNEY
-        </div>
-
-        <p class="work-description">
-          เส้นทางและเหตุการณ์สำคัญ
-          ของ POR
-        </p>
-
-      </div>
-
-    </article>
-
-
-  </div>
-
-
-  <!-- NOTE -->
-
-  <div class="archive-note">
-
-    <div class="archive-note-icon">
-      ✦
-    </div>
-
-    <div>
-
-      <strong>
-        More Stories Are Coming
-      </strong>
-
-      <p>
-        หน้า Works จะค่อย ๆ เติมข้อมูลผลงานจริง
-        และรูปภาพของแต่ละช่วงเวลา
-        เพื่อให้กลายเป็น Archive ของ POR
-        ที่สมบูรณ์ที่สุด
-      </p>
 
     </div>
 
   </div>
-
 
 </section>
 
 
-<!-- =====================================================
+<!-- =========================
+     WORKS
+========================= -->
+
+<section id="works">
+
+  <div class="section-inner">
+
+    <div class="section-heading">
+
+      <div class="section-kicker">ARCHIVE</div>
+
+      <h2 class="section-title">
+        WORKS
+      </h2>
+
+      <p class="section-description">
+        ผลงานของ POR จะดึงข้อมูลจาก Google Sheets
+        และสามารถเพิ่มได้ภายหลังโดยไม่ต้องแก้หน้าเว็บ
+      </p>
+
+    </div>
+
+    <div id="worksContainer" class="cards-grid">
+
+      <div class="loading">
+        Loading works...
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================
      SCHEDULE
-===================================================== -->
+========================= -->
 
-<section
-  class="schedule"
-  id="schedule"
->
+<section id="schedule">
 
-  <div class="section-head">
+  <div class="section-inner">
 
-    <div class="section-small">
-      KEEP WATCHING
+    <div class="section-heading">
+
+      <div class="section-kicker">CALENDAR</div>
+
+      <h2 class="section-title">
+        SCHEDULE
+      </h2>
+
+      <p class="section-description">
+        ตารางงานและกิจกรรมต่าง ๆ ของ POR
+      </p>
+
     </div>
 
-    <h2 class="section-title">
-      SCHEDULE
-    </h2>
+    <div id="scheduleContainer" class="schedule-list">
 
-    <p class="section-desc">
-      ตารางงานและกำหนดการต่าง ๆ
-    </p>
+      <div class="loading">
+        Loading schedule...
+      </div>
 
-  </div>
-
-
-  <div class="info-box">
-
-    <div class="info-icon">
-      📅
     </div>
-
-    <h3>
-      POR Schedule
-    </h3>
-
-    <p>
-      หน้านี้จะรวบรวมตารางงาน
-      งานอีเวนต์ แฟนมีตติ้ง
-      งานต่างประเทศ และกิจกรรมสำคัญ
-      ของ POR
-    </p>
 
   </div>
 
 </section>
 
 
-<!-- =====================================================
+<!-- =========================
      STAR MAP
-===================================================== -->
+========================= -->
 
-<section
-  class="star-map"
-  id="starmap"
->
+<section id="star-map">
 
-  <div class="section-head">
+  <div class="section-inner">
 
-    <div class="section-small">
-      OUR UNIVERSE
+    <div class="section-heading">
+
+      <div class="section-kicker">JOURNEY</div>
+
+      <h2 class="section-title">
+        THE STAR MAP
+      </h2>
+
+      <p class="section-description">
+        Every star marks a moment of the journey.
+      </p>
+
     </div>
 
-    <h2 class="section-title">
-      THE STAR MAP
-    </h2>
 
-    <p class="section-desc">
-      ทุกดาวมีเรื่องราวของเรา
-    </p>
+    <div class="card star-map">
 
-  </div>
+      <div class="stars"></div>
+
+      <div class="timeline">
+
+        <div class="timeline-item">
+
+          <div class="timeline-dot"></div>
+
+          <div class="timeline-year">BEGINNING</div>
+
+          <div class="timeline-title">
+            The First Star
+          </div>
+
+          <div class="timeline-text">
+            จุดเริ่มต้นของการเดินทาง
+          </div>
+
+        </div>
 
 
-  <div class="star-map-box">
+        <div class="timeline-item">
 
-    <div class="big-star">
-      ⭐
+          <div class="timeline-dot"></div>
+
+          <div class="timeline-year">JOURNEY</div>
+
+          <div class="timeline-title">
+            Growing Together
+          </div>
+
+          <div class="timeline-text">
+            ทุกก้าวเล็ก ๆ กลายเป็นความทรงจำ
+          </div>
+
+        </div>
+
+
+        <div class="timeline-item">
+
+          <div class="timeline-dot"></div>
+
+          <div class="timeline-year">TODAY</div>
+
+          <div class="timeline-title">
+            A Sky Full of POR
+          </div>
+
+          <div class="timeline-text">
+            และเรายังคงมองดาวดวงเดิมไปด้วยกัน
+          </div>
+
+        </div>
+
+
+        <div class="timeline-item">
+
+          <div class="timeline-dot"></div>
+
+          <div class="timeline-year">NEXT</div>
+
+          <div class="timeline-title">
+            More Stars Ahead
+          </div>
+
+          <div class="timeline-text">
+            ยังมีอีกมากมายที่รอให้เราได้พบเจอ
+          </div>
+
+        </div>
+
+      </div>
+
     </div>
-
-    <h3>
-      A Sky Full of POR
-    </h3>
-
-    <p>
-      เพราะทุกช่วงเวลาที่เราได้เดินไปพร้อมกัน
-      ล้วนกลายเป็นดาวอีกหนึ่งดวง
-      บนท้องฟ้าแห่งความทรงจำของเรา
-    </p>
 
   </div>
 
 </section>
 
 
-<!-- =====================================================
+<!-- =========================
      FAN GUIDE
-===================================================== -->
+========================= -->
 
-<section id="guide">
+<section id="fan-guide">
 
-  <div class="section-head">
+  <div class="section-inner">
 
-    <div class="section-small">
-      WELCOME TO THE FANDOM
-    </div>
+    <div class="section-heading">
 
-    <h2 class="section-title">
-      FAN GUIDE
-    </h2>
+      <div class="section-kicker">FOR FANS</div>
 
-    <p class="section-desc">
-      คู่มือสำหรับแฟนคลับ
-    </p>
+      <h2 class="section-title">
+        FAN GUIDE
+      </h2>
 
-  </div>
-
-
-  <div class="cards">
-
-    <div class="card">
-
-      <div class="card-icon">
-        🤍
-      </div>
-
-      <h3>
-        About POR
-      </h3>
-
-      <p>
-        ข้อมูลพื้นฐานและสิ่งที่ควรรู้
-        สำหรับแฟนคลับใหม่
+      <p class="section-description">
+        คู่มือเล็ก ๆ สำหรับทุกคนที่อยากเดินทางไปกับ POR
       </p>
 
     </div>
 
 
-    <div class="card">
+    <div class="guide-grid">
 
-      <div class="card-icon">
-        📣
+      <div class="card guide-card">
+
+        <div class="guide-icon">🤍</div>
+
+        <h3>About POR</h3>
+
+        <p>
+          ทำความรู้จัก POR และติดตามเส้นทาง
+          ผลงาน และกิจกรรมต่าง ๆ
+        </p>
+
       </div>
 
-      <h3>
-        Support Guide
-      </h3>
 
-      <p>
-        แนวทางการสนับสนุน
-        และร่วมกิจกรรมต่าง ๆ
-      </p>
+      <div class="card guide-card">
 
-    </div>
+        <div class="guide-icon">⭐</div>
 
+        <h3>Support POR</h3>
 
-    <div class="card">
+        <p>
+          สนับสนุนผลงานและกิจกรรมของ POR
+          ผ่านช่องทางต่าง ๆ
+        </p>
 
-      <div class="card-icon">
-        💬
       </div>
 
-      <h3>
-        Fan Community
-      </h3>
 
-      <p>
-        ช่องทางพูดคุย
-        และติดตามข่าวสาร
-      </p>
+      <div class="card guide-card">
+
+        <div class="guide-icon">🌙</div>
+
+        <h3>Fan Community</h3>
+
+        <p>
+          พื้นที่สำหรับแฟน ๆ ที่อยากพูดคุย
+          แบ่งปันข่าวสาร และทำโปรเจกต์ร่วมกัน
+        </p>
+
+      </div>
 
     </div>
 
@@ -2562,103 +1422,70 @@ footer{
 </section>
 
 
-<!-- =====================================================
+<!-- =========================
      GALLERY
-===================================================== -->
+========================= -->
 
-<section
-  class="gallery"
-  id="gallery"
->
+<section id="gallery">
 
-  <div class="section-head">
+  <div class="section-inner">
 
-    <div class="section-small">
-      MEMORIES
+    <div class="section-heading">
+
+      <div class="section-kicker">MEMORIES</div>
+
+      <h2 class="section-title">
+        PHOTO GALLERY
+      </h2>
+
+      <p class="section-description">
+        รูปภาพจากงานและช่วงเวลาต่าง ๆ
+      </p>
+
     </div>
 
-    <h2 class="section-title">
-      PHOTO GALLERY
-    </h2>
 
-    <p class="section-desc">
-      เก็บทุกช่วงเวลาที่เรารัก
-    </p>
+    <div id="galleryContainer" class="gallery-grid">
 
-  </div>
+      <div class="loading">
+        Loading gallery...
+      </div>
 
-
-  <div class="gallery-grid">
-
-    <div class="gallery-item"><span>POR</span></div>
-    <div class="gallery-item"><span>POR</span></div>
-    <div class="gallery-item"><span>POR</span></div>
-    <div class="gallery-item"><span>POR</span></div>
-    <div class="gallery-item"><span>POR</span></div>
-    <div class="gallery-item"><span>POR</span></div>
+    </div>
 
   </div>
 
 </section>
 
 
-<!-- =====================================================
+<!-- =========================
      PROJECTS
-===================================================== -->
+========================= -->
 
-<section
-  class="projects"
-  id="projects"
->
+<section id="projects">
 
-  <div class="section-head">
+  <div class="section-inner">
 
-    <div class="section-small">
-      FROM US TO POR
+    <div class="section-heading">
+
+      <div class="section-kicker">FAN PROJECTS</div>
+
+      <h2 class="section-title">
+        PROJECTS
+      </h2>
+
+      <p class="section-description">
+        โปรเจกต์ที่ FOR POR Official จัดทำเพื่อสนับสนุน POR
+      </p>
+
     </div>
 
-    <h2 class="section-title">
-      PROJECTS
-    </h2>
 
-    <p class="section-desc">
-      โปรเจกต์จากแฟนคลับ
-    </p>
+    <div id="projectsContainer" class="cards-grid">
 
-  </div>
-
-
-  <div class="project-main">
-
-    <h3>
-      POR BIRTHDAY PROJECT 2026
-    </h3>
-
-    <div class="project-tagline">
-      From one small room to a sky full of stars.
-    </div>
-
-    <p>
-      ร่วมเขียนอีกหนึ่งบทของการเดินทางไปด้วยกัน
-      เปลี่ยนทุกความรักและความตั้งใจ
-      ให้กลายเป็นดาวอีกหนึ่งดวงบนท้องฟ้า
-      เพื่อส่งต่อความสุขให้ POR
-    </p>
-
-
-    <div class="tags">
-
-      <span class="tag">
-        #PORBirthdayProject2026
-      </span>
-
-      <span class="tag">
-        #ASkyFullOfPor24th
-      </span>
-
-      <span class="tag">
-        #PorSuppakarn
-      </span>
+      <div class="loading">
+        Loading projects...
+      </div>
 
     </div>
 
@@ -2667,140 +1494,82 @@ footer{
 </section>
 
 
-<!-- =====================================================
+<!-- =========================
      DONATION
-===================================================== -->
+========================= -->
 
-<section
-  class="donation"
-  id="donation"
->
+<section id="donation">
 
-  <div class="section-head">
+  <div class="section-inner">
 
-    <div class="section-small">
-      SUPPORT OUR PROJECTS
+    <div class="section-heading">
+
+      <div class="section-kicker">SUPPORT</div>
+
+      <h2 class="section-title">
+        DONATION
+      </h2>
+
+      <p class="section-description">
+        ติดตามยอดสนับสนุนโปรเจกต์ต่าง ๆ
+        อย่างโปร่งใสผ่านข้อมูลจาก Google Sheets
+      </p>
+
     </div>
 
-    <h2 class="section-title">
-      DONATION
-    </h2>
 
-    <p class="section-desc">
-      ร่วมสนับสนุนโปรเจกต์ของแฟนคลับ
-    </p>
+    <div id="donationContainer" class="donation-grid">
 
-  </div>
+      <div class="loading">
+        Loading donation...
+      </div>
 
-
-  <div class="info-box">
-
-    <div class="info-icon">
-      💙
     </div>
-
-    <h3>
-      Every Little Star Matters
-    </h3>
-
-    <p>
-      รายละเอียดช่องทางการสนับสนุน
-      ยอดโดเนท และค่าใช้จ่ายของแต่ละโปรเจกต์
-      จะแสดงในหน้านี้อย่างโปร่งใส
-    </p>
 
   </div>
 
 </section>
 
 
-<!-- =====================================================
+<!-- =========================
      SOCIAL
-===================================================== -->
+========================= -->
 
-<section
-  class="social"
-  id="social"
->
+<section id="social">
 
-  <div class="section-head">
+  <div class="section-inner">
 
-    <div class="section-small">
-      FOLLOW POR
+    <div class="section-heading">
+
+      <div class="section-kicker">CONNECT</div>
+
+      <h2 class="section-title">
+        SOCIAL MEDIA
+      </h2>
+
+      <p class="section-description">
+        ช่องทางติดตาม POR และ FOR POR Official
+      </p>
+
     </div>
 
-    <h2 class="section-title">
-      SOCIAL MEDIA
-    </h2>
 
-    <p class="section-desc">
-      ช่องทางติดตาม POR และ FOR POR
-    </p>
+    <div id="socialContainer" class="social-grid">
 
-  </div>
-
-
-  <div class="social-grid">
-
-    <a href="#" class="social-card">
-
-      <div class="social-icon">
-        𝕏
+      <div class="loading">
+        Loading social...
       </div>
 
-      <span>
-        X / Twitter
-      </span>
-
-    </a>
-
-
-    <a href="#" class="social-card">
-
-      <div class="social-icon">
-        ◎
-      </div>
-
-      <span>
-        Instagram
-      </span>
-
-    </a>
-
-
-    <a href="#" class="social-card">
-
-      <div class="social-icon">
-        ▶
-      </div>
-
-      <span>
-        YouTube
-      </span>
-
-    </a>
-
-
-    <a href="#" class="social-card">
-
-      <div class="social-icon">
-        💬
-      </div>
-
-      <span>
-        OpenChat
-      </span>
-
-    </a>
+    </div>
 
   </div>
 
 </section>
 
 
-<!-- =====================================================
+<!-- =========================
      FOOTER
-===================================================== -->
+========================= -->
 
 <footer>
 
@@ -2808,101 +1577,866 @@ footer{
     FOR POR
   </div>
 
-  <div class="footer-text">
-    FOR POR SUPPAKARN OFFICIAL FAN PROJECT
-  </div>
+  <p>
+    Made with love by FOR POR Official 🤍
+  </p>
 
-  <div class="footer-star">
-    ✦ Every Star Holds Our Story ✦
-  </div>
+  <p style="margin-top:7px;">
+    © <span id="year"></span> FOR POR Official
+  </p>
 
 </footer>
 
 
+<!-- =========================
+     IMAGE MODAL
+========================= -->
+
+<div class="modal" id="imageModal">
+
+  <button class="modal-close" id="modalClose">
+    ×
+  </button>
+
+  <img id="modalImage" src="" alt="Gallery">
+
+</div>
+
+
 <script>
 
-/* MOBILE MENU */
+/* ==================================================
+   GOOGLE SHEETS API
+================================================== */
 
-function toggleMenu(){
+const API_URL =
+"https://script.google.com/macros/s/AKfycbzM_PSLAIJJqFADKjI8VWZOQRQTSxL6PjlUziCYjY6T-Qb3Buw6Nwf52-FI98NILK8H/exec";
 
-  document
-    .getElementById('navLinks')
-    .classList
-    .toggle('active');
+
+/* ==================================================
+   MOBILE MENU
+================================================== */
+
+const menuBtn =
+document.getElementById("menuBtn");
+
+const navLinks =
+document.getElementById("navLinks");
+
+menuBtn.addEventListener("click",function(){
+
+  navLinks.classList.toggle("active");
+
+});
+
+document.querySelectorAll(".nav-links a")
+.forEach(function(link){
+
+  link.addEventListener("click",function(){
+
+    navLinks.classList.remove("active");
+
+  });
+
+});
+
+
+/* ==================================================
+   YEAR
+================================================== */
+
+document.getElementById("year")
+.textContent = new Date().getFullYear();
+
+
+/* ==================================================
+   HELPERS
+================================================== */
+
+function safe(value){
+
+  if(value === undefined ||
+     value === null ||
+     value === ""){
+
+    return "TBA";
+
+  }
+
+  return String(value);
 
 }
 
 
-/* CLOSE MENU */
+function escapeHTML(value){
 
-document
-  .querySelectorAll('.nav-links a')
-  .forEach(function(link){
+  return String(value)
+    .replace(/&/g,"&amp;")
+    .replace(/</g,"&lt;")
+    .replace(/>/g,"&gt;")
+    .replace(/"/g,"&quot;")
+    .replace(/'/g,"&#039;");
 
-    link.addEventListener(
-      'click',
-      function(){
-
-        document
-          .getElementById('navLinks')
-          .classList
-          .remove('active');
-
-      }
-    );
-
-  });
+}
 
 
-/* WORK FILTER */
+function formatDate(value){
 
-function filterWorks(category,button){
+  if(!value) return "TBA";
 
-  const cards =
-    document.querySelectorAll(
-      '.work-card'
-    );
+  const date = new Date(value);
 
-  const tabs =
-    document.querySelectorAll(
-      '.work-tab'
-    );
+  if(isNaN(date.getTime())){
+    return escapeHTML(value);
+  }
 
+  return date.toLocaleDateString(
+    "en-GB",
+    {
+      day:"2-digit",
+      month:"short",
+      year:"numeric"
+    }
+  );
 
-  tabs.forEach(function(tab){
-
-    tab.classList.remove('active');
-
-  });
-
-
-  button.classList.add('active');
+}
 
 
-  cards.forEach(function(card){
+/* ==================================================
+   LOAD DATA
+================================================== */
 
-    const cardCategory =
-      card.getAttribute(
-        'data-category'
+async function loadData(){
+
+  try{
+
+    const response =
+      await fetch(API_URL,{
+        method:"GET",
+        cache:"no-store"
+      });
+
+    if(!response.ok){
+
+      throw new Error(
+        "Unable to connect to Google Sheets"
       );
-
-
-    if(
-      category === 'all' ||
-      cardCategory === category
-    ){
-
-      card.style.display = '';
-
-    }else{
-
-      card.style.display = 'none';
 
     }
 
-  });
+    const data =
+      await response.json();
+
+
+    renderWorks(
+      Array.isArray(data.WORKS)
+        ? data.WORKS
+        : []
+    );
+
+
+    renderSchedule(
+      Array.isArray(data.SCHEDULE)
+        ? data.SCHEDULE
+        : []
+    );
+
+
+    renderGallery(
+      Array.isArray(data.GALLERY)
+        ? data.GALLERY
+        : []
+    );
+
+
+    renderProjects(
+      Array.isArray(data.PROJECTS)
+        ? data.PROJECTS
+        : []
+    );
+
+
+    renderDonation(
+      Array.isArray(data.DONATION)
+        ? data.DONATION
+        : []
+    );
+
+
+    renderSocial(
+      Array.isArray(data.SOCIAL)
+        ? data.SOCIAL
+        : []
+    );
+
+
+  }catch(error){
+
+    console.error(error);
+
+    showError(
+      "worksContainer"
+    );
+
+    showError(
+      "scheduleContainer"
+    );
+
+    showError(
+      "galleryContainer"
+    );
+
+    showError(
+      "projectsContainer"
+    );
+
+    showError(
+      "donationContainer"
+    );
+
+    showError(
+      "socialContainer"
+    );
+
+  }
 
 }
+
+
+function showError(id){
+
+  const element =
+    document.getElementById(id);
+
+  if(!element) return;
+
+  element.innerHTML = `
+    <div class="empty">
+      ยังไม่มีข้อมูล หรือไม่สามารถเชื่อมต่อข้อมูลได้
+    </div>
+  `;
+
+}
+
+
+/* ==================================================
+   WORKS
+================================================== */
+
+function renderWorks(items){
+
+  const container =
+    document.getElementById(
+      "worksContainer"
+    );
+
+  if(!items.length){
+
+    container.innerHTML = `
+      <div class="empty" style="grid-column:1/-1;">
+        🎬 Works Coming Soon
+      </div>
+    `;
+
+    return;
+  }
+
+
+  container.innerHTML =
+    items.map(function(item){
+
+      const image =
+        safe(item.IMAGE);
+
+      const link =
+        safe(item.LINK);
+
+
+      return `
+
+        <article class="card work-card">
+
+          ${
+            image !== "TBA"
+            ?
+            `<img
+              class="work-image"
+              src="${escapeHTML(image)}"
+              alt="${escapeHTML(safe(item.TITLE))}"
+              loading="lazy"
+            >`
+            :
+            `<div class="work-image"></div>`
+          }
+
+          <div class="work-body">
+
+            <div class="work-year">
+              ${escapeHTML(safe(item.YEAR))}
+            </div>
+
+            <div class="work-title">
+              ${escapeHTML(safe(item.TITLE))}
+            </div>
+
+            <div class="work-meta">
+              ${escapeHTML(safe(item.CATEGORY))}
+              ·
+              ${escapeHTML(safe(item.ROLE))}
+            </div>
+
+            ${
+              link !== "TBA"
+              ?
+              `<a
+                class="btn btn-light"
+                style="margin-top:15px;"
+                href="${escapeHTML(link)}"
+                target="_blank"
+                rel="noopener"
+              >
+                View
+              </a>`
+              :
+              ""
+            }
+
+          </div>
+
+        </article>
+
+      `;
+
+    }).join("");
+
+}
+
+
+/* ==================================================
+   SCHEDULE
+================================================== */
+
+function renderSchedule(items){
+
+  const container =
+    document.getElementById(
+      "scheduleContainer"
+    );
+
+
+  if(!items.length){
+
+    container.innerHTML = `
+      <div class="empty">
+        📅 No upcoming schedules yet
+      </div>
+    `;
+
+    return;
+
+  }
+
+
+  container.innerHTML =
+    items.map(function(item){
+
+      return `
+
+        <article class="card schedule-card">
+
+          <div class="schedule-date">
+
+            <strong>
+              ${escapeHTML(
+                formatDate(item.DATE)
+              )}
+            </strong>
+
+            <span>
+              ${escapeHTML(
+                safe(item.TIME)
+              )}
+            </span>
+
+          </div>
+
+
+          <div>
+
+            <div class="schedule-title">
+              ${escapeHTML(
+                safe(item.EVENT)
+              )}
+            </div>
+
+            <div class="schedule-meta">
+
+              <span>
+                📍 ${escapeHTML(
+                  safe(item.LOCATION)
+                )}
+              </span>
+
+              <span class="tag">
+                ${escapeHTML(
+                  safe(item.TYPE)
+                )}
+              </span>
+
+            </div>
+
+            ${
+              item.DETAIL
+              ?
+              `<p style="
+                margin-top:9px;
+                color:var(--muted);
+                font-size:12px;
+                line-height:1.7;
+              ">
+                ${escapeHTML(item.DETAIL)}
+              </p>`
+              :
+              ""
+            }
+
+          </div>
+
+
+          ${
+            item.LINK
+            ?
+            `<a
+              href="${escapeHTML(item.LINK)}"
+              target="_blank"
+              rel="noopener"
+              class="btn btn-primary"
+            >
+              Details
+            </a>`
+            :
+            ""
+          }
+
+        </article>
+
+      `;
+
+    }).join("");
+
+}
+
+
+/* ==================================================
+   GALLERY
+================================================== */
+
+function renderGallery(items){
+
+  const container =
+    document.getElementById(
+      "galleryContainer"
+    );
+
+
+  if(!items.length){
+
+    container.innerHTML = `
+      <div
+        class="empty"
+        style="grid-column:1/-1;"
+      >
+        📸 Gallery Coming Soon
+      </div>
+    `;
+
+    return;
+
+  }
+
+
+  container.innerHTML =
+    items.map(function(item){
+
+      const image =
+        safe(item.IMAGE);
+
+
+      if(image === "TBA"){
+
+        return "";
+
+      }
+
+
+      return `
+
+        <div
+          class="gallery-item"
+          onclick="openImage('${escapeHTML(image)}')"
+        >
+
+          <img
+            src="${escapeHTML(image)}"
+            alt="${escapeHTML(
+              safe(item.TITLE)
+            )}"
+            loading="lazy"
+          >
+
+        </div>
+
+      `;
+
+    }).join("");
+
+}
+
+
+/* ==================================================
+   PROJECTS
+================================================== */
+
+function renderProjects(items){
+
+  const container =
+    document.getElementById(
+      "projectsContainer"
+    );
+
+
+  if(!items.length){
+
+    container.innerHTML = `
+      <div
+        class="empty"
+        style="grid-column:1/-1;"
+      >
+        ⭐ Projects Coming Soon
+      </div>
+    `;
+
+    return;
+
+  }
+
+
+  container.innerHTML =
+    items.map(function(item){
+
+      return `
+
+        <article class="card project-card">
+
+          <h3>
+            ${escapeHTML(
+              safe(item.TITLE)
+            )}
+          </h3>
+
+          <p>
+            ${escapeHTML(
+              safe(item.DETAIL)
+            )}
+          </p>
+
+          <span class="status">
+            ${escapeHTML(
+              safe(item.STATUS)
+            )}
+          </span>
+
+          ${
+            item.LINK
+            ?
+            `<br>
+             <a
+               href="${escapeHTML(item.LINK)}"
+               target="_blank"
+               rel="noopener"
+               class="btn btn-light"
+               style="margin-top:15px;"
+             >
+               View Project
+             </a>`
+            :
+            ""
+          }
+
+        </article>
+
+      `;
+
+    }).join("");
+
+}
+
+
+/* ==================================================
+   DONATION
+================================================== */
+
+function renderDonation(items){
+
+  const container =
+    document.getElementById(
+      "donationContainer"
+    );
+
+
+  if(!items.length){
+
+    container.innerHTML = `
+      <div
+        class="empty"
+        style="grid-column:1/-1;"
+      >
+        💙 Donation information coming soon
+      </div>
+    `;
+
+    return;
+
+  }
+
+
+  container.innerHTML =
+    items.map(function(item){
+
+      const target =
+        Number(item.TARGET) || 0;
+
+      const current =
+        Number(item.CURRENT) || 0;
+
+      let percent =
+        target > 0
+        ? (current / target) * 100
+        : 0;
+
+      percent =
+        Math.min(
+          100,
+          Math.max(0,percent)
+        );
+
+
+      return `
+
+        <div class="card donation-card">
+
+          <div class="section-kicker">
+            ${escapeHTML(
+              safe(item.PROJECT)
+            )}
+          </div>
+
+          <div class="amount">
+            ${current.toLocaleString()}
+          </div>
+
+          <div class="target">
+            Target:
+            ${target.toLocaleString()}
+          </div>
+
+
+          <div class="progress">
+
+            <div
+              class="progress-bar"
+              style="width:${percent}%"
+            ></div>
+
+          </div>
+
+
+          <div class="progress-text">
+
+            ${percent.toFixed(0)}% funded
+
+            ${
+              item.UPDATED
+              ?
+              ` · Updated ${escapeHTML(
+                safe(item.UPDATED)
+              )}`
+              :
+              ""
+            }
+
+          </div>
+
+
+          ${
+            item.DETAIL
+            ?
+            `<p style="
+              margin-top:15px;
+              color:var(--muted);
+              font-size:12px;
+              line-height:1.8;
+            ">
+              ${escapeHTML(item.DETAIL)}
+            </p>`
+            :
+            ""
+          }
+
+        </div>
+
+      `;
+
+    }).join("");
+
+}
+
+
+/* ==================================================
+   SOCIAL
+================================================== */
+
+function renderSocial(items){
+
+  const container =
+    document.getElementById(
+      "socialContainer"
+    );
+
+
+  if(!items.length){
+
+    container.innerHTML = `
+      <div
+        class="empty"
+        style="grid-column:1/-1;"
+      >
+        🔗 Social channels coming soon
+      </div>
+    `;
+
+    return;
+
+  }
+
+
+  container.innerHTML =
+    items.map(function(item){
+
+      const link =
+        safe(item.LINK);
+
+
+      return `
+
+        <a
+          class="card social-card"
+          ${
+            link !== "TBA"
+            ?
+            `href="${escapeHTML(link)}"
+             target="_blank"
+             rel="noopener"`
+            :
+            ""
+          }
+        >
+
+          <div>
+
+            <strong>
+              ${escapeHTML(
+                safe(item.PLATFORM)
+              )}
+            </strong>
+
+            <br>
+
+            <span>
+              ${escapeHTML(
+                safe(item.NAME)
+              )}
+            </span>
+
+          </div>
+
+          <span>
+            →
+          </span>
+
+        </a>
+
+      `;
+
+    }).join("");
+
+}
+
+
+/* ==================================================
+   IMAGE MODAL
+================================================== */
+
+const imageModal =
+document.getElementById(
+  "imageModal"
+);
+
+const modalImage =
+document.getElementById(
+  "modalImage"
+);
+
+const modalClose =
+document.getElementById(
+  "modalClose"
+);
+
+
+function openImage(src){
+
+  modalImage.src = src;
+
+  imageModal.classList.add(
+    "active"
+  );
+
+}
+
+
+modalClose.addEventListener(
+  "click",
+  function(){
+
+    imageModal.classList.remove(
+      "active"
+    );
+
+  }
+);
+
+
+imageModal.addEventListener(
+  "click",
+  function(event){
+
+    if(event.target === imageModal){
+
+      imageModal.classList.remove(
+        "active"
+      );
+
+    }
+
+  }
+);
+
+
+/* ==================================================
+   START
+================================================== */
+
+loadData();
 
 </script>
 
