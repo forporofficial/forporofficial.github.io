@@ -1,1412 +1,260 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="th">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>FOR POR — Official Fanbase</title>
-
-  <meta name="description" content="FOR POR Official Fanbase — A sky full of stars, memories and love for POR.">
-
+  <title>FOR POR Official Fanclub</title>
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background:
-        radial-gradient(circle at 20% 10%, rgba(130, 205, 255, 0.35), transparent 28%),
-        radial-gradient(circle at 80% 20%, rgba(210, 230, 255, 0.45), transparent 30%),
-        linear-gradient(180deg, #061a36 0%, #0a315b 45%, #eaf7ff 100%);
-      color: #ffffff;
-      min-height: 100vh;
-      overflow-x: hidden;
-      padding-bottom: 80px;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    button {
-      font: inherit;
-    }
-
-    /* =========================
-       STAR BACKGROUND
-    ========================= */
-
-    .stars,
-    .stars::before,
-    .stars::after {
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-      z-index: 0;
-    }
-
-    .stars {
-      background-image:
-        radial-gradient(circle, rgba(255,255,255,.8) 1px, transparent 1px);
-      background-size: 90px 90px;
-      opacity: .35;
-    }
-
-    .stars::before {
-      content: "";
-      background-image:
-        radial-gradient(circle, rgba(255,255,255,.7) 1px, transparent 1px);
-      background-size: 150px 150px;
-      opacity: .35;
-    }
-
-    .stars::after {
-      content: "";
-      background-image:
-        radial-gradient(circle, rgba(255,255,255,.8) 1px, transparent 1px);
-      background-size: 220px 220px;
-      opacity: .25;
-    }
-
-    /* =========================
-       HEADER
-    ========================= */
-
-    header {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      z-index: 1000;
-      padding: 18px 5%;
-      background: rgba(5, 25, 52, 0.45);
-      backdrop-filter: blur(18px);
-      -webkit-backdrop-filter: blur(18px);
-      border-bottom: 1px solid rgba(255,255,255,.15);
-    }
-
-    .nav {
-      max-width: 1200px;
-      margin: auto;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 20px;
-    }
-
-    .logo {
-      font-size: 20px;
-      font-weight: 800;
-      letter-spacing: 2px;
-      color: #ffffff;
-      white-space: nowrap;
-    }
-
-    .logo span {
-      color: #d9f3ff;
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 22px;
-      align-items: center;
-      overflow-x: auto;
-      scrollbar-width: none;
-    }
-
-    .nav-links::-webkit-scrollbar {
-      display: none;
-    }
-
-    .nav-links a {
-      font-size: 13px;
-      color: rgba(255,255,255,.82);
-      transition: .3s;
-      white-space: nowrap;
-    }
-
-    .nav-links a:hover {
-      color: #ffffff;
-    }
-
-    /* =========================
-       GENERAL
-    ========================= */
-
-    section {
-      position: relative;
-      z-index: 2;
-      padding: 100px 5%;
-    }
-
-    .container {
-      max-width: 1200px;
-      margin: auto;
-    }
-
-    .section-title {
-      margin-bottom: 45px;
-    }
-
-    .section-title small {
-      display: block;
-      color: #ccefff;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      font-size: 11px;
-      margin-bottom: 10px;
-    }
-
-    .section-title h2 {
-      font-size: clamp(30px, 5vw, 52px);
-      font-weight: 800;
-    }
-
-    .section-title p {
-      margin-top: 12px;
-      max-width: 650px;
-      color: rgba(255,255,255,.72);
-      line-height: 1.7;
-    }
-
-    /* =========================
-       HERO / HOME
-    ========================= */
-
-    #home {
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      padding-top: 150px;
-      overflow: hidden;
-    }
-
-    .hero {
-      max-width: 1200px;
-      width: 100%;
-      margin: auto;
-      display: grid;
-      grid-template-columns: 1.1fr .9fr;
-      gap: 50px;
-      align-items: center;
-    }
-
-    .hero-text small {
-      color: #d5f5ff;
-      letter-spacing: 4px;
-      font-size: 11px;
-    }
-
-    .hero-text h1 {
-      font-size: clamp(52px, 9vw, 105px);
-      line-height: .9;
-      margin: 20px 0;
-      letter-spacing: -5px;
-    }
-
-    .hero-text h1 span {
-      display: block;
-      color: #c9efff;
-    }
-
-    .hero-text p {
-      max-width: 600px;
-      line-height: 1.8;
-      color: rgba(255,255,255,.75);
-      font-size: 15px;
-    }
-
-    .hero-buttons {
-      display: flex;
-      gap: 12px;
-      flex-wrap: wrap;
-      margin-top: 30px;
-    }
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 13px 22px;
-      border-radius: 50px;
-      border: 1px solid rgba(255,255,255,.25);
-      background: rgba(255,255,255,.12);
-      backdrop-filter: blur(10px);
-      color: #ffffff;
-      cursor: pointer;
-      transition: .3s;
-    }
-
-    .btn:hover {
-      transform: translateY(-2px);
-      background: rgba(255,255,255,.22);
-    }
-
-    .btn.gold {
-      color: #fff;
-      background: linear-gradient(135deg, #d9c38a, #9e8550);
-      border: none;
-    }
-
-    .hero-card {
-      min-height: 430px;
-      border-radius: 35px;
-      background:
-        linear-gradient(145deg, rgba(255,255,255,.2), rgba(255,255,255,.05));
-      border: 1px solid rgba(255,255,255,.22);
-      backdrop-filter: blur(20px);
-      box-shadow: 0 30px 80px rgba(0,0,0,.2);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .hero-card::before {
-      content: "✦";
-      position: absolute;
-      top: 40px;
-      right: 50px;
-      font-size: 35px;
-      color: #f8e8ad;
-    }
-
-    .hero-card::after {
-      content: "✦";
-      position: absolute;
-      bottom: 60px;
-      left: 50px;
-      font-size: 20px;
-      color: #ffffff;
-    }
+    *{margin:0;padding:0;box-sizing:border-box;scroll-behavior:smooth}
+    body{
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+      background:linear-gradient(180deg,#03152d,#0d2f66,#d8ecff);
+      color:white;
+    }
 
-    .hero-star {
-      text-align: center;
+    header{
+      position:fixed;
+      width:100%;
+      top:0;
+      left:0;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:18px 30px;
+      backdrop-filter:blur(12px);
+      background:rgba(0,20,60,.45);
+      z-index:1000;
     }
 
-    .hero-star .symbol {
-      font-size: 120px;
-      line-height: 1;
-      color: #e6f8ff;
-      text-shadow:
-        0 0 20px rgba(190,235,255,.8),
-        0 0 70px rgba(100,190,255,.5);
+    .logo{
+      font-size:26px;
+      font-weight:700;
+      letter-spacing:2px;
     }
 
-    .hero-star h3 {
-      margin-top: 20px;
-      letter-spacing: 5px;
-      font-size: 18px;
+    nav a{
+      color:white;
+      text-decoration:none;
+      margin-left:20px;
+      font-size:14px;
     }
 
-    .hero-star p {
-      margin-top: 8px;
-      color: rgba(255,255,255,.65);
-      font-size: 12px;
-      letter-spacing: 2px;
+    .hero{
+      height:100vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+      padding:20px;
+      background:radial-gradient(circle at top,#4fa8ff55,transparent 60%);
     }
 
-    /* =========================
-       GLASS CARDS
-    ========================= */
-
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
-    }
-
-    .card {
-      padding: 28px;
-      border-radius: 25px;
-      background: rgba(255,255,255,.10);
-      border: 1px solid rgba(255,255,255,.18);
-      backdrop-filter: blur(18px);
-      -webkit-backdrop-filter: blur(18px);
-      transition: .35s;
-    }
-
-    .card:hover {
-      transform: translateY(-5px);
-      background: rgba(255,255,255,.15);
-      border-color: rgba(255,255,255,.3);
-    }
-
-    .card-icon {
-      font-size: 30px;
-      margin-bottom: 18px;
-    }
-
-    .card h3 {
-      margin-bottom: 10px;
-      font-size: 20px;
-    }
-
-    .card p {
-      color: rgba(255,255,255,.7);
-      line-height: 1.7;
-      font-size: 14px;
-    }
-
-    /* =========================
-       PROFILE
-    ========================= */
-
-    .profile-box {
-      display: grid;
-      grid-template-columns: .8fr 1.2fr;
-      gap: 30px;
-      align-items: stretch;
-    }
-
-    .profile-photo {
-      min-height: 420px;
-      border-radius: 30px;
-      background:
-        linear-gradient(145deg, rgba(255,255,255,.18), rgba(255,255,255,.05));
-      border: 1px solid rgba(255,255,255,.2);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 80px;
-      backdrop-filter: blur(15px);
-    }
-
-    .profile-info {
-      padding: 40px;
-      border-radius: 30px;
-      background: rgba(255,255,255,.09);
-      border: 1px solid rgba(255,255,255,.17);
-      backdrop-filter: blur(18px);
-    }
-
-    .profile-info h3 {
-      font-size: 42px;
-      margin-bottom: 20px;
-    }
-
-    .profile-info p {
-      color: rgba(255,255,255,.72);
-      line-height: 1.9;
-      margin-bottom: 15px;
-    }
-
-    .info-list {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 12px;
-      margin-top: 25px;
-    }
-
-    .info-item {
-      padding: 15px;
-      border-radius: 15px;
-      background: rgba(255,255,255,.07);
-    }
-
-    .info-item small {
-      display: block;
-      color: #bfeaff;
-      margin-bottom: 5px;
-      font-size: 10px;
-      letter-spacing: 1px;
-    }
-
-    /* =========================
-       TIMELINE
-    ========================= */
-
-    .timeline {
-      position: relative;
-      max-width: 850px;
-      margin: auto;
-    }
-
-    .timeline::before {
-      content: "";
-      position: absolute;
-      left: 15px;
-      top: 0;
-      bottom: 0;
-      width: 1px;
-      background: rgba(255,255,255,.2);
-    }
-
-    .timeline-item {
-      position: relative;
-      padding-left: 55px;
-      margin-bottom: 35px;
-    }
-
-    .timeline-item::before {
-      content: "✦";
-      position: absolute;
-      left: 7px;
-      top: 0;
-      color: #e8d69d;
+    .hero h1{
+      font-size:70px;
+      line-height:1;
     }
 
-    .timeline-item .date {
-      color: #ccefff;
-      font-size: 12px;
-      letter-spacing: 2px;
-      margin-bottom: 7px;
+    .hero p{
+      margin-top:20px;
+      color:#dceeff;
+      font-size:18px;
     }
 
-    /* =========================
-       STAR MAP
-    ========================= */
-
-    .star-map {
-      min-height: 450px;
-      position: relative;
-      overflow: hidden;
-      border-radius: 35px;
-      background:
-        radial-gradient(circle at 50% 50%, rgba(100,190,255,.18), transparent 35%),
-        rgba(255,255,255,.07);
-      border: 1px solid rgba(255,255,255,.17);
-    }
-
-    .star-map .big-star {
-      position: absolute;
-      left: 50%;
-      top: 50%;
-      transform: translate(-50%,-50%);
-      font-size: 75px;
-      color: #f3e2a9;
-      text-shadow: 0 0 40px rgba(255,235,160,.6);
-    }
-
-    .map-star {
-      position: absolute;
-      color: #ffffff;
-      font-size: 18px;
-      cursor: pointer;
-      animation: twinkle 2s infinite alternate;
-    }
-
-    .map-star:nth-child(2) { top: 18%; left: 18%; }
-    .map-star:nth-child(3) { top: 25%; right: 22%; }
-    .map-star:nth-child(4) { bottom: 20%; left: 25%; }
-    .map-star:nth-child(5) { bottom: 25%; right: 18%; }
-    .map-star:nth-child(6) { top: 55%; left: 12%; }
-    .map-star:nth-child(7) { top: 65%; right: 10%; }
-
-    @keyframes twinkle {
-      from { opacity: .35; transform: scale(.8); }
-      to { opacity: 1; transform: scale(1.2); }
-    }
-
-    /* =========================
-       FAN MESSAGE
-    ========================= */
-
-    .message-box {
-      max-width: 750px;
-      margin: auto;
-      padding: 35px;
-      border-radius: 30px;
-      background: rgba(255,255,255,.1);
-      border: 1px solid rgba(255,255,255,.18);
-      backdrop-filter: blur(18px);
-    }
-
-    input,
-    textarea {
-      width: 100%;
-      border: 1px solid rgba(255,255,255,.18);
-      background: rgba(255,255,255,.08);
-      color: #ffffff;
-      border-radius: 15px;
-      padding: 14px 16px;
-      outline: none;
-      margin-bottom: 15px;
-    }
-
-    input::placeholder,
-    textarea::placeholder {
-      color: rgba(255,255,255,.5);
+    .btn{
+      display:inline-block;
+      margin-top:30px;
+      padding:14px 28px;
+      border-radius:999px;
+      background:#84d7ff;
+      color:#002c57;
+      text-decoration:none;
+      font-weight:bold;
     }
 
-    textarea {
-      min-height: 150px;
-      resize: vertical;
+    section{
+      max-width:1100px;
+      margin:auto;
+      padding:80px 20px;
     }
-
-    /* =========================
-       FOOTER
-    ========================= */
 
-    footer {
-      position: relative;
-      z-index: 2;
-      text-align: center;
-      padding: 60px 20px 100px;
-      color: rgba(255,255,255,.6);
+    h2{
+      font-size:34px;
+      margin-bottom:25px;
     }
 
-    footer strong {
-      display: block;
-      color: #ffffff;
-      font-size: 18px;
-      margin-bottom: 8px;
-      letter-spacing: 2px;
+    .glass{
+      background:rgba(255,255,255,.08);
+      border:1px solid rgba(255,255,255,.15);
+      backdrop-filter:blur(14px);
+      border-radius:24px;
+      padding:25px;
     }
 
-    /* =========================
-       MOBILE NAV
-    ========================= */
-
-    .mobile-nav {
-      display: none;
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+      gap:20px;
     }
-
-    /* =========================
-       RESPONSIVE
-    ========================= */
-
-    @media (max-width: 900px) {
 
-      header {
-        padding: 15px 20px;
-      }
-
-      .nav-links {
-        display: none;
-      }
-
-      .hero {
-        grid-template-columns: 1fr;
-      }
-
-      .hero-card {
-        min-height: 320px;
-      }
-
-      .grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .profile-box {
-        grid-template-columns: 1fr;
-      }
-
-      section {
-        padding: 80px 20px;
-      }
+    .card{
+      background:rgba(255,255,255,.08);
+      border-radius:20px;
+      padding:20px;
+      backdrop-filter:blur(10px);
     }
-
-    @media (max-width: 600px) {
-
-      body {
-        padding-bottom: 75px;
-      }
-
-      #home {
-        min-height: auto;
-        padding-top: 120px;
-      }
-
-      .hero-text h1 {
-        font-size: 62px;
-        letter-spacing: -3px;
-      }
-
-      .hero-card {
-        min-height: 270px;
-      }
-
-      .hero-star .symbol {
-        font-size: 80px;
-      }
-
-      .grid {
-        grid-template-columns: 1fr;
-      }
-
-      .profile-info {
-        padding: 25px;
-      }
-
-      .profile-info h3 {
-        font-size: 32px;
-      }
-
-      .info-list {
-        grid-template-columns: 1fr;
-      }
-
-      .section-title h2 {
-        font-size: 34px;
-      }
-
-      .mobile-nav {
-        position: fixed;
-        display: flex;
-        bottom: 12px;
-        left: 12px;
-        right: 12px;
-        height: 62px;
-        z-index: 2000;
-        background: rgba(5,25,52,.78);
-        border: 1px solid rgba(255,255,255,.18);
-        backdrop-filter: blur(20px);
-        border-radius: 22px;
-        justify-content: space-around;
-        align-items: center;
-        box-shadow: 0 10px 40px rgba(0,0,0,.3);
-      }
-
-      .mobile-nav a {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 3px;
-        font-size: 10px;
-        color: rgba(255,255,255,.7);
-      }
 
-      .mobile-nav a span {
-        font-size: 20px;
-      }
+    .progress{
+      width:100%;
+      height:10px;
+      border-radius:20px;
+      background:#ffffff30;
+      overflow:hidden;
+      margin:12px 0;
+    }
+
+    .progress span{
+      display:block;
+      height:100%;
+      width:60%;
+      background:linear-gradient(90deg,#7ed9ff,#3ea7ff);
+    }
+
+    .gallery{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+      gap:12px;
+    }
+
+    .photo{
+      aspect-ratio:1;
+      border-radius:18px;
+      background:rgba(255,255,255,.15);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      color:#bcdfff;
+    }
+
+    footer{
+      text-align:center;
+      padding:50px 20px;
+      color:#c8e6ff;
+      border-top:1px solid rgba(255,255,255,.1);
+    }
+
+    @media(max-width:768px){
+      header{padding:15px;flex-direction:column;gap:10px}
+      nav{display:flex;flex-wrap:wrap;justify-content:center}
+      nav a{margin:6px}
+      .hero h1{font-size:46px}
     }
   </style>
 </head>
-
 <body>
 
-<div class="stars"></div>
-
-<!-- =========================
-     HEADER
-========================= -->
-
 <header>
-  <nav class="nav">
-
-    <a href="#home" class="logo">
-      FOR <span>POR</span>
-    </a>
-
-    <div class="nav-links">
-      <a href="#home">Home</a>
-      <a href="#profile">Profile</a>
-      <a href="#works">Works</a>
-      <a href="#schedule">Schedule</a>
-      <a href="#projects">Projects</a>
-      <a href="#gallery">Gallery</a>
-      <a href="#news">News</a>
-      <a href="#community">Community</a>
-    </div>
-
+  <div class="logo">FOR POR</div>
+  <nav>
+    <a href="#profile">Profile</a>
+    <a href="#works">Works</a>
+    <a href="#schedule">Schedule</a>
+    <a href="#projects">Projects</a>
+    <a href="#gallery">Gallery</a>
+    <a href="#social">Social</a>
   </nav>
 </header>
 
-
-<!-- =========================
-     HOME
-========================= -->
-
-<section id="home">
-
-  <div class="hero">
-
-    <div class="hero-text">
-
-      <small>OFFICIAL FANBASE</small>
-
-      <h1>
-        FOR
-        <span>POR</span>
-      </h1>
-
-      <p>
-        A sky full of stars, memories and love.
-        Welcome to the official fanbase space dedicated to POR.
-      </p>
-
-      <div class="hero-buttons">
-        <a href="#profile" class="btn gold">Meet POR ✦</a>
-        <a href="#projects" class="btn">Our Projects</a>
-      </div>
-
-    </div>
-
-
-    <div class="hero-card">
-
-      <div class="hero-star">
-
-        <div class="symbol">✦</div>
-
-        <h3>A SKY FULL OF POR</h3>
-
-        <p>EVERY STAR HOLDS A MEMORY</p>
-
-      </div>
-
-    </div>
-
+<section class="hero">
+  <div>
+    <h1>FOR POR</h1>
+    <h3>Official Fanclub</h3>
+    <p>Always beside you, in every step of your shining path.</p>
+    <a class="btn" href="#projects">Join Fan Project</a>
   </div>
-
 </section>
-
-
-<!-- =========================
-     POR PROFILE
-========================= -->
 
 <section id="profile">
-
-  <div class="container">
-
-    <div class="section-title">
-      <small>ABOUT POR</small>
-      <h2>POR Profile</h2>
-      <p>
-        Get to know POR and follow every step of his journey.
-      </p>
-    </div>
-
-
-    <div class="profile-box">
-
-      <div class="profile-photo">
-        ✦
-      </div>
-
-      <div class="profile-info">
-
-        <h3>POR</h3>
-
-        <p>
-          Welcome to POR's official fanbase space.
-          This section can be expanded with his biography,
-          official profile and important information.
-        </p>
-
-        <div class="info-list">
-
-          <div class="info-item">
-            <small>NAME</small>
-            Por Suppakarn
-          </div>
-
-          <div class="info-item">
-            <small>FANBASE</small>
-            FOR POR
-          </div>
-
-          <div class="info-item">
-            <small>THEME</small>
-            Ice Prince
-          </div>
-
-          <div class="info-item">
-            <small>SYMBOL</small>
-            ⭐ ❄️
-          </div>
-
-        </div>
-
-      </div>
-
-    </div>
-
+  <h2>Profile & History</h2>
+  <div class="glass">
+    <h3>POR Suppakarn Jirachotikul</h3>
+    <p><strong>Birthday:</strong> 17 October 2002</p>
+    <p><strong>Fandom:</strong> #องครักษ์แห่งดินแดนน้ำแข็ง #vava</p>
+    <p><strong>Education:</strong> Dusit Thani College</p>
+    <p>หน้านี้จะใส่ประวัติเต็ม, สิ่งที่ชอบ, งานอดิเรก และข้อมูลทั้งหมดของ POR</p>
   </div>
-
 </section>
-
-
-<!-- =========================
-     WORKS
-========================= -->
 
 <section id="works">
-
-  <div class="container">
-
-    <div class="section-title">
-      <small>ARCHIVE</small>
-      <h2>Works</h2>
-      <p>Explore POR's works and archive.</p>
-    </div>
-
-    <div class="grid">
-
-      <div class="card">
-        <div class="card-icon">🎬</div>
-        <h3>Drama</h3>
-        <p>Drama and acting works will be archived here.</p>
-      </div>
-
-      <div class="card">
-        <div class="card-icon">🎭</div>
-        <h3>Events</h3>
-        <p>Events, appearances and special activities.</p>
-      </div>
-
-      <div class="card">
-        <div class="card-icon">📺</div>
-        <h3>Shows</h3>
-        <p>Programs, interviews and appearances.</p>
-      </div>
-
-    </div>
-
+  <h2>Works</h2>
+  <div class="grid">
+    <div class="card">🎬 Series</div>
+    <div class="card">🎥 Movie</div>
+    <div class="card">🎵 Music Video</div>
+    <div class="card">📖 Magazine / Photoshoot</div>
   </div>
-
 </section>
-
-
-<!-- =========================
-     SCHEDULE
-========================= -->
 
 <section id="schedule">
-
-  <div class="container">
-
-    <div class="section-title">
-      <small>UPCOMING</small>
-      <h2>Schedule</h2>
-      <p>Follow upcoming activities and events.</p>
-    </div>
-
-    <div class="timeline">
-
-      <div class="timeline-item">
-
-        <div class="date">COMING SOON</div>
-
-        <div class="card">
-          <h3>Upcoming Event</h3>
-          <p>
-            Schedule information will appear here.
-          </p>
-        </div>
-
-      </div>
-
-      <div class="timeline-item">
-
-        <div class="date">COMING SOON</div>
-
-        <div class="card">
-          <h3>Special Appearance</h3>
-          <p>
-            More information will be added later.
-          </p>
-        </div>
-
-      </div>
-
-    </div>
-
+  <h2>Upcoming Schedule</h2>
+  <div class="glass">
+    <p>📅 15 Sep — Fansign Bangkok</p>
+    <p>📅 17 Oct — Birthday Event</p>
+    <p>📅 25 Oct — Concert</p>
   </div>
-
 </section>
-
-
-<!-- =========================
-     PROJECTS
-========================= -->
 
 <section id="projects">
+  <h2>Projects</h2>
+  <div class="grid">
 
-  <div class="container">
-
-    <div class="section-title">
-      <small>FAN PROJECTS</small>
-      <h2>Projects</h2>
-      <p>
-        Projects created with love and support for POR.
-      </p>
+    <div class="card">
+      <h3>🎂 Birthday Project 2026</h3>
+      <div class="progress"><span></span></div>
+      <p>48,520 / 80,000 THB</p>
     </div>
 
-    <div class="grid">
+    <div class="card">
+      <h3>🤍 2nd Anniversary Project</h3>
+      <p>Coming Soon</p>
+    </div>
 
-      <div class="card">
-        <div class="card-icon">🎁</div>
-        <h3>Birthday Project</h3>
-        <p>
-          Special projects created for POR's birthday.
-        </p>
-      </div>
-
-      <div class="card">
-        <div class="card-icon">⭐</div>
-        <h3>A Sky Full of POR</h3>
-        <p>
-          From one small room to a sky full of stars.
-        </p>
-      </div>
-
-      <div class="card">
-        <div class="card-icon">🤍</div>
-        <h3>Support Projects</h3>
-        <p>
-          Fan support projects and special occasions.
-        </p>
-      </div>
-
+    <div class="card">
+      <h3>🎁 Food Support Project</h3>
+      <p>In Progress</p>
     </div>
 
   </div>
-
 </section>
-
-
-<!-- =========================
-     GALLERY
-========================= -->
 
 <section id="gallery">
-
-  <div class="container">
-
-    <div class="section-title">
-      <small>MEMORIES</small>
-      <h2>Gallery</h2>
-      <p>
-        A place for memories, moments and beautiful pictures.
-      </p>
-    </div>
-
-    <div class="grid">
-
-      <div class="card">
-        <div class="card-icon">📸</div>
-        <h3>Events</h3>
-        <p>Event photos will be displayed here.</p>
-      </div>
-
-      <div class="card">
-        <div class="card-icon">⭐</div>
-        <h3>Moments</h3>
-        <p>Special moments captured by fans.</p>
-      </div>
-
-      <div class="card">
-        <div class="card-icon">❄️</div>
-        <h3>Ice Prince</h3>
-        <p>Favorite Ice Prince moments.</p>
-      </div>
-
-    </div>
-
+  <h2>Photo Gallery</h2>
+  <div class="gallery">
+    <div class="photo">PHOTO 1</div>
+    <div class="photo">PHOTO 2</div>
+    <div class="photo">PHOTO 3</div>
+    <div class="photo">PHOTO 4</div>
+    <div class="photo">PHOTO 5</div>
+    <div class="photo">PHOTO 6</div>
   </div>
-
 </section>
 
-
-<!-- =========================
-     NEWS
-========================= -->
-
-<section id="news">
-
-  <div class="container">
-
-    <div class="section-title">
-      <small>UPDATES</small>
-      <h2>News</h2>
-      <p>
-        Latest updates and important announcements.
-      </p>
-    </div>
-
-    <div class="grid">
-
-      <div class="card">
-        <div class="card-icon">📰</div>
-        <h3>Latest Update</h3>
-        <p>
-          News and updates will appear here.
-        </p>
-      </div>
-
-      <div class="card">
-        <div class="card-icon">📢</div>
-        <h3>Announcement</h3>
-        <p>
-          Important fanbase announcements.
-        </p>
-      </div>
-
-      <div class="card">
-        <div class="card-icon">✨</div>
-        <h3>Special News</h3>
-        <p>
-          Special moments and updates.
-        </p>
-      </div>
-
-    </div>
-
+<section id="social">
+  <h2>Social Media</h2>
+  <div class="grid">
+    <div class="card">𝕏 @porsuppakarn</div>
+    <div class="card">Instagram</div>
+    <div class="card">TikTok</div>
+    <div class="card">Weibo</div>
+    <div class="card">OpenChat</div>
+    <div class="card">FOR POR Official</div>
   </div>
-
 </section>
-
-
-<!-- =========================
-     COMMUNITY
-========================= -->
-
-<section id="community">
-
-  <div class="container">
-
-    <div class="section-title">
-      <small>CONNECT</small>
-      <h2>Social / Community</h2>
-      <p>
-        Follow FOR POR and connect with fellow fans.
-      </p>
-    </div>
-
-    <div class="grid">
-
-      <div class="card">
-        <div class="card-icon">𝕏</div>
-        <h3>X / Twitter</h3>
-        <p>Follow updates and fan activities.</p>
-      </div>
-
-      <div class="card">
-        <div class="card-icon">📱</div>
-        <h3>Social Media</h3>
-        <p>More official social links can be added later.</p>
-      </div>
-
-      <div class="card">
-        <div class="card-icon">🩵</div>
-        <h3>Community</h3>
-        <p>A space where fans can stay connected.</p>
-      </div>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- =========================
-     FAN MESSAGE
-========================= -->
-
-<section id="message">
-
-  <div class="container">
-
-    <div class="section-title">
-      <small>FROM FANS</small>
-      <h2>Fan Message</h2>
-      <p>
-        Leave a little message filled with love.
-      </p>
-    </div>
-
-    <div class="message-box">
-
-      <input
-        type="text"
-        placeholder="Your name / nickname"
-      >
-
-      <textarea
-        placeholder="Write your message for POR..."
-      ></textarea>
-
-      <button class="btn gold" type="button">
-        Send with Love 🤍
-      </button>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- =========================
-     STAR MAP
-========================= -->
-
-<section id="star-map">
-
-  <div class="container">
-
-    <div class="section-title">
-
-      <small>OUR CONSTELLATION</small>
-
-      <h2>The Star Map</h2>
-
-      <p>
-        Every star holds a memory.
-        Every memory becomes part of our journey.
-      </p>
-
-    </div>
-
-
-    <div class="star-map">
-
-      <div class="big-star">✦</div>
-
-      <div class="map-star">✦</div>
-      <div class="map-star">✧</div>
-      <div class="map-star">✦</div>
-      <div class="map-star">✧</div>
-      <div class="map-star">✦</div>
-      <div class="map-star">✧</div>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- =========================
-     FAN GUIDE
-========================= -->
-
-<section id="fan-guide">
-
-  <div class="container">
-
-    <div class="section-title">
-
-      <small>WELCOME TO THE FANDOM</small>
-
-      <h2>Fan Guide</h2>
-
-      <p>
-        Everything new fans need to know about supporting POR.
-      </p>
-
-    </div>
-
-
-    <div class="grid">
-
-      <div class="card">
-
-        <div class="card-icon">🤍</div>
-
-        <h3>Start Here</h3>
-
-        <p>
-          Get to know POR and explore his works.
-        </p>
-
-      </div>
-
-
-      <div class="card">
-
-        <div class="card-icon">⭐</div>
-
-        <h3>Support</h3>
-
-        <p>
-          Learn how to support POR and fanbase projects.
-        </p>
-
-      </div>
-
-
-      <div class="card">
-
-        <div class="card-icon">🩵</div>
-
-        <h3>Fan Etiquette</h3>
-
-        <p>
-          Respect POR, other fans and the community.
-        </p>
-
-      </div>
-
-
-      <div class="card">
-
-        <div class="card-icon">📢</div>
-
-        <h3>Hashtags</h3>
-
-        <p>
-          Follow official hashtags and fan activities.
-        </p>
-
-      </div>
-
-
-      <div class="card">
-
-        <div class="card-icon">🎁</div>
-
-        <h3>Join Projects</h3>
-
-        <p>
-          Discover upcoming fan projects.
-        </p>
-
-      </div>
-
-
-      <div class="card">
-
-        <div class="card-icon">🌟</div>
-
-        <h3>Spread the Love</h3>
-
-        <p>
-          Celebrate POR's journey together.
-        </p>
-
-      </div>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- =========================
-     SUPPORT
-========================= -->
-
-<section id="support">
-
-  <div class="container">
-
-    <div class="section-title">
-
-      <small>WITH LOVE</small>
-
-      <h2>Support</h2>
-
-      <p>
-        Thank you for being part of this journey.
-      </p>
-
-    </div>
-
-
-    <div class="grid">
-
-      <div class="card">
-
-        <div class="card-icon">🤍</div>
-
-        <h3>Support POR</h3>
-
-        <p>
-          Follow official channels and support his works.
-        </p>
-
-      </div>
-
-
-      <div class="card">
-
-        <div class="card-icon">🎁</div>
-
-        <h3>Fan Projects</h3>
-
-        <p>
-          Take part in projects created by FOR POR.
-        </p>
-
-      </div>
-
-
-      <div class="card">
-
-        <div class="card-icon">⭐</div>
-
-        <h3>Stay Together</h3>
-
-        <p>
-          Every little star makes the sky brighter.
-        </p>
-
-      </div>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- =========================
-     FOOTER
-========================= -->
 
 <footer>
-
-  <strong>FOR POR</strong>
-
-  <p>
-    A sky full of stars. Every star holds a memory. ⭐
-  </p>
-
-  <p style="margin-top:15px;font-size:11px;">
-    © 2026 FOR POR Official Fanbase
-  </p>
-
+  <h2>FOR POR Official Fanclub</h2>
+  <p>All for POR. Always for POR.</p>
+  <p>© 2026 FOR POR Official Fanclub</p>
 </footer>
-
-
-<!-- =========================
-     MOBILE NAVIGATION
-========================= -->
-
-<div class="mobile-nav">
-
-  <a href="#home">
-    <span>🏠</span>
-    Home
-  </a>
-
-  <a href="#profile">
-    <span>👤</span>
-    POR
-  </a>
-
-  <a href="#projects">
-    <span>🎁</span>
-    Projects
-  </a>
-
-  <a href="#gallery">
-    <span>📸</span>
-    Gallery
-  </a>
-
-  <a href="#support">
-    <span>🤍</span>
-    Support
-  </a>
-
-</div>
-
 
 </body>
 </html>
