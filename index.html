@@ -1,56 +1,147 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>FORPOR OFFICIAL</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-<style>
-*{margin:0;padding:0;box-sizing:border-box}
-body{font-family:Inter,sans-serif;background:#031127;color:#fff;overflow-x:hidden}
-body:before{content:"";position:fixed;inset:0;background-image:radial-gradient(#fff 1px,transparent 1px);background-size:80px 80px;opacity:.15;animation:stars 80s linear infinite;pointer-events:none}
-@keyframes stars{to{transform:translateY(-500px)}}
-header{position:fixed;top:0;width:100%;display:flex;justify-content:space-between;align-items:center;padding:20px 8%;background:rgba(3,17,39,.45);backdrop-filter:blur(16px);z-index:99}
-.logo{font-family:"Cormorant Garamond",serif;color:#FFD977;font-size:28px;letter-spacing:3px}
-nav a{color:#fff;text-decoration:none;margin-left:22px;font-size:13px;letter-spacing:2px}
-.hero{min-height:100vh;display:grid;grid-template-columns:1fr 1fr;align-items:center;padding:0 8%;background:linear-gradient(180deg,#031127,#082A5C)}
-.hero h1{font-family:"Cormorant Garamond",serif;font-size:96px;line-height:.9}
-.hero h1 span{display:block;color:#FFD977;font-style:italic;font-size:48px;margin:14px 0}
-.hero p{margin-top:20px;color:#D8F0FF;font-size:20px}
-.btn{display:inline-block;margin-top:36px;padding:16px 32px;border-radius:40px;background:linear-gradient(90deg,#8FD9FF,#FFD977);color:#031127;text-decoration:none;font-weight:700}
-.hero img{width:100%;max-width:560px;justify-self:end;filter:drop-shadow(0 0 40px rgba(143,217,255,.45))}
-section{padding:100px 8%}
-.title{font-family:"Cormorant Garamond",serif;font-size:54px;text-align:center;margin-bottom:50px;color:#8FD9FF}
-.countdown-box{background:rgba(255,255,255,.06);padding:30px;border-radius:28px;display:flex;justify-content:space-around;flex-wrap:wrap;gap:25px}
-.time{text-align:center}.time strong{display:block;font-size:42px;color:#FFD977}.time span{font-size:12px;letter-spacing:2px;color:#9FD9FF}
-.about{display:grid;grid-template-columns:330px 1fr;gap:40px;align-items:center}.about img{width:100%;border-radius:26px}.about p{line-height:1.8;color:#CFE9FF}.info{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:15px;margin-top:25px}.info div{background:rgba(255,255,255,.05);padding:18px;border-radius:18px}.info span{display:block;font-size:12px;color:#8FD9FF;margin-bottom:8px}
-.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:22px}.card{background:rgba(255,255,255,.05);padding:16px;border-radius:20px}.card img{width:100%;height:280px;object-fit:cover;border-radius:16px}.card h3{margin:15px 0;color:#FFD977}
-.schedule .row{background:rgba(255,255,255,.05);padding:18px;border-radius:16px;margin-bottom:15px;display:flex;justify-content:space-between;align-items:center}.badge{background:#8FD9FF;color:#031127;padding:8px 14px;border-radius:20px;font-size:12px;font-weight:700}
-.project{background:rgba(255,255,255,.05);padding:24px;border-radius:22px}.progress{height:14px;background:#24466A;border-radius:20px;margin:18px 0;overflow:hidden}.bar{width:72%;height:100%;background:linear-gradient(90deg,#8FD9FF,#FFD977)}
-.gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:15px}.gallery img{width:100%;height:220px;object-fit:cover;border-radius:18px;cursor:pointer}.lightbox{position:fixed;inset:0;background:rgba(0,0,0,.9);display:none;align-items:center;justify-content:center}.lightbox img{max-width:90%;max-height:90%;border-radius:18px}
-.social{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:18px}.social a{background:rgba(255,255,255,.05);padding:20px;border-radius:18px;text-align:center;color:#fff;text-decoration:none}
-footer{text-align:center;padding:60px;background:#020915;color:#8FD9FF}footer h3{font-family:"Cormorant Garamond",serif;color:#FFD977;font-size:36px;margin-bottom:10px}
-@media(max-width:900px){nav{display:none}.hero{grid-template-columns:1fr;text-align:center;padding-top:120px}.hero h1{font-size:64px}.hero h1 span{font-size:36px}.hero img{justify-self:center;margin-top:30px}.about{grid-template-columns:1fr}}
-</style>
-</head>
-<body>
-<header><div class="logo">FORPOR OFFICIAL</div><nav><a href="#home">HOME</a><a href="#about">ABOUT</a><a href="#works">WORKS</a><a href="#schedule">SCHEDULE</a><a href="#projects">PROJECTS</a><a href="#gallery">GALLERY</a><a href="#social">SOCIAL</a></nav></header>
-<section class="hero" id="home"><div><p style="letter-spacing:3px;color:#8FD9FF">FORPOR OFFICIAL FANCLUB</p><h1>A SKY <span>full of</span> POR</h1><p>Every Star Holds Our Story.</p><a href="#about" class="btn">DISCOVER POR ✦</a></div><img src="assets/hero.png" alt="POR"></section>
-<section><h2 class="title">Countdown to POR Birthday</h2><div class="countdown-box"><div class="time"><strong id="days">000</strong><span>DAYS</span></div><div class="time"><strong id="hours">00</strong><span>HOURS</span></div><div class="time"><strong id="minutes">00</strong><span>MINUTES</span></div><div class="time"><strong id="seconds">00</strong><span>SECONDS</span></div></div></section>
-<section id="about"><h2 class="title">About POR</h2><div class="about"><img src="assets/profile.png"><div><p>Por Suppakarn is an actor, singer and performer. Welcome to FORPOR OFFICIAL — a place where every project, event and memory becomes another star in the sky.</p><div class="info"><div><span>BIRTHDAY</span>20 September</div><div><span>HEIGHT</span>183 cm</div><div><span>NATIONALITY</span>Thailand</div><div><span>FANDOM</span>FORPOR</div></div></div></div></section>
-<section id="works"><h2 class="title">Works / Archive</h2><div class="cards"><div class="card"><img src="assets/stage.png"><h3>Series</h3><p>Drama & TV Series</p></div><div class="card"><img src="assets/profile.png"><h3>Music Video</h3><p>MV Collection</p></div><div class="card"><img src="assets/hero.png"><h3>Photoshoot</h3><p>Magazine & Campaign</p></div></div></section>
-<section id="schedule" class="schedule"><h2 class="title">Upcoming Schedule</h2><div class="row"><div><strong>20 SEP 2026</strong><br>POR Birthday Project 2026</div><div class="badge">BIRTHDAY</div></div><div class="row"><div><strong>OCT 2026</strong><br>Fan Meeting (Coming Soon)</div><div class="badge">EVENT</div></div><div class="row"><div><strong>NOV 2026</strong><br>Official Brand Event</div><div class="badge">OFFICIAL</div></div></section>
-<section id="projects"><h2 class="title">Fan Projects</h2><div class="project"><h3 style="color:#FFD977">#ASkyFullOfPor24th</h3><p>POR Birthday Project 2026</p><div class="progress"><div class="bar"></div></div><p>72,000 / 100,000 THB (72%)</p></div></section>
-<section id="gallery"><h2 class="title">Gallery</h2><div class="gallery"><img src="assets/hero.png"><img src="assets/profile.png"><img src="assets/stage.png"><img src="assets/hero.png"><img src="assets/profile.png"><img src="assets/stage.png"></div></section>
-<section id="social"><h2 class="title">Follow FORPOR</h2><div class="social"><a href="#">X / Twitter</a><a href="#">Instagram</a><a href="#">TikTok</a><a href="#">Weibo</a><a href="#">YouTube</a><a href="#">LINE OpenChat</a></div></section>
-<footer><h3>FORPOR OFFICIAL</h3><p>A Sky Full of POR ✦ Every Star Holds Our Story.</p></footer>
-<div class="lightbox" id="lightbox"><img id="lightbox-img"></div>
-<script>
-const target=new Date('2026-09-20T00:00:00').getTime();
-function update(){const now=Date.now();const gap=target-now;const d=Math.max(0,Math.floor(gap/86400000));const h=Math.floor((gap%86400000)/3600000);const m=Math.floor((gap%3600000)/60000);const s=Math.floor((gap%60000)/1000);days.textContent=d;hours.textContent=h;minutes.textContent=m;seconds.textContent=s;}setInterval(update,1000);update();
-const box=document.getElementById('lightbox');const img=document.getElementById('lightbox-img');document.querySelectorAll('.gallery img').forEach(i=>i.onclick=()=>{img.src=i.src;box.style.display='flex';});box.onclick=()=>box.style.display='none';
-</script>
-</body>
-</html>
+<section class="por-profile" id="profile">
+
+  <div class="profile-bg"></div>
+
+  <div class="profile-left">
+    <p class="section-label">FORPOR OFFICIAL</p>
+
+    <h1 class="profile-title">
+      Por's <span>Profile</span>
+    </h1>
+
+    <div class="name-box">
+      <p class="label">ชื่อ / Name</p>
+      <h2>ป๋อ ศุภการ จิระโชติกุล</h2>
+      <h3>POR Suppakarn Jirachotikul</h3>
+    </div>
+
+    <div class="info-card">
+      <div class="info-item">
+        <span>Date of Birth</span>
+        <strong>17 / 10 / 2002</strong>
+      </div>
+
+      <div class="info-item">
+        <span>Education</span>
+        <p>โรงเรียนมัธยมปัญญารัตน์</p>
+        <small>Panyarat High School</small>
+
+        <p class="mt">วิทยาลัยดุสิตธานี</p>
+        <small>Bachelor of Management in Tourism Service Innovation</small>
+      </div>
+
+      <div class="info-item">
+        <span>Fandom Name</span>
+        <p>#องครักษ์แห่งดินแดนน้ำแข็ง</p>
+        <p>#vava &nbsp; #วาวา</p>
+      </div>
+
+      <div class="info-item">
+        <span>Official Hashtags</span>
+        <p>#PorSuppakarn</p>
+        <p>#POR_DEXX</p>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="profile-right">
+    <img src="assets/profile-main.png" alt="POR">
+  </div>
+
+</section>
+
+<section class="favorites-section">
+
+  <div class="glass-box">
+    <h2>Favorites</h2>
+
+    <div class="tags">
+      <span>🏀 Basketball</span>
+      <span>🍣 Japanese Food</span>
+      <span>🥥 Coconut Cake</span>
+      <span>🍓 Strawberry</span>
+      <span>🦐 Fried River Prawns</span>
+      <span>🍦 Ice Cream</span>
+      <span>🥭 Mango</span>
+      <span>🌹 White Roses</span>
+    </div>
+  </div>
+
+  <div class="two-grid">
+
+    <div class="glass-box">
+      <h2>Hobby</h2>
+
+      <ul>
+        <li>Eating</li>
+        <li>Sleeping</li>
+        <li>Watching Movies</li>
+        <li>Singing</li>
+        <li>Basketball</li>
+      </ul>
+    </div>
+
+    <div class="glass-box">
+      <h2>Dislikes & Fear</h2>
+
+      <ul>
+        <li>Vegetables</li>
+        <li>Rubber Band</li>
+        <li>Ghosts</li>
+        <li>Animals</li>
+      </ul>
+    </div>
+
+  </div>
+
+</section>
+
+<section class="size-section">
+
+  <div class="glass-box">
+    <h2>Clothing & Jewelry Sizes</h2>
+
+    <div class="size-grid">
+
+      <div><span>Shirt</span><strong>L</strong></div>
+
+      <div><span>Shoe</span><strong>42 EU / 8.5 US</strong></div>
+
+      <div><span>Pants</span><strong>Waist 28.5–30.5 in.</strong></div>
+
+      <div><span>Bracelet</span><strong>17 cm</strong></div>
+
+    </div>
+
+    <div class="ring-box">
+      <h3>Ring Size (mm)</h3>
+
+      <table>
+        <tr>
+          <th>Left</th>
+          <th>Right</th>
+        </tr>
+        <tr>
+          <td>Index 57.5</td>
+          <td>57</td>
+        </tr>
+        <tr>
+          <td>Middle 60</td>
+          <td>58.5</td>
+        </tr>
+        <tr>
+          <td>Ring 56</td>
+          <td>54.5</td>
+        </tr>
+        <tr>
+          <td>Pinky 49</td>
+          <td>47.5</td>
+        </tr>
+      </table>
+
+    </div>
+
+  </div>
+
+</section>
