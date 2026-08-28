@@ -661,4 +661,411 @@ From one small room to a sky full of stars. A place where every memory becomes a
 
 </section>
 
-  
+  <!-- =========================
+     POR PROFILE
+========================= -->
+
+<style>
+.profile-section{
+    background:linear-gradient(180deg,#071B45,#0A2C66,#06152F);
+    position:relative;
+    overflow:hidden;
+}
+
+.profile-section::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:
+      radial-gradient(circle at top left,rgba(143,217,255,.18),transparent 40%),
+      radial-gradient(circle at bottom right,rgba(255,255,255,.06),transparent 45%);
+    pointer-events:none;
+}
+
+.profile-wrap{
+    max-width:1300px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:1.1fr .9fr;
+    gap:50px;
+    align-items:center;
+    position:relative;
+    z-index:2;
+}
+
+.profile-label{
+    color:#8FD9FF;
+    letter-spacing:4px;
+    font-size:13px;
+    text-transform:uppercase;
+    margin-bottom:12px;
+}
+
+.profile-title{
+    font-family:'Cormorant Garamond',serif;
+    font-size:88px;
+    line-height:.9;
+    margin-bottom:20px;
+}
+
+.profile-title span{
+    color:#8FD9FF;
+    font-style:italic;
+}
+
+.profile-name h3{
+    font-size:40px;
+    margin-bottom:6px;
+}
+
+.profile-name p{
+    color:#CFEFFF;
+    font-size:22px;
+    margin-bottom:28px;
+}
+
+.profile-card{
+    background:rgba(255,255,255,.08);
+    border:1px solid rgba(255,255,255,.08);
+    backdrop-filter:blur(18px);
+    border-radius:22px;
+    padding:20px;
+    margin-bottom:16px;
+}
+
+.profile-card span{
+    color:#8FD9FF;
+    display:block;
+    font-size:12px;
+    letter-spacing:2px;
+    margin-bottom:10px;
+}
+
+.profile-card strong{
+    font-size:34px;
+}
+
+.profile-card p,
+.profile-card li{
+    color:#E8F7FF;
+    line-height:1.8;
+}
+
+.profile-photo img{
+    width:100%;
+    max-width:480px;
+    display:block;
+    margin:auto;
+    filter:drop-shadow(0 0 45px rgba(143,217,255,.45));
+}
+
+.tag-list{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+    margin-top:12px;
+}
+
+.tag-list div{
+    background:rgba(143,217,255,.15);
+    border:1px solid rgba(143,217,255,.25);
+    padding:10px 16px;
+    border-radius:999px;
+    font-size:13px;
+}
+
+.favorite-box{
+    margin-top:70px;
+}
+
+.favorite-title{
+    text-align:center;
+    font-family:'Cormorant Garamond',serif;
+    font-size:42px;
+    color:#F6D46A;
+    margin-bottom:28px;
+}
+
+.favorite-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+    gap:14px;
+}
+
+.favorite-item{
+    background:rgba(255,255,255,.06);
+    border-radius:18px;
+    padding:16px;
+    text-align:center;
+}
+
+.info-grid{
+    margin-top:24px;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    gap:22px;
+}
+
+.info-box{
+    background:rgba(255,255,255,.06);
+    border-radius:22px;
+    padding:22px;
+}
+
+.info-box h3{
+    font-family:'Cormorant Garamond',serif;
+    color:#F6D46A;
+    margin-bottom:16px;
+    font-size:30px;
+}
+
+.info-box ul{
+    padding-left:20px;
+    line-height:2;
+}
+
+.size-grid{
+    margin-top:26px;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+    gap:16px;
+}
+
+.size-card{
+    background:rgba(255,255,255,.06);
+    border-radius:18px;
+    padding:18px;
+}
+
+.size-card span{
+    display:block;
+    color:#8FD9FF;
+    font-size:12px;
+    letter-spacing:2px;
+    margin-bottom:8px;
+}
+
+.ring-table{
+    width:100%;
+    margin-top:30px;
+    border-collapse:collapse;
+}
+
+.ring-table th,
+.ring-table td{
+    padding:14px;
+    border-bottom:1px solid rgba(255,255,255,.08);
+    text-align:center;
+}
+
+.ring-table th{
+    color:#8FD9FF;
+}
+
+@media(max-width:900px){
+
+.profile-wrap{
+grid-template-columns:1fr;
+}
+
+.profile-title{
+font-size:60px;
+text-align:center;
+}
+
+.profile-name{
+text-align:center;
+}
+
+.profile-photo{
+order:-1;
+}
+
+}
+</style>
+
+<section class="profile-section" id="profile">
+
+<div class="profile-wrap">
+
+<div>
+
+<p class="profile-label">FORPOR OFFICIAL • POR PROFILE</p>
+
+<h2 class="profile-title">
+Por's <span>Profile</span>
+</h2>
+
+<div class="profile-name">
+<h3>ป๋อ ศุภการ จิระโชติกุล</h3>
+<p>POR Suppakarn Jirachotikul</p>
+</div>
+
+<div class="profile-card">
+<span>Date of Birth</span>
+<strong>17 October 2002</strong>
+</div>
+
+<div class="profile-card">
+<span>Education</span>
+
+<p><b>โรงเรียนมัธยมปัญญารัตน์</b></p>
+<p>Panyarat High School</p>
+
+<br>
+
+<p><b>วิทยาลัยดุสิตธานี</b></p>
+<p>Bachelor of Management in Tourism Service Innovation</p>
+
+</div>
+
+<div class="profile-card">
+<span>Fandom Name</span>
+
+<div class="tag-list">
+<div>#องครักษ์แห่งดินแดนน้ำแข็ง</div>
+<div>#vava</div>
+<div>#วาวา</div>
+</div>
+
+</div>
+
+<div class="profile-card">
+<span>Official Hashtags</span>
+
+<div class="tag-list">
+<div>#PorSuppakarn</div>
+<div>#POR_DEXX</div>
+</div>
+
+</div>
+
+</div>
+
+<div class="profile-photo">
+
+<img src="assets/profile-main.png" alt="POR">
+
+</div>
+
+</div>
+
+<div class="favorite-box">
+
+<h2 class="favorite-title">Favorites</h2>
+
+<div class="favorite-grid">
+
+<div class="favorite-item">🏀 Basketball</div>
+<div class="favorite-item">🍣 Japanese Food</div>
+<div class="favorite-item">🥩 Beef</div>
+<div class="favorite-item">🦐 Fried River Prawns</div>
+<div class="favorite-item">🥥 Coconut Cake</div>
+<div class="favorite-item">🍓 Strawberry</div>
+<div class="favorite-item">🍦 Ice Cream</div>
+<div class="favorite-item">🥭 Mango</div>
+<div class="favorite-item">🌹 White Roses</div>
+<div class="favorite-item">🍰 Macaron</div>
+<div class="favorite-item">🦞 Seafood</div>
+
+</div>
+
+</div>
+
+<div class="info-grid">
+
+<div class="info-box">
+
+<h3>Hobby</h3>
+
+<ul>
+<li>Eating</li>
+<li>Sleeping</li>
+<li>Watching Movies</li>
+<li>Singing</li>
+<li>Basketball</li>
+</ul>
+
+</div>
+
+<div class="info-box">
+
+<h3>Dislikes & Fear</h3>
+
+<ul>
+<li>Vegetables</li>
+<li>Rubber Band</li>
+<li>Ghosts</li>
+<li>Animals</li>
+</ul>
+
+</div>
+
+</div>
+
+<div class="glass" style="margin-top:28px;">
+
+<h2 class="favorite-title">Clothing & Jewelry Sizes</h2>
+
+<div class="size-grid">
+
+<div class="size-card">
+<span>Shirt Size</span>
+<strong>L</strong>
+</div>
+
+<div class="size-card">
+<span>Shoe Size</span>
+<strong>42 EU / 8.5 US</strong>
+</div>
+
+<div class="size-card">
+<span>Pants Size</span>
+<strong>Upper Waist 28.5–29 in.</strong><br>
+<strong>Lower Waist 30–30.5 in.</strong>
+</div>
+
+<div class="size-card">
+<span>Bracelet Length</span>
+<strong>17 cm</strong>
+</div>
+
+</div>
+
+<table class="ring-table">
+
+<tr>
+<th>Finger</th>
+<th>Left</th>
+<th>Right</th>
+</tr>
+
+<tr>
+<td>Index</td>
+<td>57.5</td>
+<td>57</td>
+</tr>
+
+<tr>
+<td>Middle</td>
+<td>60</td>
+<td>58.5</td>
+</tr>
+
+<tr>
+<td>Ring</td>
+<td>56</td>
+<td>54.5</td>
+</tr>
+
+<tr>
+<td>Pinky</td>
+<td>49</td>
+<td>47.5</td>
+</tr>
+
+</table>
+
+</div>
+
+</section>
