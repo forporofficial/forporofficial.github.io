@@ -1,0 +1,172 @@
+
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ForPor Official Registration</title>
+<style>
+body{margin:0;font-family:Arial,sans-serif;background:linear-gradient(#dff4ff,#fff);color:#1e3a8a}
+header{padding:50px 20px;text-align:center}
+h1{font-size:42px;margin:10px 0}
+.card{max-width:760px;margin:20px auto;background:#ffffffcc;padding:25px;border-radius:24px;box-shadow:0 8px 30px rgba(0,0,0,.08)}
+label{display:block;margin-top:15px;font-weight:bold}
+input,select,textarea{width:100%;padding:12px;margin-top:6px;border-radius:12px;border:1px solid #cbd5e1}
+button{margin-top:20px;width:100%;padding:15px;border:none;border-radius:14px;background:#2563eb;color:white;font-size:18px}
+.slot{padding:10px;border:1px solid #bfdbfe;border-radius:12px;margin-top:8px}
+footer{text-align:center;padding:30px;color:#64748b}
+.success{display:none;padding:15px;background:#dcfce7;border-radius:12px;margin-top:20px}
+table{width:100%;border-collapse:collapse}
+td,th{padding:8px;border-bottom:1px solid #e2e8f0}
+</style>
+</head>
+<body>
+
+<header>
+<h1>☁️ A SKY FULL OF POR</h1>
+<h2>POR Birthday Project 2026 Registration</h2>
+<p>17–18 October 2026</p>
+</header>
+
+<div class="card">
+<h2>📅 รอบเข้าร่วมงาน</h2>
+<table>
+<tr><th>วันที่</th><th>รอบเวลา</th></tr>
+<tr><td>17 Oct 2026</td><td>11:00–11:50 / 12:00–12:50 / 13:00–13:50 / 14:00–14:50 / 15:00–15:50 / 16:00–16:50</td></tr>
+<tr><td>18 Oct 2026</td><td>11:00–11:50 / 12:00–12:50 / 13:00–13:50 / 14:00–14:50 / 15:00–15:50 / 16:00–16:50</td></tr>
+</table>
+</div>
+
+<div class="card">
+<h2>🩵 ลงทะเบียน</h2>
+
+<label>ชื่อ-นามสกุล</label>
+<input id="name">
+
+<label>X Username</label>
+<input id="x">
+
+<label>เบอร์โทรศัพท์</label>
+<input id="phone">
+
+<label>วันที่เข้าร่วม</label>
+<select id="day">
+<option>17 October 2026</option>
+<option>18 October 2026</option>
+</select>
+
+<label>รอบเวลา</label>
+<select id="slot">
+<option>11:00 – 11:50</option>
+<option>12:00 – 12:50</option>
+<option>13:00 – 13:50</option>
+<option>14:00 – 14:50</option>
+<option>15:00 – 15:50</option>
+<option>16:00 – 16:50</option>
+</select>
+
+<label>จำนวนผู้เข้าร่วม</label>
+<select id="people">
+<option>1</option><option>2</option><option>3</option><option>4</option>
+</select>
+
+<label>หมายเหตุ</label>
+<textarea id="note"></textarea>
+
+<button onclick="register()">REGISTER NOW</button>
+
+<div class="success" id="success"></div>
+</div>
+
+<div class="card">
+<h2>👥 รายชื่อที่ลงทะเบียน (เครื่องนี้)</h2>
+<div id="list"></div>
+</div>
+
+<footer>FOR POR OFFICIAL • A SKY FULL OF POR</footer>
+
+<script>
+const LIMIT = 100;
+
+function load(){
+ const data = JSON.parse(localStorage.getItem("forpor_reg")||"[]");
+ render(data);
+}
+
+function render(data){
+ let html="";
+ const count={};
+ data.forEach(r=>{
+   const key=r.day+"-"+r.slot;
+   count[key]=(count[key]||0)+Number(r.people);
+ });
+
+ html+="<h3>จำนวนที่นั่งคงเหลือ</h3>";
+ ["17 October 2026","18 October 2026"].forEach(day=>{
+   html+="<h4>"+day+"</h4>";
+   ["11:00 – 11:50","12:00 – 12:50","13:00 – 13:50","14:00 – 14:50","15:00 – 15:50","16:00 – 16:50"].forEach(slot=>{
+      const key=day+"-"+slot;
+      const left=LIMIT-(count[key]||0);
+      html+=`<div class='slot'><b>${slot}</b><br>${left>0?"เหลือ "+left+" ที่":"FULL"}</div>`;
+   });
+ });
+
+ html+="<hr><table><tr><th>คิว</th><th>ชื่อ</th><th>วันที่</th><th>เวลา</th></tr>";
+ data.forEach(r=>{
+    html+=`<tr><td>${r.queue}</td><td>${r.name}</td><td>${r.day}</td><td>${r.slot}</td></tr>`;
+ });
+ html+="</table>";
+ document.getElementById("list").innerHTML=html;
+}
+
+function register(){
+ const data = JSON.parse(localStorage.getItem("forpor_reg")||"[]");
+ const name=document.getElementById("name").value.trim();
+ const phone=document.getElementById("phone").value.trim();
+ const day=document.getElementById("day").value;
+ const slot=document.getElementById("slot").value;
+ const people=Number(document.getElementById("people").value);
+
+ if(!name||!phone){
+   alert("กรุณากรอกชื่อและเบอร์โทร");
+   return;
+ }
+
+ const used=data.filter(x=>x.day===day&&x.slot===slot)
+   .reduce((a,b)=>a+Number(b.people),0);
+
+ if(used+people>LIMIT){
+   alert("รอบนี้เต็มแล้ว");
+   return;
+ }
+
+ const queue="POR-"+String(data.length+1).padStart(4,"0");
+
+ const reg={
+   queue,
+   name,
+   x:document.getElementById("x").value,
+   phone,
+   day,
+   slot,
+   people,
+   note:document.getElementById("note").value
+ };
+
+ data.push(reg);
+ localStorage.setItem("forpor_reg",JSON.stringify(data));
+
+ document.getElementById("success").style.display="block";
+ document.getElementById("success").innerHTML=
+ `<h3>ลงทะเบียนสำเร็จ 🎉</h3>
+  <p><b>เลขคิว:</b> ${queue}</p>
+  <p><b>${day}</b></p>
+  <p><b>${slot}</b></p>`;
+
+ render(data);
+}
+load();
+</script>
+
+</body>
+</html>
